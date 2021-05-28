@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="组_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 300" style="enable-background:new 0 0 100 300;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#9C9691;stroke:#5E5C59;stroke-width:0.667;}
+	.st1{fill:#42403D;fill-opacity:0.4;}
+	.st2{fill:url(#圆角矩形_2_1_);}
+	.st3{fill:url(#圆角矩形_2_拷贝_2_1_);}
+	.st4{fill:url(#圆角矩形_2_拷贝_3_1_);}
+	.st5{fill:url(#圆角矩形_2_拷贝_4_1_);}
+	.st6{fill:url(#圆角矩形_2_拷贝_5_1_);}
+	.st7{fill:url(#圆角矩形_2_拷贝_6_1_);}
+	.st8{fill:url(#圆角矩形_2_拷贝_7_1_);}
+	.st9{fill:url(#圆角矩形_2_拷贝_8_1_);}
+	.st10{fill:url(#圆角矩形_2_拷贝_9_1_);}
+	.st11{fill:#7C7C7C;}
+	.st12{fill:#A9AAAA;}
+	.st13{fill:#605E5B;}
+	.st14{fill:#888683;}
+	.st15{opacity:0.5;}
+	.st16{fill:url(#椭圆_1_1_);fill-opacity:0.6;}
+	.st17{fill:url(#椭圆_1_拷贝_1_);fill-opacity:0.6;}
+	.st18{fill:url(#椭圆_1_拷贝_2_1_);fill-opacity:0.6;}
+	.st19{fill:url(#椭圆_1_拷贝_3_1_);fill-opacity:0.6;}
+	.st20{fill:url(#椭圆_1_拷贝_4_1_);fill-opacity:0.6;}
+	.st21{fill:url(#椭圆_1_拷贝_11_1_);fill-opacity:0.6;}
+	.st22{fill:url(#椭圆_1_拷贝_12_1_);fill-opacity:0.6;}
+	.st23{fill:url(#椭圆_1_拷贝_13_1_);fill-opacity:0.6;}
+	.st24{fill:url(#椭圆_1_拷贝_14_1_);fill-opacity:0.6;}
+	.st25{fill:url(#椭圆_1_拷贝_15_1_);fill-opacity:0.6;}
+	.st26{fill:url(#椭圆_1_拷贝_16_1_);fill-opacity:0.6;}
+	.st27{fill:url(#椭圆_1_拷贝_17_1_);fill-opacity:0.6;}
+	.st28{fill:url(#椭圆_1_拷贝_18_1_);fill-opacity:0.6;}
+	.st29{fill:url(#椭圆_1_拷贝_18-2_1_);fill-opacity:0.6;}
+	.st30{fill:url(#圆角矩形_7_1_);}
+	.st31{fill:url(#圆角矩形_7_拷贝_1_);}
+	.st32{fill:url(#圆角矩形_7_拷贝_2_1_);}
+	.st33{fill:url(#圆角矩形_7_拷贝_3_1_);}
+	.st34{fill:url(#圆角矩形_7_拷贝_4_1_);}
+	.st35{fill:url(#圆角矩形_7_拷贝_5_1_);}
+	.st36{fill:url(#圆角矩形_7_拷贝_5-2_1_);}
+	.st37{fill:url(#圆角矩形_7_拷贝_6_1_);}
+	.st38{fill:url(#圆角矩形_7_拷贝_6-2_1_);}
+	.st39{fill:#FFAE00;}
+	.st40{fill:#FFC96B;}
+	.st41{fill:#FFFFFF;}
+	.st42{fill-opacity:0.1;}
+	.st43{fill:#DB7C00;}
+	.st44{fill:url(#圆角矩形_3_1_);}
+	.st45{fill:url(#椭圆_2_1_);}
+	.st46{fill:url(#椭圆_1-2_1_);fill-opacity:0.6;}
+	.st47{fill:url(#椭圆_1_拷贝-2_1_);fill-opacity:0.6;}
+	.st48{fill:url(#椭圆_1_拷贝_2-2_1_);fill-opacity:0.6;}
+	.st49{fill:url(#椭圆_1_拷贝_3-2_1_);fill-opacity:0.6;}
+	.st50{fill:url(#椭圆_1_拷贝_4-2_1_);fill-opacity:0.6;}
+	.st51{fill:url(#椭圆_1_拷贝_11-2_1_);fill-opacity:0.6;}
+	.st52{fill:url(#椭圆_1_拷贝_5_1_);fill-opacity:0.6;}
+	.st53{fill:url(#椭圆_1_拷贝_6_1_);fill-opacity:0.6;}
+	.st54{fill:url(#椭圆_1_拷贝_7_1_);fill-opacity:0.6;}
+	.st55{fill:url(#椭圆_1_拷贝_8_1_);fill-opacity:0.6;}
+	.st56{fill:url(#椭圆_1_拷贝_9_1_);fill-opacity:0.6;}
+	.st57{fill:url(#椭圆_1_拷贝_10_1_);fill-opacity:0.6;}
+	.st58{fill:url(#圆角矩形_4_1_);}
+</style>
+<g id="diandlun">
+	<path id="圆角矩形_5" d="M87.9,87.8L87.9,87.8c0,4.6-3.7,8.3-8.3,8.3l0,0h-59c-4.6,0-8.3-3.7-8.3-8.3l0,0l0,0
+		c0-4.6,3.7-8.3,8.3-8.3l0,0h59C84.2,79.4,87.9,83.2,87.9,87.8L87.9,87.8z"/>
+	<path id="圆角矩形_6_拷贝_3" d="M99.9,111.4v26.7c0,0.7-0.6,1.3-1.3,1.3H84.9c-0.7,0-1.3-0.6-1.3-1.3v-26.7
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h13.7C99.3,110.1,99.9,110.7,99.9,111.4L99.9,111.4z M99.9,145.1v26.7c0,0.7-0.6,1.3-1.3,1.3l0,0H84.9
+		c-0.7,0-1.3-0.6-1.3-1.3v-26.7c0-0.7,0.6-1.3,1.3-1.3h13.7C99.3,143.8,99.9,144.4,99.9,145.1z M99.9,215.4v26.7
+		c0,0.7-0.6,1.3-1.3,1.3H84.9c-0.7,0-1.3-0.6-1.3-1.3v-26.7c0-0.7,0.6-1.3,1.3-1.3h13.7C99.3,214.1,99.9,214.7,99.9,215.4
+		L99.9,215.4z M99.9,249.1v26.7c0,0.7-0.6,1.3-1.3,1.3l0,0H84.9c-0.7,0-1.3-0.6-1.3-1.3l0,0v-26.7c0-0.7,0.6-1.3,1.3-1.3h13.7
+		C99.3,247.8,99.9,248.4,99.9,249.1z M16.2,111.4v26.7c0,0.7-0.6,1.3-1.3,1.3H1.2c-0.7,0-1.3-0.6-1.3-1.3v-26.7
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h13.7C15.6,110.1,16.2,110.7,16.2,111.4L16.2,111.4z M16.2,145.1v26.7c0,0.7-0.6,1.3-1.3,1.3l0,0H1.2
+		c-0.7,0-1.3-0.6-1.3-1.3v-26.7c0-0.7,0.6-1.3,1.3-1.3h13.7C15.6,143.8,16.2,144.4,16.2,145.1z M16.2,215.4v26.7
+		c0,0.7-0.6,1.3-1.3,1.3H1.2c-0.7,0-1.3-0.6-1.3-1.3v-26.7c0-0.7,0.6-1.3,1.3-1.3h13.7C15.6,214.1,16.2,214.7,16.2,215.4L16.2,215.4
+		z M16.2,249.1v26.7c0,0.7-0.6,1.3-1.3,1.3l0,0H1.2c-0.7,0-1.3-0.6-1.3-1.3l0,0v-26.7c0-0.7,0.6-1.3,1.3-1.3h13.7
+		C15.6,247.8,16.2,248.4,16.2,249.1z"/>
+	<path id="圆角矩形_6_拷贝_4" d="M87.9,48.8v26.7c0,0.7-0.6,1.3-1.3,1.3l0,0H72.9c-0.7,0-1.3-0.6-1.3-1.3l0,0V48.8
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h13.7C87.3,47.4,87.9,48,87.9,48.8L87.9,48.8z M29.1,48.8v26.7c0,0.7-0.6,1.3-1.3,1.3l0,0H14.1
+		c-0.7,0-1.3-0.6-1.3-1.3l0,0V48.8c0-0.7,0.6-1.3,1.3-1.3l0,0h13.7C28.5,47.4,29.1,48,29.1,48.8L29.1,48.8z"/>
+</g>
+<g id="组_5">
+	<path id="圆角矩形_1" class="st0" d="M97.2,94.4v197.7c0,2.9-2.4,5.3-5.3,5.3l0,0h-83c-2.9,0-5.3-2.4-5.3-5.3l0,0V94.4
+		c0-2.9,2.4-5.3,5.3-5.3h83C94.8,89.1,97.2,91.5,97.2,94.4z"/>
+	<path id="圆角矩形_1_拷贝" class="st1" d="M93.2,96.8v193c0,1.8-1.5,3.3-3.3,3.3l0,0H11.2c-1.8,0-3.3-1.5-3.3-3.3l0,0v-193
+		c0-1.8,1.5-3.3,3.3-3.3l0,0h78.7C91.7,93.4,93.2,94.9,93.2,96.8L93.2,96.8z"/>
+	
+		<linearGradient id="圆角矩形_2_1_" gradientUnits="userSpaceOnUse" x1="93.1945" y1="858.9999" x2="93.1945" y2="850.6559" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#282623;stop-opacity:0.8"/>
+		<stop  offset="9.000000e-02" style="stop-color:#282623"/>
+		<stop  offset="0.285" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.536" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.761" style="stop-color:#84827F"/>
+		<stop  offset="1" style="stop-color:#A8A6A3"/>
+	</linearGradient>
+	<path id="圆角矩形_2" class="st2" d="M91.2,96.8v193c0,0.7-0.6,1.3-1.3,1.3l0,0h-5.7c-0.7,0-1.3-0.6-1.3-1.3l0,0v-193
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h5.7C90.6,95.4,91.2,96,91.2,96.8L91.2,96.8z"/>
+	
+		<linearGradient id="圆角矩形_2_拷贝_2_1_" gradientUnits="userSpaceOnUse" x1="93.1945" y1="868.344" x2="93.1945" y2="859.9999" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#282623;stop-opacity:0.8"/>
+		<stop  offset="9.000000e-02" style="stop-color:#282623"/>
+		<stop  offset="0.285" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.536" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.761" style="stop-color:#84827F"/>
+		<stop  offset="1" style="stop-color:#A8A6A3"/>
+	</linearGradient>
+	<path id="圆角矩形_2_拷贝_2" class="st3" d="M81.9,96.8v193c0,0.7-0.6,1.3-1.3,1.3l0,0h-5.7c-0.7,0-1.3-0.6-1.3-1.3l0,0v-193
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h5.7C81.3,95.4,81.9,96,81.9,96.8L81.9,96.8z"/>
+	
+		<linearGradient id="圆角矩形_2_拷贝_3_1_" gradientUnits="userSpaceOnUse" x1="93.1945" y1="877.344" x2="93.1945" y2="868.9999" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#282623;stop-opacity:0.8"/>
+		<stop  offset="9.000000e-02" style="stop-color:#282623"/>
+		<stop  offset="0.285" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.536" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.761" style="stop-color:#84827F"/>
+		<stop  offset="1" style="stop-color:#A8A6A3"/>
+	</linearGradient>
+	<path id="圆角矩形_2_拷贝_3" class="st4" d="M72.9,96.8v193c0,0.7-0.6,1.3-1.3,1.3l0,0h-5.7c-0.7,0-1.3-0.6-1.3-1.3l0,0v-193
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h5.7C72.3,95.4,72.9,96,72.9,96.8L72.9,96.8z"/>
+	
+		<linearGradient id="圆角矩形_2_拷贝_4_1_" gradientUnits="userSpaceOnUse" x1="93.1945" y1="886.6559" x2="93.1945" y2="878.344" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#282623;stop-opacity:0.8"/>
+		<stop  offset="9.000000e-02" style="stop-color:#282623"/>
+		<stop  offset="0.285" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.536" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.761" style="stop-color:#84827F"/>
+		<stop  offset="1" style="stop-color:#A8A6A3"/>
+	</linearGradient>
+	<path id="圆角矩形_2_拷贝_4" class="st5" d="M63.6,96.8v193c0,0.7-0.6,1.3-1.3,1.3l0,0h-5.7c-0.7,0-1.3-0.6-1.3-1.3l0,0v-193
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h5.7C63,95.4,63.6,96,63.6,96.8L63.6,96.8z"/>
+	
+		<linearGradient id="圆角矩形_2_拷贝_5_1_" gradientUnits="userSpaceOnUse" x1="93.1945" y1="895.6559" x2="93.1945" y2="887.344" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#282623;stop-opacity:0.8"/>
+		<stop  offset="9.000000e-02" style="stop-color:#282623"/>
+		<stop  offset="0.285" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.536" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.761" style="stop-color:#84827F"/>
+		<stop  offset="1" style="stop-color:#A8A6A3"/>
+	</linearGradient>
+	<path id="圆角矩形_2_拷贝_5" class="st6" d="M54.6,96.8v193c0,0.7-0.6,1.3-1.3,1.3l0,0h-5.7c-0.7,0-1.3-0.6-1.3-1.3l0,0v-193
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h5.7C54,95.4,54.6,96,54.6,96.8L54.6,96.8z"/>
+	
+		<linearGradient id="圆角矩形_2_拷贝_6_1_" gradientUnits="userSpaceOnUse" x1="93.1945" y1="904.9999" x2="93.1945" y2="896.6559" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#282623;stop-opacity:0.8"/>
+		<stop  offset="9.000000e-02" style="stop-color:#282623"/>
+		<stop  offset="0.285" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.536" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.761" style="stop-color:#84827F"/>
+		<stop  offset="1" style="stop-color:#A8A6A3"/>
+	</linearGradient>
+	<path id="圆角矩形_2_拷贝_6" class="st7" d="M45.2,96.8v193c0,0.7-0.6,1.3-1.3,1.3l0,0h-5.7c-0.7,0-1.3-0.6-1.3-1.3l0,0v-193
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h5.7C44.6,95.4,45.2,96,45.2,96.8L45.2,96.8z"/>
+	
+		<linearGradient id="圆角矩形_2_拷贝_7_1_" gradientUnits="userSpaceOnUse" x1="93.1945" y1="913.9999" x2="93.1945" y2="905.6559" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#282623;stop-opacity:0.8"/>
+		<stop  offset="9.000000e-02" style="stop-color:#282623"/>
+		<stop  offset="0.285" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.536" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.761" style="stop-color:#84827F"/>
+		<stop  offset="1" style="stop-color:#A8A6A3"/>
+	</linearGradient>
+	<path id="圆角矩形_2_拷贝_7" class="st8" d="M36.2,96.8v193c0,0.7-0.6,1.3-1.3,1.3l0,0h-5.7c-0.7,0-1.3-0.6-1.3-1.3l0,0v-193
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h5.7C35.6,95.4,36.2,96,36.2,96.8L36.2,96.8z"/>
+	
+		<linearGradient id="圆角矩形_2_拷贝_8_1_" gradientUnits="userSpaceOnUse" x1="93.1945" y1="923.344" x2="93.1945" y2="914.9999" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#282623;stop-opacity:0.8"/>
+		<stop  offset="9.000000e-02" style="stop-color:#282623"/>
+		<stop  offset="0.285" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.536" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.761" style="stop-color:#84827F"/>
+		<stop  offset="1" style="stop-color:#A8A6A3"/>
+	</linearGradient>
+	<path id="圆角矩形_2_拷贝_8" class="st9" d="M26.9,96.8v193c0,0.7-0.6,1.3-1.3,1.3l0,0h-5.7c-0.7,0-1.3-0.6-1.3-1.3l0,0v-193
+		c0-0.7,0.6-1.3,1.3-1.3l0,0h5.7C26.3,95.4,26.9,96,26.9,96.8L26.9,96.8z"/>
+	
+		<linearGradient id="圆角矩形_2_拷贝_9_1_" gradientUnits="userSpaceOnUse" x1="93.1945" y1="932.3439" x2="93.1945" y2="923.9999" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#282623;stop-opacity:0.8"/>
+		<stop  offset="9.000000e-02" style="stop-color:#282623"/>
+		<stop  offset="0.285" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.536" style="stop-color:#A8A6A3"/>
+		<stop  offset="0.761" style="stop-color:#84827F"/>
+		<stop  offset="1" style="stop-color:#A8A6A3"/>
+	</linearGradient>
+	<path id="圆角矩形_2_拷贝_9" class="st10" d="M17.9,96.8v193c0,0.7-0.6,1.3-1.3,1.3l0,0h-5.7c-0.7,0-1.3-0.6-1.3-1.3l0,0
+		v-193c0-0.7,0.6-1.3,1.3-1.3l0,0h5.7C17.3,95.4,17.9,96,17.9,96.8L17.9,96.8z"/>
+</g>
+<g id="jiodeng">
+	<path id="形状_1" class="st11" d="M83.2,59.4l6.7,7.7l0.3,7.3l-7.3,1.3L83.2,59.4z"/>
+	<path id="圆角矩形_6" class="st12" d="M90.2,67.1v7c0,0.7-0.6,1.3-1.3,1.3c-0.7,0-1.3-0.6-1.3-1.3v-7c0-0.7,0.6-1.3,1.3-1.3
+		C89.6,65.8,90.2,66.4,90.2,67.1z"/>
+	<path id="形状_1_拷贝" class="st11" d="M16.6,59.4l-6.7,7.7l-0.3,7.3l7.3,1.3L16.6,59.4z"/>
+	<path id="圆角矩形_6_拷贝" class="st12" d="M9.6,67.1v7c0,0.7,0.6,1.3,1.3,1.3c0.7,0,1.3-0.6,1.3-1.3v-7
+		c0-0.7-0.6-1.3-1.3-1.3C10.2,65.8,9.6,66.4,9.6,67.1z"/>
+</g>
+<path id="形状_2" class="st13" d="M11.9,38.8c0,0-0.8,3.9-0.3,4.7c0.5,0.6,1.2,0.9,2,1c0,0,0.8-0.5,1.7,0.7s0.3,1.7,0.3,1.7
+	l0.3,2.2l0.3,2.3l0.3,2.7c0,0-0.4,1.9,0.3,2.7s66.6,1.3,67.3,0.7s0.7-3,0.7-3v-5c0-1.5,0.1-2.9,0.3-4.3c0.2-0.4,0.6-0.8,1-1
+	c0.7-0.1,1.4-0.4,2-0.7c0.4-0.9,0.7-1.8,1-2.7c0,0,0.4-19,0-20.3c-1.4-3.1-3.1-6.1-5-9c-2.1-2.1-4.5-4-7-5.7c-1-0.5-5.2-1.5-6.7-1.3
+	s-2.7,2-2.7,2S65.3,8,64,7.5c-1.3-0.5-0.2-3.8-1-4.3s-24.4-1-25.4-0.4s-0.8,3.9-1.7,4.3s-2-1-2-1c-1.9-0.5-3.8-0.8-5.7-1
+	c-1.9-0.1-5.6,1.5-7,2.3s-2.4,2.1-4,3.7s-1.6,2.8-2.3,3.7s-3.1,2.6-3.3,4.3S11.9,38.8,11.9,38.8z"/>
+<path id="形状_2_拷贝" class="st14" d="M15.7,40.6l1.5,5.1c0,0,0.7-0.4,1.5,0.6s0.3,1.5,0.3,1.5l0.3,2.1l0.3,2.1l0.3,2.4
+	c0,0-0.3,1.7,0.3,2.4s60.9,1.2,61.6,0.6s0.6-2.7,0.6-2.7v-4.5c0-1.3,0.1-2.6,0.3-3.9c0.2-0.4,0.5-0.7,0.9-0.9l2.8-3
+	c0,0,0.4-17.2,0-18.4c-1.3-2.8-2.8-5.6-4.6-8.1c-1.9-1.9-4.1-3.7-6.4-5.1c-3.8-2-5.9-1.7-12.8-2.5C61.7,8.2,40.2,7.8,39.1,8
+	c-3,0.6-7.8,2-8.5,2.1c-2.2,0.4-4.4,1.2-6.4,2.1c-1.3,0.7-2.2,1.9-3.7,3.3S19,18,18.4,18.8s-2.9,2.4-3,3.9S15.7,40.6,15.7,40.6z"/>
+<g id="组5" class="st15">
+	
+		<linearGradient id="椭圆_1_1_" gradientUnits="userSpaceOnUse" x1="-88.333" y1="884.3" x2="-66.333" y2="884.3" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1" class="st16" d="M58.2,32.3c0,1-0.3,1.5-0.6,1.5S57,33.3,57,32.3c0-1,0.2-20.5,0.5-20.5S58.2,31.3,58.2,32.3z"
+		/>
+	
+		<linearGradient id="椭圆_1_拷贝_1_" gradientUnits="userSpaceOnUse" x1="-88.333" y1="887.1" x2="-66.333" y2="887.1" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝" class="st17" d="M55.4,32.3c0,1-0.3,1.5-0.6,1.5s-0.6-0.5-0.6-1.5c0-1,0.2-20.5,0.5-20.5
+		S55.4,31.3,55.4,32.3z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_2_1_" gradientUnits="userSpaceOnUse" x1="-88.333" y1="889.9" x2="-66.333" y2="889.9" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_2" class="st18" d="M52.6,32.3c0,1-0.3,1.5-0.6,1.5s-0.6-0.5-0.6-1.5c0-1,0.2-20.5,0.5-20.5
+		S52.6,31.3,52.6,32.3z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_3_1_" gradientUnits="userSpaceOnUse" x1="-88.333" y1="892.7" x2="-66.333" y2="892.7" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_3" class="st19" d="M49.8,32.3c0,1-0.3,1.5-0.6,1.5s-0.6-0.5-0.6-1.5c0-1,0.2-20.5,0.5-20.5
+		S49.8,31.3,49.8,32.3z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_4_1_" gradientUnits="userSpaceOnUse" x1="-88.333" y1="895.4999" x2="-66.333" y2="895.4999" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_4" class="st20" d="M47,32.3c0,1-0.3,1.5-0.6,1.5s-0.6-0.5-0.6-1.5c0-1,0.1-20.5,0.4-20.5
+		S47,31.3,47,32.3z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_11_1_" gradientUnits="userSpaceOnUse" x1="-88.333" y1="898.35" x2="-66.333" y2="898.35" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_11" class="st21" d="M44.2,32.3c0,1-0.3,1.5-0.6,1.5s-0.7-0.5-0.7-1.5c0-1,0.2-20.5,0.5-20.5
+		S44.2,31.3,44.2,32.3z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_12_1_" gradientUnits="userSpaceOnUse" x1="-88.333" y1="865.65" x2="-66.333" y2="865.65" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_12" class="st22" d="M74.9,32.3c0,1-0.3,1.5-0.6,1.5s-0.6-0.5-0.6-1.5c0-0.4,4-3.3,4.1-6.8
+		c0.1-6-3.8-13.7-3.6-13.7s4.5,7.7,4.6,13.7C78.8,29,74.9,31.9,74.9,32.3z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_13_1_" gradientUnits="userSpaceOnUse" x1="-88.334" y1="917.2509" x2="-66.334" y2="917.2509" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_13" class="st23" d="M27.2,32.3c0,1-0.3,1.5-0.6,1.5S26,33.3,26,32.3c0-0.3-4-3.9-3.9-6.8
+		c0.1-6.1,4.2-13.7,4.5-13.7s-3.5,7.7-3.3,13.7C23.2,28.4,27.2,32,27.2,32.3z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_14_1_" gradientUnits="userSpaceOnUse" x1="-88.334" y1="869.4028" x2="-69.634" y2="869.4028" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_14" class="st24" d="M74.9,28.9c0,1-0.3,1.5-0.6,1.5s-0.6-0.5-0.6-1.5c0-0.4,0.7,0,0.7-3.5
+		c0.1-6-5.1-13.7-4.9-13.7c0.2,0,5.8,7.7,6,13.7C75.5,29,74.9,28.6,74.9,28.9z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_15_1_" gradientUnits="userSpaceOnUse" x1="-88.334" y1="913.6284" x2="-69.646" y2="913.6284" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_15" class="st25" d="M27.2,28.9c0,1-0.3,1.5-0.6,1.5S26,29.9,26,28.9c-0.5-1.1-0.8-2.3-0.6-3.4
+		c0.1-6.1,5.6-13.7,5.8-13.7s-4.8,7.7-4.7,13.7C26.4,26.7,26.6,27.9,27.2,28.9z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_16_1_" gradientUnits="userSpaceOnUse" x1="-88.334" y1="872.7028" x2="-69.634" y2="872.7028" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_16" class="st26" d="M71.6,28.9c0,1-0.3,1.5-0.6,1.5c-0.3,0-0.6-0.5-0.6-1.5c0-0.4,0.7,0,0.7-3.5
+		c0.1-6-5.1-13.7-4.9-13.7s5.8,7.7,6,13.7C72.2,29,71.6,28.6,71.6,28.9z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_17_1_" gradientUnits="userSpaceOnUse" x1="-88.334" y1="910.2283" x2="-69.646" y2="910.2283" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_17" class="st27" d="M30.6,28.9c0,1-0.3,1.5-0.6,1.5s-0.6-0.5-0.6-1.5c-0.5-1.1-0.8-2.3-0.6-3.4
+		c0.1-6.1,5.6-13.7,5.8-13.7s-4.8,7.7-4.7,13.7C29.7,26.7,30,27.9,30.6,28.9z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_18_1_" gradientUnits="userSpaceOnUse" x1="-88.334" y1="876.1028" x2="-69.634" y2="876.1028" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_18" class="st28" d="M68.2,28.9c0,1-0.3,1.5-0.6,1.5c-0.3,0-0.6-0.5-0.6-1.5c0-0.4,0.7,0,0.7-3.5
+		c0.1-6-5.1-13.7-4.9-13.7s5.8,7.7,6,13.7C68.8,29,68.2,28.6,68.2,28.9z"/>
+	
+		<linearGradient id="椭圆_1_拷贝_18-2_1_" gradientUnits="userSpaceOnUse" x1="-88.334" y1="906.9283" x2="-69.646" y2="906.9283" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="椭圆_1_拷贝_18-2" class="st29" d="M33.9,28.9c0,1-0.3,1.5-0.6,1.5s-0.6-0.5-0.6-1.5c-0.5-1.1-0.8-2.3-0.6-3.4
+		c0.1-6.1,5.6-13.7,5.8-13.7s-4.8,7.7-4.7,13.7C33,26.7,33.3,27.9,33.9,28.9z"/>
+	
+		<linearGradient id="圆角矩形_7_1_" gradientUnits="userSpaceOnUse" x1="-68.656" y1="891.55" x2="-67.344" y2="891.55" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="圆角矩形_7" class="st30" d="M72.9,32.1c0,0.4-0.3,0.7-0.7,0.7H28.5c-0.4,0-0.7-0.3-0.7-0.6c0-0.4,0.3-0.7,0.6-0.7
+		c0,0,0,0,0.1,0h43.7C72.6,31.4,72.9,31.7,72.9,32.1z"/>
+	
+		<linearGradient id="圆角矩形_7_拷贝_1_" gradientUnits="userSpaceOnUse" x1="-71.656" y1="891.3096" x2="-70.344" y2="891.3096" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="圆角矩形_7_拷贝" class="st31" d="M65.9,29.1c0,0.4-0.3,0.7-0.7,0.7H35.9c-0.4,0-0.7-0.3-0.6-0.7
+		c0-0.3,0.3-0.6,0.6-0.6h29.3C65.6,28.4,65.9,28.7,65.9,29.1z"/>
+	
+		<linearGradient id="圆角矩形_7_拷贝_2_1_" gradientUnits="userSpaceOnUse" x1="-90.344" y1="891.35" x2="-89" y2="891.35" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="圆角矩形_7_拷贝_2" class="st32" d="M62.6,10.4L62.6,10.4c0,0.4-0.3,0.7-0.7,0.7H39.2c-0.4,0-0.7-0.3-0.7-0.7l0,0
+		c0-0.4,0.3-0.7,0.7-0.7h22.7C62.3,9.8,62.6,10.1,62.6,10.4z"/>
+	
+		<linearGradient id="圆角矩形_7_拷贝_3_1_" gradientUnits="userSpaceOnUse" x1="-75.344" y1="879.35" x2="-74" y2="879.35" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="圆角矩形_7_拷贝_3" class="st33" d="M65.6,25.4L65.6,25.4c0,0.4-0.3,0.7-0.7,0.7h-4.7c-0.4,0-0.7-0.3-0.7-0.7l0,0
+		c0-0.4,0.3-0.7,0.7-0.7h4.7C65.3,24.8,65.6,25.1,65.6,25.4z"/>
+	
+		<linearGradient id="圆角矩形_7_拷贝_4_1_" gradientUnits="userSpaceOnUse" x1="-75.344" y1="903.7" x2="-74" y2="903.7" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="圆角矩形_7_拷贝_4" class="st34" d="M41.2,25.4L41.2,25.4c0,0.4-0.3,0.7-0.7,0.7h-4.6c-0.4,0-0.7-0.3-0.7-0.7l0,0
+		c0-0.4,0.3-0.7,0.7-0.7h4.7C40.9,24.8,41.2,25.1,41.2,25.4z"/>
+	
+		<linearGradient id="圆角矩形_7_拷贝_5_1_" gradientUnits="userSpaceOnUse" x1="-78.999" y1="880.0096" x2="-77.655" y2="880.0096" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="圆角矩形_7_拷贝_5" class="st35" d="M64.2,21.8c0,0.4-0.3,0.7-0.7,0.7h-3.3c-0.4,0-0.7-0.3-0.6-0.7
+		c0-0.3,0.3-0.6,0.6-0.6h3.3C63.9,21.1,64.2,21.4,64.2,21.8z"/>
+	
+		<linearGradient id="圆角矩形_7_拷贝_5-2_1_" gradientUnits="userSpaceOnUse" x1="-78.999" y1="903.0096" x2="-77.655" y2="903.0096" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="圆角矩形_7_拷贝_5-2" class="st36" d="M41.2,21.8c0,0.4-0.3,0.7-0.7,0.7h-3.3c-0.4,0-0.7-0.3-0.6-0.7
+		c0-0.3,0.3-0.6,0.6-0.6h3.3C40.9,21.1,41.2,21.4,41.2,21.8z"/>
+	
+		<linearGradient id="圆角矩形_7_拷贝_6_1_" gradientUnits="userSpaceOnUse" x1="-82.656" y1="880.6597" x2="-81.344" y2="880.6597" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="圆角矩形_7_拷贝_6" class="st37" d="M62.9,18.1c0,0.4-0.3,0.7-0.7,0.7h-2c-0.4,0-0.7-0.3-0.6-0.7
+		c0-0.3,0.3-0.6,0.6-0.6h2C62.6,17.4,62.9,17.7,62.9,18.1z"/>
+	
+		<linearGradient id="圆角矩形_7_拷贝_6-2_1_" gradientUnits="userSpaceOnUse" x1="-82.656" y1="902.4" x2="-81.344" y2="902.4" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+		<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+	</linearGradient>
+	<path id="圆角矩形_7_拷贝_6-2" class="st38" d="M41.2,18.1c0,0.4-0.3,0.7-0.7,0.7h-2c-0.4,0-0.7-0.3-0.7-0.6
+		c0-0.4,0.3-0.7,0.6-0.7c0,0,0,0,0.1,0h2C40.9,17.4,41.2,17.7,41.2,18.1z"/>
+</g>
+<path id="圆角矩形_8" class="st39" d="M60.6,3.4L60.6,3.4c0,0.4-0.3,0.7-0.7,0.7h-19c-0.4,0-0.7-0.3-0.7-0.7l0,0
+	c0-0.4,0.3-0.7,0.7-0.7h19C60.3,2.8,60.6,3.1,60.6,3.4z"/>
+<path id="chengdeng" class="st40" d="M72.9,10.4c0,0,7.7,2.1,10.6,4.1c5.9,4,3,8.4,3,8.4s-3.3,7.8-6.7,1.6
+	C79.2,23.5,72.9,10.4,72.9,10.4z M27.9,11.1c0,0-7.7,1.4-10.6,3.4c-5.9,3.9-3,8.3-3,8.3s3.3,7.7,6.7,1.6
+	C21.6,23.4,27.9,11.1,27.9,11.1z"/>
+<path id="chengdeng3" class="st41" d="M82.4,15.8l3,2c1.8,1.2,0.9,2.5,0.9,2.5s-1,2.3-2,0.5C84,20.5,82.4,15.8,82.4,15.8z
+	 M18.5,16.1l-3,2c-1.8,1.2-0.9,2.5-0.9,2.5s1,2.3,2,0.5C16.8,20.8,18.5,16.1,18.5,16.1L18.5,16.1z"/>
+<path id="形状_3" class="st42" d="M17.1,18.7c-2.2,4.1-1.5,7.7-1.7,9.2c0,0.4-0.2,0.7-0.4,0.4c-0.8-2.2-0.7-7.1,1.3-10.8
+	s6-6.6,7.5-5.6c0.2,0.1,0,0.5-0.2,0.6C20.8,13.8,18.6,16,17.1,18.7L17.1,18.7z M84.3,18.7c2.2,4.1,1.6,7.6,1.7,9.2
+	c0,0.4,0.2,0.7,0.4,0.4c0.8-2.2,0.7-7-1.3-10.7S79,11.1,77.5,12c-0.2,0.1,0,0.5,0.2,0.6C80.5,13.9,82.8,16,84.3,18.7L84.3,18.7z"/>
+<path id="chengdeng-2" class="st43" d="M87.2,58.9c0,1.6-1.3,2.8-2.8,2.8s-2.8-1.3-2.8-2.8s1.2-2.8,2.8-2.8
+	C86,56.1,87.2,57.4,87.2,58.9L87.2,58.9z M18.9,58.9c0,1.6-1.3,2.8-2.8,2.8s-2.8-1.3-2.8-2.8s1.2-2.8,2.8-2.8S18.9,57.4,18.9,58.9
+	L18.9,58.9z"/>
+<linearGradient id="圆角矩形_3_1_" gradientUnits="userSpaceOnUse" x1="-45" y1="891.85" x2="-15.333" y2="891.85" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+	<stop  offset="0" style="stop-color:#989693"/>
+	<stop  offset="0.9" style="stop-color:#8D8B88"/>
+	<stop  offset="1" style="stop-color:#6C6A67"/>
+</linearGradient>
+<path id="圆角矩形_3" class="st44" d="M85.2,60.4v19c0,2.9-2.4,5.3-5.3,5.3l0,0H20.2c-2.9,0-5.3-2.4-5.3-5.3l0,0v-19
+	c0-2.9,2.4-5.3,5.3-5.3h59.7C82.8,55.1,85.2,57.5,85.2,60.4z"/>
+<path id="chechuang" d="M81.2,40.1v13.7c0,1.5-1.2,2.7-2.7,2.7c0,0-13.1-7.3-27.3-7.3c-14.8,0-30.7,7.3-30.7,7.3
+	c-1.5,0-2.7-1.2-2.7-2.7l0,0v-13c0-1.5,1.2-2.7,2.7-2.7c0,0,15.8-3.7,30.6-3.7c9.2,0.1,18.4,1.1,27.4,3C80,37.4,81.2,38.6,81.2,40.1
+	z"/>
+<linearGradient id="椭圆_2_1_" gradientUnits="userSpaceOnUse" x1="-52" y1="891.85" x2="-27" y2="891.85" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+	<stop  offset="0" style="stop-color:#A8A6A3"/>
+	<stop  offset="1" style="stop-color:#918F8D"/>
+</linearGradient>
+<path id="椭圆_2" class="st45" d="M85.2,60.6c0,6.9-15.7,12.5-35.2,12.5s-35.1-5.6-35.1-12.5s15.7-12.5,35.2-12.5
+	S85.2,53.7,85.2,60.6z"/>
+<g id="组_4">
+	<g id="组_2">
+		
+			<linearGradient id="椭圆_1-2_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="870.15" x2="-16.666" y2="870.15" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1-2" class="st46" d="M72.6,81.8c0,1.1-0.4,1.7-0.8,1.7c-0.4,0-0.9-0.6-0.9-1.7s0.2-23,0.7-23
+			S72.6,80.7,72.6,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝-2_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="873.8" x2="-16.666" y2="873.8" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝-2" class="st47" d="M68.9,81.8c0,1.1-0.4,1.7-0.8,1.7c-0.5,0-0.8-0.6-0.8-1.7s0.2-23,0.7-23
+			S68.9,80.7,68.9,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝_2-2_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="877.4999" x2="-16.666" y2="877.4999" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_2-2" class="st48" d="M65.2,81.8c0,1.1-0.4,1.7-0.8,1.7c-0.4,0-0.8-0.6-0.8-1.7s0.2-23,0.7-23
+			C64.8,58.8,65.2,80.7,65.2,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝_3-2_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="881.15" x2="-16.666" y2="881.15" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_3-2" class="st49" d="M61.6,81.8c0,1.1-0.4,1.7-0.8,1.7s-0.9-0.6-0.9-1.7s0.2-23,0.7-23
+			S61.6,80.7,61.6,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝_4-2_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="884.8" x2="-16.666" y2="884.8" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_4-2" class="st50" d="M57.9,81.8c0,1.1-0.4,1.7-0.8,1.7s-0.8-0.6-0.8-1.7s0.2-23,0.7-23
+			S57.9,80.7,57.9,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝_11-2_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="888.4999" x2="-16.666" y2="888.4999" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_11-2" class="st51" d="M54.2,81.8c0,1.1-0.4,1.7-0.8,1.7s-0.8-0.6-0.8-1.7s0.2-23,0.7-23
+			S54.2,80.7,54.2,81.8z"/>
+	</g>
+	<g id="组_3">
+		
+			<linearGradient id="椭圆_1_拷贝_5_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="895.15" x2="-16.666" y2="895.15" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_5" class="st52" d="M47.6,81.8c0,1.1-0.4,1.7-0.8,1.7s-0.9-0.6-0.9-1.7s0.2-23,0.7-23
+			S47.6,80.7,47.6,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝_6_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="898.8" x2="-16.666" y2="898.8" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_6" class="st53" d="M43.9,81.8c0,1.1-0.4,1.7-0.8,1.7s-0.8-0.6-0.8-1.7s0.2-23,0.7-23
+			S43.9,80.7,43.9,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝_7_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="902.4999" x2="-16.666" y2="902.4999" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_7" class="st54" d="M40.2,81.8c0,1.1-0.4,1.7-0.8,1.7s-0.8-0.6-0.8-1.7s0.2-23,0.7-23
+			S40.2,80.7,40.2,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝_8_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="906.15" x2="-16.666" y2="906.15" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_8" class="st55" d="M36.6,81.8c0,1.1-0.4,1.7-0.8,1.7c-0.4,0-0.9-0.6-0.9-1.7s0.2-23,0.7-23
+			S36.6,80.7,36.6,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝_9_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="909.8" x2="-16.666" y2="909.8" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_9" class="st56" d="M32.9,81.8c0,1.1-0.4,1.7-0.8,1.7c-0.4,0-0.8-0.6-0.8-1.7s0.2-23,0.7-23
+			C32.5,58.8,32.9,80.7,32.9,81.8z"/>
+		
+			<linearGradient id="椭圆_1_拷贝_10_1_" gradientUnits="userSpaceOnUse" x1="-41.333" y1="913.4999" x2="-16.666" y2="913.4999" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+			<stop  offset="0" style="stop-color:#000000;stop-opacity:0.2"/>
+			<stop  offset="1" style="stop-color:#000000;stop-opacity:0.6"/>
+		</linearGradient>
+		<path id="椭圆_1_拷贝_10" class="st57" d="M29.2,81.8c0,1.1-0.4,1.7-0.8,1.7s-0.8-0.6-0.8-1.7s0.2-23,0.7-23
+			S29.2,80.7,29.2,81.8z"/>
+	</g>
+</g>
+<path id="chechaung" d="M15.2,65.4v6.3c-0.1,1.3-0.2,2.7-0.5,4c-0.2,0-0.2-0.3-0.2-0.7V62.1c0-0.4,0-0.7,0.2-0.7
+	C15,62.8,15.2,64.1,15.2,65.4z"/>
+<path id="chechaung-2" d="M84.6,65.8v6.3c0.1,1.3,0.2,2.7,0.5,4c0.2,0,0.2-0.3,0.2-0.7v-13c0-0.4,0-0.7-0.2-0.7
+	C84.8,63.1,84.6,64.4,84.6,65.8z"/>
+<path id="圆角矩形_9" class="st14" d="M93.2,52c-0.8,0.9-2.2,0.9-3.1,0.1l-6.3-5.9c-0.9-0.8-1-2.2-0.1-3.1
+	c0.8-0.9,2.2-1,3.1-0.1l0,0l6.3,5.9C93.9,49.8,94,51.2,93.2,52L93.2,52z"/>
+<path id="圆角矩形_9_拷贝" class="st14" d="M7.8,51.7c0.8,0.9,2.2,0.9,3,0.1l0,0l6.3-6c0.9-0.8,0.9-2.2,0.1-3.1
+	c-0.8-0.9-2.2-0.9-3-0.1l0,0l-6.3,6C7.1,49.5,7,50.9,7.8,51.7z"/>
+<linearGradient id="圆角矩形_4_1_" gradientUnits="userSpaceOnUse" x1="-26.0571" y1="891.7282" x2="-11.7629" y2="891.7282" gradientTransform="matrix(6.123234e-17 1 -1 6.123234e-17 941.8629 100.1371)">
+	<stop  offset="0" style="stop-color:#A8A6A3"/>
+	<stop  offset="1" style="stop-color:#000000"/>
+</linearGradient>
+<path id="圆角矩形_4" class="st58" d="M87.2,74.1c0.9,0.4,2.4,1.4,2,2.3c0.2,2.6,0,5.2-0.7,7.7c-0.3,1.2-3.2,4-7.7,4H25.5
+	c-9.1,1.3-14.9-2.6-14.4-6.3v-5.9c0-1,0.8-1.8,1.8-1.8s1.8,0.8,1.8,1.8v4.5c0,1.3,3,4,4.5,4h61.5c2.5-0.2,4.4-2.2,4.5-4.7
+	c0.1-1.1,0.1-2.2,0-3.3C85.6,75.5,86.3,73.7,87.2,74.1z"/>
+</svg>
