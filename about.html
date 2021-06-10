@@ -1,37 +1,47 @@
 ---
 layout: page
-title: "xs-huxblog"
-description: "专注IT，乐于分享"
-header-img: "img/bg/bg_about.jpg"
+title: "About"
+description: "《你是我的梦想》"
+header-img: "img/about-bg.jpg"
+multilingual: true
 ---
 
-<h2><strong>关于本站</strong></h2>
+{% include multilingual-sel.html %}
 
-<p>这是一个 Jekyll 的主题，用于搭建个人博客。</p>
-
-<p>本站使用 <a href="https://pages.github.com/">GitHub Pages</a> + <a href="http://jekyllrb.com/">Jekyll</a> 快速建 Blog 的技术方案。修改自 <a href="http://huangxuan.me/">Hux</a> 的主题，在此深表感谢！</p>
-
-<h2><strong>联系小昇</strong></h2>
-
-<blockquote>
-  <p>Email：jsksxs360@163.com</p>
-  
-  <p>QQ：2329133227</p>
-</blockquote>
-
-<!-- 来必力City版安装代码 -->
-{% if site.labili %}
-<div id="lv-container" data-id="city" data-uid="{{ site.labili_uid }}">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-       if (typeof LivereTower === 'function') { return; }
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+<!-- Chinese Version -->
+<div class="zh post-container">
+    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
+    {{ about_zh | markdownify }}
 </div>
-{% endif %} 
+
+<!-- English Version -->
+<div class="en post-container">
+    {% capture about_en %}{% include about/en.md %}{% endcapture %}
+    {{ about_en | markdownify }}
+</div>
+
+
+{% if site.disqus_username %}
+<!-- disqus 评论框 start -->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread">
+
+    </div>
+</div>
+<!-- disqus 评论框 end -->
+
+<!-- disqus 公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = "{{site.disqus_username}}";
+    var disqus_identifier = "{{site.disqus_username}}/{{page.url}}";
+    var disqus_url = "{{site.url}}{{page.url}}";
+
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<!-- disqus 公共JS代码 end -->
+{% endif %}

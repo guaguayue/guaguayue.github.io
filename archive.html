@@ -1,7 +1,8 @@
 ---
-title: 存档
+title: Archive
 layout: default
-header-img: "img/bg/bg_tag.jpg"
+description: "「我干了什么 究竟拿了时间换了什么」"
+header-img: "img/tag-bg.jpg"
 ---
 
 <!-- 
@@ -9,18 +10,7 @@ Credits: this page shamelessly borrowed a lot from:
 https://github.com/kitian616/jekyll-TeXt-theme
 -->
 <!-- Page Header -->
-<header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                <div class="site-heading" id="tag-heading">
-                    <h1>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</h1>
-                    <span class="subheading">{{ page.description }}</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</header>
+{% include intro-header.html type='page' short=true %}
 
 <!-- Main Content -->
 <div class="container">
@@ -29,7 +19,7 @@ https://github.com/kitian616/jekyll-TeXt-theme
 			<!-- Tags (as filter) -->
 			<div id='tag_cloud' class="tags tags-sup js-tags">
 				<a class="tag-button--all" data-encode="">
-					所有
+					Show All
 					<sup>{{site.posts.size}}</sup>
 				</a>
 
@@ -91,6 +81,7 @@ https://github.com/kitian616/jekyll-TeXt-theme
 				</div>
 			{%- if forloop.last -%}</section>{%- endif -%}
 			{% endfor %}
+			</div>
 		</div>
 	</div>
 </div>

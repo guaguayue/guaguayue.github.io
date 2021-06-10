@@ -1,12 +1,63 @@
-# Xs-HuxBlog
-这是一个 jekyll 的主题模板，主要适用于搭建个人博客使用。模板修改自 [huxblog-boilerplate](https://github.com/Huxpro/huxblog-boilerplate) 主题，原作者为 [黄玄](http://huangxuan.me/)。
+[Hux Blog](https://huangxuan.me)
+================================
 
-[我的博客](https://xiaosheng.run/)就使用了该模板，效果如下：
+> I never expected this to become popular 🤯 .
 
-![exapmle](example.jpg)
+![](http://huangxuan.me/img/blog-desktop.jpg)
 
-- 你可以访问 **[这里](https://jsksxs360.github.io/xs-huxblog/)** 预览该主题。
-- 关于如何使用该主题，请点击查看 **[说明文档](https://github.com/jsksxs360/xs-huxblog/blob/master/Document.md)** 。
-- [**下载**](https://github.com/jsksxs360/xs-huxblog/archive/master.zip)本主题。
 
-如果你喜欢该主题，请在原作者黄玄的 [huxpro.github.io](https://github.com/Huxpro/huxpro.github.io) 上点个赞（右上角 star 一下）。当然，若你能顺带给我的这个项目点个赞，那就更好了。
+[User Manual 👉](_doc/Manual.md)
+--------------------------------------------------
+
+### Getting Started
+
+1. You will need [Ruby](https://www.ruby-lang.org/en/) and [Bundler](https://bundler.io/) to use [Jekyll](https://jekyllrb.com/). Following [Using Jekyll with Bundler](https://jekyllrb.com/tutorials/using-jekyll-with-bundler/) to fullfill the enviromental requirement.
+
+2. Installed dependencies in the `Gemfile`:
+
+```sh
+$ bundle install 
+```
+
+3. Serve the website (`localhost:4000` by default):
+
+```sh
+$ bundle exec jekyll serve  # alternatively, npm start
+```
+
+### Development (Build From Source)
+
+To modify the theme, you will need [Grunt](https://gruntjs.com/). There are numbers of tasks you can find in the `Gruntfile.js`, includes minifing JavaScript, compiling `.less` to `.css`, adding banners to keep the Apache 2.0 license intact, watching for changes, etc. 
+
+Yes, they were inherited and are extremely old-fashioned. There is no modularization and transpilation, etc.
+
+Critical Jekyll-related code are located in `_include/` and `_layouts/`. Most of them are [Liquid](https://github.com/Shopify/liquid/wiki) templates.
+
+This theme uses the default code syntax highlighter of jekyll, [Rouge](http://rouge.jneen.net/), which is compatible with Pygments theme so just pick any pygments theme css (e.g. from [here](http://jwarby.github.io/jekyll-pygments-themes/languages/javascript.html) and replace the content of `highlight.less`.
+
+
+### Interesting to know more? Checkout the [full user manual](_doc/Manual.md)!
+
+
+Other Resources
+---------------
+
+Ports
+- [**Hexo**](https://github.com/Kaijun/hexo-theme-huxblog) by @kaijun
+- [**React-SSR**](https://github.com/LucasIcarus/huxpro.github.io/tree/ssr) by @LucasIcarus
+
+[Starter/Boilerplate](https://github.com/huxpro/huxblog-boilerplate)
+- Out of date. Helps wanted for updating it on par with the main repo
+
+Translation
+- [🇨🇳  中文文档（有点过时）](https://github.com/Huxpro/huxpro.github.io/blob/master/_doc/README.zh.md)
+
+
+License
+-------
+
+Apache License 2.0.
+Copyright (c) 2015-present Huxpro
+
+Hux Blog is derived from [Clean Blog Jekyll Theme (MIT License)](https://github.com/BlackrockDigital/startbootstrap-clean-blog-jekyll/)
+Copyright (c) 2013-2016 Blackrock Digital LLC.
