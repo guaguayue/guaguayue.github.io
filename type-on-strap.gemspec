@@ -3,8 +3,8 @@
 Gem::Specification.new do |spec|
   spec.name          = "type-on-strap"
   spec.version       = "2.3.6"
-  spec.authors       = ["Sylhare","Rohan Chandra","Guo Yue"]
-  spec.email         = ["sylhare@outlook.com", "hellorohan@outlook.com", "sylhare@outlook.com"]
+  spec.authors       = ["Sylhare","Rohan Chandra"]
+  spec.email         = ["sylhare@outlook.com", "hellorohan@outlook.com"]
 
   spec.summary       =  "A simple and responsive jekyll theme template"
   spec.description   = %q{A simple and responsive jekyll theme template based on type-theme. Great for blogs, easy to customize and responsive.}
