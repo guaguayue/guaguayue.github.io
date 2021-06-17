@@ -13,8 +13,8 @@
     <!-- Theme Mode-->
     
     <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+        const isAutoTheme = false;
+        document.documentElement.setAttribute('data-theme', "dark")
     </script>
     
 
@@ -83,7 +83,7 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:title" content="ABOUT">
-    <meta name="twitter:description" content="{% include about.md %}Type on Strap is based on Type Theme, a free and open-source theme for [Jekyll](http://jekyllrb.com/), licensed under the MIT License.H...">
+    <meta name="twitter:description" content="{% include about.md %} ">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://sylhare.github.io/assets/img/pexels/travel.jpeg">
@@ -132,8 +132,18 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="画廊" title="画廊" href="/gallery/">
-                     画廊 
+                <a class="clear" aria-label="FOOTPRINT" title="FOOTPRINT" href="/footprint/">
+                     FOOTPRINT 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="HOME" title="HOME" href="/">
+                     HOME 
                 </a>
             </li>
             
@@ -148,18 +158,8 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="地图" title="地图" href="/map/">
-                     地图 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="我的项目" title="我的项目" href="/portfolio/">
-                     我的项目 
+                <a class="clear" aria-label="PROJECT" title="PROJECT" href="/project/">
+                     PROJECT 
                 </a>
             </li>
             
@@ -201,9 +201,6 @@
         
         
         
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="ABOUT " aria-label="ABOUT" onclick="themeToggle()"></a></li>
-        
     </ul>
 
 	</nav>
@@ -217,7 +214,7 @@
       
         <h1 id="ABOUT" class="title"> ABOUT</h1>
         
-        <h2 class="subtitle">关于我</h2>
+        <h2 class="subtitle">感性编程，理性设计</h2>
         
       
     </div>
@@ -262,21 +259,15 @@
 
 <h2 id="专业技能">专业技能</h2>
 <ul>
-  <li>熟练掌握<code class="language-plaintext highlighter-rouge">HTML、CSS、JavaScript</code>等相关基础技能，前端基础扎实</li>
-  <li>熟练使用<code class="language-plaintext highlighter-rouge">Vue.js、Jquery、Bootstrap</code>等前端框架</li>
-  <li>熟悉<code class="language-plaintext highlighter-rouge">Vue全家桶和Vue3.0技术</code></li>
-  <li>熟练掌握<code class="language-plaintext highlighter-rouge">微信小程序开发和微信公众号运营</code>等相关知识</li>
-  <li>熟练使用<code class="language-plaintext highlighter-rouge">Element、AntDesign、Amap、E-charts</code>等</li>
-  <li>熟悉<code class="language-plaintext highlighter-rouge">Svn、Git</code>等项目托管工具；熟悉<code class="language-plaintext highlighter-rouge">npm、webpack</code>等工具</li>
-  <li>有<code class="language-plaintext highlighter-rouge">UI设计</code>项目经验，熟练操作<code class="language-plaintext highlighter-rouge">Photoshop、Illustrator、蓝湖</code>等软件</li>
+  <li>熟练掌握<strong>HTML、CSS、JavaScript</strong>等相关基础技能，前端基础扎实</li>
+  <li>熟练使用<strong>Vue.js、Jquery、Bootstrap</strong>等前端框架</li>
+  <li>熟悉<strong>Vue全家桶和Vue3.0技术</strong></li>
+  <li>熟练掌握<strong>微信小程序开发和微信公众号运营</strong>等相关知识</li>
+  <li>熟练使用<strong>Element、AntDesign、Amap、E-charts</strong>等</li>
+  <li>熟悉<strong>Svn、Git</strong>等项目托管工具；熟悉<strong>npm、webpack</strong>等工具</li>
+  <li>有<strong>UI设计</strong>项目经验，熟练操作<strong>Photoshop、Illustrator、蓝湖</strong>等软件</li>
   <li>有UX用户体验项目经验，善于对产品进行用户体验分析</li>
 </ul>
-
-<p>Type on Strap is based on Type Theme, a free and open-source theme for <a href="http://jekyllrb.com/">Jekyll</a>, licensed under the MIT License.</p>
-
-<p>Head over to the <a href="https://github.io/sylhare/Type-on-Strap">theme’s documentation</a> for much more information about Type on Strap or to install this theme on your own Jekyll site.</p>
-
-<p>This file is an example of a page in Jekyll, that automatically shows up in the header navigation, you can delete or modify this file freely.</p>
 
 
   
@@ -288,19 +279,7 @@
   
 
 
-  <div class="tag-list">
-    <ul>
-      
-        <li class="meta">Tag</li>
-      
-
-      
-        <li><a class="button" href="/tags#Page">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> Page</p>
-        </a></li>
-      
-    </ul>
-  </div>
+  <div class="tag-list"></div>
 
 
 

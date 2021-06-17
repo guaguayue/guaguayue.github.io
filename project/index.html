@@ -13,8 +13,8 @@
     <!-- Theme Mode-->
     
     <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+        const isAutoTheme = false;
+        document.documentElement.setAttribute('data-theme', "dark")
     </script>
     
 
@@ -62,19 +62,19 @@
     <meta property="og:type" content="website" />
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>地图 | Guo Yue Blog</title>
+<title>PROJECT | Guo Yue Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="地图" />
+<meta property="og:title" content="PROJECT" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="郭越的博客" />
 <meta property="og:description" content="郭越的博客" />
-<link rel="canonical" href="https://sylhare.github.io/map/" />
-<meta property="og:url" content="https://sylhare.github.io/map/" />
+<link rel="canonical" href="https://sylhare.github.io/project/" />
+<meta property="og:url" content="https://sylhare.github.io/project/" />
 <meta property="og:site_name" content="Guo Yue Blog" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="地图" />
+<meta property="twitter:title" content="PROJECT" />
 <script type="application/ld+json">
-{"description":"郭越的博客","url":"https://sylhare.github.io/map/","headline":"地图","@type":"WebPage","@context":"https://schema.org"}</script>
+{"description":"郭越的博客","url":"https://sylhare.github.io/project/","headline":"PROJECT","@type":"WebPage","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -82,12 +82,12 @@
     <link type="application/atom+xml" rel="alternate" href="https://sylhare.github.io/feed.xml" title="Guo Yue Blog" />
 
     <!-- Twitter Cards -->
-    <meta name="twitter:title" content="地图">
-    <meta name="twitter:description" content="{% include map.html %}">
+    <meta name="twitter:title" content="PROJECT">
+    <meta name="twitter:description" content="{% include portfolio.html %}">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://sylhare.github.io/assets/img/pexels/computer.jpeg">
-    <meta name="twitter:image:alt" content="地图">
+    <meta name="twitter:image:alt" content="PROJECT">
 </head>
 
   <body>
@@ -132,8 +132,18 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="画廊" title="画廊" href="/gallery/">
-                     画廊 
+                <a class="clear" aria-label="FOOTPRINT" title="FOOTPRINT" href="/footprint/">
+                     FOOTPRINT 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="HOME" title="HOME" href="/">
+                     HOME 
                 </a>
             </li>
             
@@ -148,18 +158,8 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="地图" title="地图" href="/map/">
-                     地图 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="我的项目" title="我的项目" href="/portfolio/">
-                     我的项目 
+                <a class="clear" aria-label="PROJECT" title="PROJECT" href="/project/">
+                     PROJECT 
                 </a>
             </li>
             
@@ -204,9 +204,6 @@
         
         
         
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="地图 " aria-label="地图" onclick="themeToggle()"></a></li>
-        
     </ul>
 
 	</nav>
@@ -218,7 +215,7 @@
   <header id="main" style="background-image: url('/assets/img/pexels/computer.jpeg')">
     <div class="title-padder">
       
-        <h1 id="%E5%9C%B0%E5%9B%BE" class="title"> 地图</h1>
+        <h1 id="PROJECT" class="title"> PROJECT</h1>
         
         <h2 class="subtitle">Projects I am working on</h2>
         
@@ -228,7 +225,110 @@
 
   <section class="post-content">
   
-	<div>地图哦</div>
+	<!-- Portfolio Grid Section -->
+<div class="portfolio-grid">
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/ninja">
+            <div class="caption" title="Ninja">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/ninja.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/safe">
+            <div class="caption" title="Creative">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/safe.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/circus">
+            <div class="caption" title="Circus">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/circus.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/hanoi">
+            <div class="caption" title="Tower of Hanoi">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/toh.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/tictactoe">
+            <div class="caption" title="Tic tac toe">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/ttt.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/cake">
+            <div class="caption" title="Cake">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/cake.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/jekyllblog">
+            <div class="caption" title="Jekyll">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/cabin.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/submarine">
+            <div class="caption" title="Lorem Ipsum">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/submarine.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/gitlecture">
+            <div class="caption" title="Github">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/github.png" />
+        </a>
+    </div>
+    
+</div>
+
 
   
   </section>

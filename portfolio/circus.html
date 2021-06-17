@@ -13,8 +13,8 @@
     <!-- Theme Mode-->
     
     <script>
-        const isAutoTheme = true;
-        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+        const isAutoTheme = false;
+        document.documentElement.setAttribute('data-theme', "dark")
     </script>
     
 
@@ -134,8 +134,18 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="画廊" title="画廊" href="/gallery/">
-                     画廊 
+                <a class="clear" aria-label="FOOTPRINT" title="FOOTPRINT" href="/footprint/">
+                     FOOTPRINT 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="HOME" title="HOME" href="/">
+                     HOME 
                 </a>
             </li>
             
@@ -150,18 +160,8 @@
             
             <li class="separator"> | </li>
             <li>
-                <a class="clear" aria-label="地图" title="地图" href="/map/">
-                     地图 
-                </a>
-            </li>
-            
-            
-        
-            
-            <li class="separator"> | </li>
-            <li>
-                <a class="clear" aria-label="我的项目" title="我的项目" href="/portfolio/">
-                     我的项目 
+                <a class="clear" aria-label="PROJECT" title="PROJECT" href="/project/">
+                     PROJECT 
                 </a>
             </li>
             
@@ -202,9 +202,6 @@
             
         
         
-        
-        <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="Circus " aria-label="Circus" onclick="themeToggle()"></a></li>
         
     </ul>
 
