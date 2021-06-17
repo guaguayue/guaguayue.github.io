@@ -1,0 +1,27 @@
+[
+  
+  {
+    "title"    : "展开语法和剩余语法(...)",
+    "category" : "",
+    "tags"     : " JavaScript",
+    "url"      : "/2021/05/03/zhangkai.html",
+    "date"     : "May 3, 2021",
+    "excerpt"  : "展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异 \n\n展开语法\n   展开语法…用于展开数组或者对象。（展开语法无法在IE浏览器中使用）\n\n  \n    展开语法的基本用法\n    如果是数组，展开成一项一项；在构造字面量对象时, 将对象表达式按key-value的方式展开。\n    \n      函数调用时，像apply一样展开\n        function sum(x, y, z) { \n  return x + y + z; \n} \nconst numbers = [...",
+  "content"  : "展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异 \n\n展开语法\n   展开语法…用于展开数组或者对象。（展开语法无法在IE浏览器中使用）\n\n  \n    展开语法的基本用法\n    如果是数组，展开成一项一项；在构造字面量对象时, 将对象表达式按key-value的方式展开。\n    \n      函数调用时，像apply一样展开\n        function sum(x, y, z) { \n  return x + y + z; \n} \nconst numbers = [1, 2, 3]; \nconsole.log(sum(...numbers));// 输出: 6 \nconsole.log(sum.apply(null, numbers));// 输出: 6 \n        \n      \n      在构造数组的时候使用\n        let list = [1, 2, 3] \nlet b = [...list, ...&quot;hello&quot; ,4, &#39;6&#39;] \n        \n      \n      用于复制对象，或者属性拷贝\n        // 复制 \nlet newobj = {...obj} \n// 增加 \nlet newobj = {id:&#39;123&#39;,...obj} \n        \n        \n      \n    \n  \n  \n    展开语法的实用例子\n    \n      展开语法在new中的使用 \n使用 new 关键字来调用构造函数时，不能直接使用数组+ apply 的方式（apply 执行的是调用 [[Call]] , 而不是构造 [[Construct]]）。当然, 有了展开语法, 将数组展开为构造函数的参数就很简单了：\n        var dateFields = [1970, 0, 1];\nvar d = new Date(...dateFields);\n        \n        \n      \n      使用展开语法进行数组操作非常给力，可以直接替代push、concat、unshift等方法的使用\n        var parts = [&#39;shoulders&#39;, &#39;knees&#39;]; \nvar lyrics = [&#39;head&#39;, ...parts, &#39;and&#39;, &#39;toes&#39;]; \n        \n      \n      使用展开语法拷贝数组和对象后不再是单纯的地址指针复制\n        var arr = [1, 2, 3]; \nvar arr2 = [...arr]; // like arr.slice() \narr2.push(4); // arr2 此时变成 [1, 2, 3, 4]// arr 不受影响 \n        \n        但是呢，这个拷贝与Object.assign一样，都只进行第一层的浅拷贝，如果下面的a是一个二维数组，那第二维还是指针，这时候修改拷贝后的参数，还是会影响到原来的a`\n      \n    \n\n    var a = [[1], [2], [3]];\nvar b = [...a]; \nb.shift().shift(); // 1 \n    \n    \n\n    在数组或函数参数中使用时，展开语法只能用于可迭代对象 （可以被for..of循环使用）\n  \n\n\n剩余语法\n   剩余语法准确来说跟展开语法相反，它被放在形参的最后一位，用来把多余的输入参数整合为一个数组\n\n  \n    用在不定输入参数的函数形参中\n    function a(a, b, ...theArgs) { \n    return theArgs.reduce((previous, current) =&amp;gt; { \n        return previous + current; \n    }); \n} \nconsole.log(a(1,1,1,2,3)) // 6，前两个1被赋值到形参a和b中 输出: 6 \n    \n  \n  \n    剩余参数和 arguments对象的区别\n    \n      剩余参数只包含那些没有对应形参的实参，而 arguments 对象包含了传给函数的所有实参。\n      arguments对象不是一个真正的数组，而剩余参数是真正的 Array实例，也就是说你能够在它上面直接使用所有的数组方法，比如 sort，map，forEach或pop。\n      arguments对象还有一些附加的属性 （如callee属性）。\n    \n  \n  \n    剩余语法的使用实例\n    \n      用于判断参数数量\n        function fun1(...theArgs) {\nalert(theArgs.length);\n}\nfun1();  // 弹出 &quot;0&quot;, 因为theArgs没有元素\nfun1(5); // 弹出 &quot;1&quot;, 因为theArgs只有一个元素\nfun1(5, 6, 7); // 弹出 &quot;3&quot;, 因为theArgs有三个元素\n        \n      \n      累乘\n```javascript\nfunction multiply(multiplier, …theArgs) {\nreturn theArgs.map(function (element) {\n  return multiplier * element;\n});}\n    \n\n    var arr = multiply(2, 1, 2, 3);\nconsole.log(arr);  // [2, 4, 6]\n    - 下例演示了你可以在剩余参数上使用任意的数组方法，而arguments对象不可以\n```javascript\nfunction sortRestArgs(...theArgs) {\n  var sortedArgs = theArgs.sort();\n  return sortedArgs;\n}\nalert(sortRestArgs(5,3,7,1)); // 弹出 1,3,5,7\nfunction sortArguments() {\n  var sortedArgs = arguments.sort();\n  return sortedArgs; // 不会执行到这里\n}\nalert(sortArguments(5,3,7,1)); // 抛出TypeError异常:arguments.sort is not a function\n    \n  \n\n\n\n  相关文档：MDN文档\n\n"
+} 
+  
+  ,
+  
+  {
+  
+  "title"    : "飞行",
+  "category" : "",
+  "tags"     : " ",
+  "url"      : "/portfolio/fly",
+  "date"     : "October 1, 2017",
+  "excerpt"  : "项目简介为南部战区某部设计的大型空军信息管理系统，涵盖机场管理、塔台调度、员工管理等数十个模块；由我独立负责项目UI设计工作，完成200+页面的设计、众多图标和控件的输出以及复杂交互的研究；\n\n\n\n\n\n",
+  "content"  : "项目简介为南部战区某部设计的大型空军信息管理系统，涵盖机场管理、塔台调度、员工管理等数十个模块；由我独立负责项目UI设计工作，完成200+页面的设计、众多图标和控件的输出以及复杂交互的研究；\n\n\n\n\n\n"
+  
+} 
+  
+]
