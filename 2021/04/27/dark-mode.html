@@ -13,8 +13,8 @@
     <!-- Theme Mode-->
     
     <script>
-        const isAutoTheme = false;
-        document.documentElement.setAttribute('data-theme', "dark")
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
     </script>
     
 
@@ -205,6 +205,9 @@
             
         
         
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Dark Mode " aria-label="Dark Mode" onclick="themeToggle()"></a></li>
         
     </ul>
 

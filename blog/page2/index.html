@@ -13,8 +13,8 @@
     <!-- Theme Mode-->
     
     <script>
-        const isAutoTheme = false;
-        document.documentElement.setAttribute('data-theme', "dark")
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
     </script>
     
 
@@ -209,6 +209,9 @@
         
         
         
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title=" " aria-label="" onclick="themeToggle()"></a></li>
+        
     </ul>
 
 	</nav>
@@ -224,6 +227,38 @@
 
     <div class="posts">
     
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="Bootstrap" class="post-link" href="/2017/09/17/Use-Bootstrap.html">
+                Bootstrap
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      September 17, 2017
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     This theme is compatible with Bootstrap if you choose to use it in your pages or posts.
+Here is a little demo with a code snippet, look at the source to see how the HTML and markdown get tangled.
+
+                  
+              </div>
+          
+      </span>
+    </div>
     
     <div class="post-teaser">
         
@@ -359,49 +394,6 @@ The only limit is your imagination.
                      Lorem Ipsum
 
 from “de Finibus Bonorum et Malorum” written by Cicero in 45 BC.
-
-
-                  
-              </div>
-          
-      </span>
-    </div>
-    
-    <div class="post-teaser">
-        
-        <span>
-          <header>
-            <h1>
-              <a aria-label="Markup: Syntax Highlighting" class="post-link" href="/2014/08/08/Markup-Syntax-Highlighting.html">
-                Markup: Syntax Highlighting
-              </a>
-            </h1>
-            
-
-
-<div class="post-info"><a href="https://github.com/mmistakes" target="_blank">
-      <img alt="Author's avatar" src="https://avatars3.githubusercontent.com/u/1376749?s=460&v=4">
-    
-    <p class="meta">
-      Michael Rose - 
-      
-      August 08, 2014
-    </p></a></div>
-
-          </header>
-          
-              <div class="excerpt">
-                  
-                     Syntax highlighting1 is a feature that displays source code. 
-This feature facilitates writing in a structured language such as a programming language or a markup language as it makes import things visually distinct.
-
-
-  
-    
-
-      &amp;#8617;
-    
-  
 
 
                   

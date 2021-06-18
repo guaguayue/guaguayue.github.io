@@ -13,8 +13,8 @@
     <!-- Theme Mode-->
     
     <script>
-        const isAutoTheme = false;
-        document.documentElement.setAttribute('data-theme', "dark")
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
     </script>
     
 
@@ -207,6 +207,9 @@
         
         
         
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="PROJECT " aria-label="PROJECT" onclick="themeToggle()"></a></li>
+        
     </ul>
 
 	</nav>
@@ -232,6 +235,17 @@
 <div class="portfolio-grid">
     
     <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/sun">
+            <div class="caption" title="笋尖">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/sun1.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
         <a class="portfolio-link" data-keyboard="true" href="/portfolio/fly">
             <div class="caption" title="飞行">
                 <div class="caption-content">
@@ -239,6 +253,17 @@
                 </div>
             </div>
             <img alt="" class="" src="/assets/img/portfolio/fly1.png" />
+        </a>
+    </div>
+    
+    <div class="portfolio-cell">
+        <a class="portfolio-link" data-keyboard="true" href="/portfolio/zeng">
+            <div class="caption" title="增城重点营运车">
+                <div class="caption-content">
+                    <i class="fas fa-search-plus fa-3x"></i>
+                </div>
+            </div>
+            <img alt="" class="" src="/assets/img/portfolio/zeng.png" />
         </a>
     </div>
     

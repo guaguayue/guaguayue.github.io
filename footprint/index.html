@@ -13,8 +13,8 @@
     <!-- Theme Mode-->
     
     <script>
-        const isAutoTheme = false;
-        document.documentElement.setAttribute('data-theme', "dark")
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
     </script>
     
 
@@ -204,6 +204,9 @@
         
         
         
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="FOOTPRINT " aria-label="FOOTPRINT" onclick="themeToggle()"></a></li>
+        
     </ul>
 
 	</nav>
@@ -217,7 +220,7 @@
       
         <h1 id="FOOTPRINT" class="title"> FOOTPRINT</h1>
         
-        <h2 class="subtitle"> </h2>
+        <h2 class="subtitle">我的足迹</h2>
         
       
     </div>

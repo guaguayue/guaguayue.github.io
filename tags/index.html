@@ -13,8 +13,8 @@
     <!-- Theme Mode-->
     
     <script>
-        const isAutoTheme = false;
-        document.documentElement.setAttribute('data-theme', "dark")
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
     </script>
     
 
@@ -207,6 +207,9 @@
         
         
         
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="Tags " aria-label="Tags" onclick="themeToggle()"></a></li>
+        
     </ul>
 
 	</nav>
@@ -252,6 +255,10 @@
       
         <li><a class="button" href="/tags#A+Tag">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> A Tag</p>
+        </a></li>
+      
+        <li><a class="button" href="/tags#CSS">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> CSS</p>
         </a></li>
       
         <li><a class="button" href="/tags#Color">
@@ -351,6 +358,8 @@
             
             
             
+            
+            
             <h5 class="tag-title">
                 <a href="/2019/06/30/sample-post.html">
                     <i class="far fa-file-alt" aria-hidden="true"></i>
@@ -392,6 +401,112 @@
             
 
             <!-- Portfolio -->
+            
+            
+            
+            
+            
+            
+            
+
+        </div>
+        
+        <h3 id="CSS" class="tag-anchor">
+            <a href="#CSS"><i class="fas fa-tag fa-fw fa-sm"></i> CSS</a>
+            <a href="#Tags" style="float: right"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"> </i> </a>
+
+        </h3>
+
+        <!-- Posts and collection for each tags -->
+        <div class="tag-posts">
+
+            <!-- Pages -->
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            <!-- Posts -->
+            
+            
+            <h5 class="tag-title">
+                <a href="/2021/06/03/jiami.html">
+                    <i class="far fa-file-alt" aria-hidden="true"></i>
+                    前端切图仔的简易文本加密工具
+                </a>
+
+                
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      June 03, 2021
+    </p></div>
+
+            </h5>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            <!-- Portfolio -->
+            
+            
+            
+            
             
             
             
@@ -441,6 +556,8 @@
             
 
             <!-- Posts -->
+            
+            
             
             
             
@@ -506,6 +623,10 @@
             
 
             <!-- Portfolio -->
+            
+            
+            
+            
             
             
             
@@ -577,6 +698,8 @@
             
             
             
+            
+            
             <h5 class="tag-title">
                 <a href="/2013/12/12/Generate-a-table-of-content.html">
                     <i class="far fa-file-alt" aria-hidden="true"></i>
@@ -602,6 +725,10 @@
             
 
             <!-- Portfolio -->
+            
+            
+            
+            
             
             
             
@@ -671,6 +798,8 @@
             
             
             
+            
+            
             <h5 class="tag-title">
                 <a href="/2014/08/08/Markup-Syntax-Highlighting.html">
                     <i class="far fa-file-alt" aria-hidden="true"></i>
@@ -716,6 +845,10 @@
             
 
             <!-- Portfolio -->
+            
+            
+            
+            
             
             
             
@@ -765,6 +898,8 @@
             
 
             <!-- Posts -->
+            
+            
             
             
             
@@ -870,6 +1005,10 @@
             
             
             
+            
+            
+            
+            
 
         </div>
         
@@ -916,6 +1055,26 @@
             
 
             <!-- Posts -->
+            
+            
+            <h5 class="tag-title">
+                <a href="/2021/06/03/jiami.html">
+                    <i class="far fa-file-alt" aria-hidden="true"></i>
+                    前端切图仔的简易文本加密工具
+                </a>
+
+                
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      June 03, 2021
+    </p></div>
+
+            </h5>
+            
             
             
             <h5 class="tag-title">
@@ -966,6 +1125,10 @@
             
             
             
+            
+            
+            
+            
 
         </div>
         
@@ -1012,6 +1175,8 @@
             
 
             <!-- Posts -->
+            
+            
             
             
             
@@ -1098,6 +1263,10 @@
             
             
             
+            
+            
+            
+            
 
         </div>
         
@@ -1166,6 +1335,8 @@
             
             
             
+            
+            
             <h5 class="tag-title">
                 <a href="/2013/12/12/Generate-a-table-of-content.html">
                     <i class="far fa-file-alt" aria-hidden="true"></i>
@@ -1191,6 +1362,10 @@
             
 
             <!-- Portfolio -->
+            
+            
+            
+            
             
             
             
@@ -1240,6 +1415,8 @@
             
 
             <!-- Posts -->
+            
+            
             
             
             
@@ -1344,6 +1521,10 @@
             
             
             
+            
+            
+            
+            
 
         </div>
         
@@ -1414,6 +1595,8 @@
             
             
             
+            
+            
             <h5 class="tag-title">
                 <a href="/2013/11/02/Tech-stuff-example.html">
                     <i class="far fa-file-alt" aria-hidden="true"></i>
@@ -1437,6 +1620,10 @@
             
 
             <!-- Portfolio -->
+            
+            
+            
+            
             
             
             
@@ -1486,6 +1673,8 @@
             
 
             <!-- Posts -->
+            
+            
             
             
             
@@ -1606,6 +1795,10 @@
             
 
             <!-- Portfolio -->
+            
+            
+            
+            
             
             
             

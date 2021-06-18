@@ -13,8 +13,8 @@
     <!-- Theme Mode-->
     
     <script>
-        const isAutoTheme = false;
-        document.documentElement.setAttribute('data-theme', "dark")
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
     </script>
     
 
@@ -206,6 +206,9 @@
         
         
         
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="飞行 " aria-label="飞行" onclick="themeToggle()"></a></li>
+        
     </ul>
 
 	</nav>
@@ -265,7 +268,21 @@
 
 <div id="post-nav">
     
+    <div id="previous-post">
+        <a alt="增城重点营运车" href="/portfolio/zeng">
+            <p>Previous post</p>
+            增城重点营运车
+        </a>
+    </div>
+    
 
+    
+    <div id="next-post">
+        <a alt="笋尖" href="/portfolio/sun">
+            <p>Next post</p>
+            笋尖
+        </a>
+    </div>
     
 </div>
 
