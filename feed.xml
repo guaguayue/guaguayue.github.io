@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-06-19T23:30:31+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">纯css和css属性实现动态流量小球</title><link href="https://sylhare.github.io/2021/06/04/liuliangqiu.html" rel="alternate" type="text/html" title="纯css和css属性实现动态流量小球" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/04/liuliangqiu</id><content type="html" xml:base="https://sylhare.github.io/2021/06/04/liuliangqiu.html">&lt;!--more--&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-06-20T19:32:27+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">纯css和css属性实现动态流量小球</title><link href="https://sylhare.github.io/2021/06/04/liuliangqiu.html" rel="alternate" type="text/html" title="纯css和css属性实现动态流量小球" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/04/liuliangqiu</id><content type="html" xml:base="https://sylhare.github.io/2021/06/04/liuliangqiu.html">&lt;!--more--&gt;
 &lt;h2 id=&quot;前记&quot;&gt;前记&lt;/h2&gt;
 
 &lt;p&gt;在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？&lt;/p&gt;
@@ -71,7 +71,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;h2 id=&quot;最后&quot;&gt;最后&lt;/h2&gt;
 
-&lt;p&gt;加上数字等逻辑，流量小球就能根据后台数据变化时刻变化了。&lt;/p&gt;
+&lt;p&gt;加上数学逻辑，流量小球就能根据后台数据变化时刻变化了。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210619230925726.gif&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
