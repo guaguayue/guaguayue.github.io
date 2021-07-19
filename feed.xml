@@ -1,4 +1,137 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-06-20T19:32:27+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">纯css和css属性实现动态流量小球</title><link href="https://sylhare.github.io/2021/06/04/liuliangqiu.html" rel="alternate" type="text/html" title="纯css和css属性实现动态流量小球" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/04/liuliangqiu</id><content type="html" xml:base="https://sylhare.github.io/2021/06/04/liuliangqiu.html">&lt;!--more--&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-07-19T17:34:03+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">记录遇到过的http状态码</title><link href="https://sylhare.github.io/2021/07/02/http2.html" rel="alternate" type="text/html" title="记录遇到过的http状态码" /><published>2021-07-02T00:00:00+08:00</published><updated>2021-07-02T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/02/http2</id><content type="html" xml:base="https://sylhare.github.io/2021/07/02/http2.html">&lt;p&gt;&lt;em&gt;http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右&lt;/em&gt; &lt;!--more--&gt; &lt;em&gt;，这里记录我开发过程中遭遇的部分常用状态码&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;http状态码的类别&quot;&gt;http状态码的类别&lt;/h4&gt;
+
+&lt;p&gt;一般情况下http的状态码首位数字代表着状态所在的请求阶段（当然也有例外）。而且随着http协议的发展，有一些状态码正在慢慢被取消使用。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;1xx：请求正在处理（请求正在处理）&lt;/li&gt;
+  &lt;li&gt;2xx：正常处理完毕（成功）&lt;/li&gt;
+  &lt;li&gt;3xx：需要附加操作来完成请求（重定向，请求没有成功）&lt;/li&gt;
+  &lt;li&gt;4xx：服务器无法处理请求（客户端错误请求的过程有一些问题，可能是请求没写对，也可能是没有权限，或者找不到对应的资源）&lt;/li&gt;
+  &lt;li&gt;5xx：服务器处理请求出错（服务器的锅）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;一些常用的状态码&quot;&gt;一些常用的状态码&lt;/h4&gt;
+
+&lt;p&gt;200：正常处理&lt;/p&gt;
+
+&lt;p&gt;204：请求成功，但是没有可以返回的资源，只返回响应首部没有实体主体&lt;/p&gt;
+
+&lt;p&gt;206：客户端进行了范围请求，服务器成功响应了这部分请求（这里响应首部字段必须有一个content-Range来说明响应范围）&lt;/p&gt;
+
+&lt;p&gt;301：永久性重定向，要求以后都用新的URI请求&lt;/p&gt;
+
+&lt;p&gt;302：临时性重定向，要求临时用新的URI访问；它不允许在重定向的过程中变换请求方法（虽然很多人经常不遵守这一规定）&lt;/p&gt;
+
+&lt;p&gt;303：与302类似，但是要求改用GET请求进行重定向&lt;/p&gt;
+
+&lt;p&gt;304：虽然是3字辈，但是跟重定向没有半毛钱关系。找到了对应资源，但是不满足请求中包含的一些筛选条件（比如过期了）（这些条件由几个请求首部字段控制）&lt;/p&gt;
+
+&lt;p&gt;307：和302就是一样的&lt;/p&gt;
+
+&lt;p&gt;400：请求不能被识别，可能是请求报文的语法错误&lt;/p&gt;
+
+&lt;p&gt;401：需要附带http验证，或之前的http验证失败了（这里需要有个响应首部字段www-Authenticate用以质询用户信息）&lt;/p&gt;
+
+&lt;p&gt;403：没有访问的权限&lt;/p&gt;
+
+&lt;p&gt;404：无法找到对应资源，或者你拒绝请求，但是不想跟客户端说明原因，也可以用这个&lt;/p&gt;
+
+&lt;p&gt;500：服务器出错&lt;/p&gt;
+
+&lt;p&gt;503：服务器超负载或正在维护（这里可以加一个响应首部字段Retry-After用来告诉客户端以上状况的解决时间）&lt;/p&gt;</content><author><name>Gua</name></author><category term="http" /><summary type="html">http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右</summary></entry><entry><title type="html">web攻击技术简述</title><link href="https://sylhare.github.io/2021/07/01/http1.html" rel="alternate" type="text/html" title="web攻击技术简述" /><published>2021-07-01T00:00:00+08:00</published><updated>2021-07-01T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/01/http1</id><content type="html" xml:base="https://sylhare.github.io/2021/07/01/http1.html">&lt;p&gt;&lt;em&gt;web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http协议的特点&quot;&gt;http协议的特点&lt;/h2&gt;
+
+&lt;h4 id=&quot;http不具备必要的安全功能&quot;&gt;http不具备必要的安全功能&lt;/h4&gt;
+
+&lt;p&gt;http协议本身是一个简单的单纯协议机制，这一点使它具备众多优势，也使它在安全性方面呈现劣势。&lt;/p&gt;
+
+&lt;p&gt;比如不同于http协议的ssh协议，它具备协议级别的安全机制，所以每个人都可以轻易搭建安全级别较高的ssh服务，而http就不行，一般假设好http服务器后还要重新开发。&lt;/p&gt;
+
+&lt;h4 id=&quot;在客户端即可篡改请求&quot;&gt;在客户端即可篡改请求&lt;/h4&gt;
+
+&lt;p&gt;从浏览器那接收到的 HTTP 请求的全部内容，都可以在客户端自由地变更、篡改。所以 Web 应用可能会接收到与预期数据不相同的内容。&lt;/p&gt;
+
+&lt;p&gt;在 HTTP 请求报文内加载攻击代码，就能发起对 Web 应用的攻击。通过 URL查询字段或表单、HTTP 首部、Cookie 等途径把攻击代码传入，若这时 Web 应用存在安全漏洞，那内部信息就会遭到窃取，或被攻击者拿到管理权限&lt;/p&gt;
+
+&lt;h2 id=&quot;web攻击的主要方式&quot;&gt;web攻击的主要方式&lt;/h2&gt;
+
+&lt;p&gt;主动攻击：通过访问资源进行攻击；如sql注入、os注入&lt;/p&gt;
+
+&lt;p&gt;被动攻击：圈套策略；如跨站脚本攻击、跨站点请求伪造&lt;/p&gt;
+
+&lt;h4 id=&quot;跨站脚本攻击xss&quot;&gt;跨站脚本攻击XSS&lt;/h4&gt;
+
+&lt;p&gt;通过存在安全漏洞的Web 网站注册用户的浏览器内运行非法的 HTML标签或 JavaScript 进行的一种攻击&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;影响：
+    &lt;ul&gt;
+      &lt;li&gt;利用虚假输入表单骗取用户个人信息；&lt;/li&gt;
+      &lt;li&gt;利用脚本窃取用户的 Cookie 值，被害者在不知情的情况下，帮助攻击者发送恶意请求；&lt;/li&gt;
+      &lt;li&gt;显示伪造的文章或图片；&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;案例
+    &lt;ul&gt;
+      &lt;li&gt;通过输入框或者url栏偷偷嵌入js代码；&lt;/li&gt;
+      &lt;li&gt;窃取用户cookie&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;sql注入攻击&quot;&gt;sql注入攻击&lt;/h4&gt;
+
+&lt;p&gt;通过运行非法的 SQL而产生的攻击&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;影响：
+    &lt;ul&gt;
+      &lt;li&gt;非法查看或篡改数据库内的数据；&lt;/li&gt;
+      &lt;li&gt;规避认证；&lt;/li&gt;
+      &lt;li&gt;执行和数据库服务器业务关联的程序等；&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;各类web攻击的机制&quot;&gt;各类web攻击的机制&lt;/h2&gt;
+
+&lt;h4 id=&quot;利用转义不完全产生的漏洞&quot;&gt;利用转义不完全产生的漏洞&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;xss跨站脚本攻击&lt;/li&gt;
+  &lt;li&gt;sql注入：通过sql注入控制数据库&lt;/li&gt;
+  &lt;li&gt;os注入：通过os注入控制操作系统&lt;/li&gt;
+  &lt;li&gt;http首部攻击：恶意修改http请求首部或请求主体&lt;/li&gt;
+  &lt;li&gt;邮件首部攻击：恶意修改邮件请求首部&lt;/li&gt;
+  &lt;li&gt;外部文件攻击&lt;/li&gt;
+  &lt;li&gt;目标遍历攻击：相对地址转绝对地址查找隐藏文件&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;利用设计不合理的缺陷&quot;&gt;利用设计不合理的缺陷&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;不合理的提示信息：不错提示信息暴露后台数据模式&lt;/li&gt;
+  &lt;li&gt;重定向url攻击：开放重定向后攻击者利用重定向功能诱导跳转虚假网站&lt;/li&gt;
+  &lt;li&gt;强制浏览：图片等资源的强制地址&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;利用会话管理疏忽引发的漏洞&quot;&gt;利用会话管理疏忽引发的漏洞&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;会话劫持：偷session id&lt;/li&gt;
+  &lt;li&gt;会话固定攻击：让用户用你的session id&lt;/li&gt;
+  &lt;li&gt;跨站点请求伪造&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;其他&quot;&gt;其他&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;中间人攻击&lt;/li&gt;
+  &lt;li&gt;XST攻击&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gua</name></author><category term="http" /><summary type="html">web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。</summary></entry><entry><title type="html">纯css和css属性实现动态流量小球</title><link href="https://sylhare.github.io/2021/06/04/liuliangqiu.html" rel="alternate" type="text/html" title="纯css和css属性实现动态流量小球" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/04/liuliangqiu</id><content type="html" xml:base="https://sylhare.github.io/2021/06/04/liuliangqiu.html">&lt;!--more--&gt;
 &lt;h2 id=&quot;前记&quot;&gt;前记&lt;/h2&gt;
 
 &lt;p&gt;在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？&lt;/p&gt;
@@ -759,109 +892,4 @@ However you can just use the Markdown way of doing it to get the image normal si
         &lt;img class=&quot;single&quot; src=&quot;/assets/img/pexels/computer.jpeg&quot; alt=&quot;computer.jpeg&quot; /&gt;
     &lt;/div&gt;
     
-&lt;/div&gt;</content><author><name></name></author><category term="Test" /><category term="Image" /><summary type="html">Hopefully you will find enough information about how to set images in your blog here. This is an example of a post which includes a feature image specified in the front matter of the post. The feature image spans the full-width of the page, and is shown with the title on permalink pages:</summary></entry><entry><title type="html">Markdown and HTML</title><link href="https://sylhare.github.io/2014/11/28/markdown-and-html.html" rel="alternate" type="text/html" title="Markdown and HTML" /><published>2014-11-28T00:00:00+08:00</published><updated>2014-11-28T00:00:00+08:00</updated><id>https://sylhare.github.io/2014/11/28/markdown-and-html</id><content type="html" xml:base="https://sylhare.github.io/2014/11/28/markdown-and-html.html">&lt;p&gt;Jekyll supports the use of &lt;a href=&quot;http://daringfireball.net/projects/markdown/syntax&quot;&gt;Markdown&lt;/a&gt; with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about text formatting. A sample of the formatting follows.&lt;/p&gt;
-
-&lt;h2 id=&quot;title&quot;&gt;Title&lt;/h2&gt;
-
-&lt;h3 id=&quot;sub-title&quot;&gt;Sub title&lt;/h3&gt;
-
-&lt;p&gt;Tables have also been extended from Markdown:&lt;/p&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;First Header&lt;/th&gt;
-      &lt;th&gt;Second Header&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Content Cell&lt;/td&gt;
-      &lt;td&gt;Content Cell&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Content Cell&lt;/td&gt;
-      &lt;td&gt;Content Cell&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;p&gt;Here’s an example of an image, which is included using Markdown:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/img/pexels/book-glass.jpeg&quot; alt=&quot;Image of a glass on a book&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;This is another example of list:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;list of things
-    &lt;ol&gt;
-      &lt;li&gt;Sub list&lt;/li&gt;
-      &lt;li&gt;of Other things&lt;/li&gt;
-      &lt;li&gt;with numbers&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
-  &lt;li&gt;And many more
-    &lt;ul&gt;
-      &lt;li&gt;Sub sub list
-        &lt;ul&gt;
-          &lt;li&gt;can go on …
-            &lt;ul&gt;
-              &lt;li&gt;and on …
-                &lt;ul&gt;
-                  &lt;li&gt;and on !&lt;/li&gt;
-                &lt;/ul&gt;
-              &lt;/li&gt;
-            &lt;/ul&gt;
-          &lt;/li&gt;
-        &lt;/ul&gt;
-      &lt;/li&gt;
-      &lt;li&gt;That’s it.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;other-subtitle&quot;&gt;Other subtitle&lt;/h3&gt;
-
-&lt;p&gt;Highlighting for code in Jekyll is done using Base16 or Rouge. This theme makes use of Rouge by default.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// count to ten&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;c1&quot;&gt;// count to twenty&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h3 id=&quot;math&quot;&gt;Math&lt;/h3&gt;
-
-&lt;p&gt;Type on Strap uses KaTeX to display maths. Equations such as \(S_n = a \times \frac{1-r^n}{1-r}\) can be displayed inline.&lt;/p&gt;
-
-&lt;p&gt;Alternatively, they can be shown on a new line:&lt;/p&gt;
-
-\[f(x) = \int \frac{2x^2+4x+6}{x-2}\]</content><author><name>Rohan Chandra</name></author><category term="Katex" /><category term="Markdown" /><summary type="html">Jekyll supports the use of Markdown with inline HTML tags which makes it easier to quickly write posts with Jekyll, without having to worry too much about text formatting. A sample of the formatting follows.</summary></entry><entry><title type="html">What’s your title</title><link href="https://sylhare.github.io/2014/11/27/whats-your-title.html" rel="alternate" type="text/html" title="What’s your title" /><published>2014-11-27T00:00:00+08:00</published><updated>2014-11-27T00:00:00+08:00</updated><id>https://sylhare.github.io/2014/11/27/whats-your-title</id><content type="html" xml:base="https://sylhare.github.io/2014/11/27/whats-your-title.html">&lt;p&gt;This is an example of a post which includes a feature image that has a
-text, where you don’t want to redisplay the title.
-Mind your image size in order for the text to be displayed where you want it to.
-The only limit is your imagination.&lt;/p&gt;
-
-&lt;p&gt;Here is how the yaml looks inside the post:&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;What's your title&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;hide_title&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;true&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;feature-img&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;assets/img/feature-img/story.jpeg&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;mhagnumdw&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;pi&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;Test&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;Lorem&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You may wonder, why is there a title when you are not actually displaying it. &lt;br /&gt;
-Well that’s due to some jekyll limitation:&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;You &lt;strong&gt;can’t&lt;/strong&gt; set the &lt;strong&gt;title&lt;/strong&gt; to the &lt;strong&gt;empty string&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;The title is used elsewhere than inside the post, for example in the blog page that list this post.
-An empty title would break those pages and possibly prevents jekyll to render your blog.&lt;/p&gt;</content><author><name>Mhagnumdw</name></author><category term="Test" /><category term="Image" /><summary type="html">This is an example of a post which includes a feature image that has a text, where you don’t want to redisplay the title. Mind your image size in order for the text to be displayed where you want it to. The only limit is your imagination.</summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><category term="Test" /><category term="Image" /><summary type="html">Hopefully you will find enough information about how to set images in your blog here. This is an example of a post which includes a feature image specified in the front matter of the post. The feature image spans the full-width of the page, and is shown with the title on permalink pages:</summary></entry></feed>
