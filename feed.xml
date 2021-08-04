@@ -1,4 +1,218 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-07-21T15:03:13+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">记录遇到过的http状态码</title><link href="https://sylhare.github.io/2021/07/02/http2.html" rel="alternate" type="text/html" title="记录遇到过的http状态码" /><published>2021-07-02T00:00:00+08:00</published><updated>2021-07-02T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/02/http2</id><content type="html" xml:base="https://sylhare.github.io/2021/07/02/http2.html">&lt;p&gt;&lt;em&gt;http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右&lt;/em&gt; &lt;!--more--&gt; &lt;em&gt;，这里记录我开发过程中遭遇的部分常用状态码&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-08-04T11:37:59+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">https对http做了什么改进</title><link href="https://sylhare.github.io/2021/07/04/http4.html" rel="alternate" type="text/html" title="https对http做了什么改进" /><published>2021-07-04T00:00:00+08:00</published><updated>2021-07-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/04/http4</id><content type="html" xml:base="https://sylhare.github.io/2021/07/04/http4.html">&lt;p&gt;&lt;em&gt;什么是https？https不是新的协议，而是在http协议的基础上建立SSL加密层，并对传输数据进行加密，是http协议的安全版。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;随着互联网业务对数据信息安全需求的日益提升，https的使用也越来越广泛&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http协议的缺点&quot;&gt;http协议的缺点&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;明文通信，在任何环节都可以被窃听；&lt;/li&gt;
+  &lt;li&gt;没有验证身份，有可能遭到伪装；&lt;/li&gt;
+  &lt;li&gt;无法验证报文完整性，通信过程可能遭到篡改；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;https对以上缺点的改进&quot;&gt;https对以上缺点的改进&lt;/h2&gt;
+
+&lt;h4 id=&quot;明文通信被窃听&quot;&gt;明文通信被窃听&lt;/h4&gt;
+
+&lt;p&gt;隐患：不论报文加不加密，在通信的任何过程都可能被窃听到。各种抓包工具（wireshark）和嗅探器就是利用这个原理。&lt;/p&gt;
+
+&lt;p&gt;解决：通信加密（HTTPS建立隧道）、内容加密（加密报文主体，不加密请求响应头，而且仍然可能被篡改）&lt;/p&gt;
+
+&lt;h4 id=&quot;没有身份验证&quot;&gt;没有身份验证&lt;/h4&gt;
+
+&lt;p&gt;隐患：伪装的服务器和客户端、没有权限的用户、无法确定请求出处、照单全收各种无意义请求引发DoS攻击&lt;/p&gt;
+
+&lt;p&gt;解决：SSL的证书手段&lt;/p&gt;
+
+&lt;h4 id=&quot;无法验证报文完整性&quot;&gt;无法验证报文完整性&lt;/h4&gt;
+
+&lt;p&gt;隐患：通信过程中可能被篡改而引发中间人攻击（MITM）&lt;/p&gt;
+
+&lt;p&gt;解决：完整性保护（SSL提供的认证和加密处理、摘要功能）&lt;/p&gt;
+
+&lt;h2 id=&quot;和https协议的优势&quot;&gt;和https协议的优势&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;数据隐私性：内容经过对称加密，每个连接生成一个唯一的加密密钥&lt;/li&gt;
+  &lt;li&gt;数据完整性：内容传输经过完整性校验&lt;/li&gt;
+  &lt;li&gt;身份认证：第三方无法伪造服务端（客户端）身份&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;说白了，https就是身披SSL外套的http；HTTPS = HTTP+加密+认证+完整性保护&lt;/p&gt;
+
+&lt;h2 id=&quot;解决内容被窃听的方法&quot;&gt;解决内容被窃听的方法&lt;/h2&gt;
+
+&lt;h4 id=&quot;共享密钥&quot;&gt;共享密钥：&lt;/h4&gt;
+
+&lt;p&gt;加密和解密使用同一串密钥的方式。这种方式加密和解密同用一个密钥。加密和解密都会用到密钥。没有密钥就无法对密码解密，反过来说，任何人只要持有密钥就能解密了。&lt;/p&gt;
+
+&lt;p&gt;共享密钥的困境：因为在传递过程中密钥可能会被截取利用，而丧失加密的意义。&lt;/p&gt;
+
+&lt;h4 id=&quot;公开密钥&quot;&gt;公开密钥&lt;/h4&gt;
+
+&lt;p&gt;使用一对非对称性的密钥。公开密钥用于加密，私有密钥进行解密。这样公开密钥被人拿到也没关系，拿到的人只能加密，不知道怎么解密。公开密钥解决了共享密钥的困境。&lt;/p&gt;
+
+&lt;p&gt;公开密钥的困境：你并没有办法验证公开密钥本身是不是货真价实的公开密钥。这就要求我们使用公开密钥证书来进行验证。&lt;/p&gt;
+
+&lt;h2 id=&quot;证书&quot;&gt;证书&lt;/h2&gt;
+
+&lt;p&gt;我们可以拿证书去跟数字验证协会做验证，那这个过程又怎么保证不被攻击呢。多数浏览器在发布版本时会事先在内部植入常用认证机关的公开密钥。&lt;/p&gt;
+
+&lt;h4 id=&quot;ssl证书按作用分为两种&quot;&gt;SSL证书按作用分为两种：&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;验证服务器是否规范；&lt;/li&gt;
+  &lt;li&gt;确认服务器背后运营企业是否真实存在（EV-SSL证书）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;其他的一些证书&quot;&gt;其他的一些证书：&lt;/h4&gt;
+&lt;ul&gt;
+  &lt;li&gt;客户端证书：用于验证客户端（比较少见，因为客户要自己安装，用于网银之类的应用）&lt;/li&gt;
+  &lt;li&gt;自认证机构和自签名证书：每个人都可以构建一套自己的认证机构（实际上没什么卵用）&lt;/li&gt;
+  &lt;li&gt;中级认证机构：这些机构颁发的证书有时会被浏览器当作自签名证书&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;ssl会使通讯变慢&quot;&gt;SSL会使通讯变慢&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;通信过程增加了SSL连接的步骤&lt;/li&gt;
+  &lt;li&gt;加密和解密过程占用cpu（所以只在关键部位使用HTTPS，浪费资源还有浪费钱）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;https的通信方式&quot;&gt;https的通信方式&lt;/h2&gt;
+
+&lt;p&gt;HTTPS采用混合加密机制进行通信：公开密钥虽然安全但是比共享密钥慢，先用公开密钥方式交换共享密钥，再使用共享密钥进行通信。&lt;/p&gt;
+
+&lt;h4 id=&quot;https的安全通信流程&quot;&gt;https的安全通信流程&lt;/h4&gt;
+&lt;ol&gt;
+  &lt;li&gt;客户端发送通信请求&lt;/li&gt;
+  &lt;li&gt;服务器把公开密钥和公开密钥证书发给客户端&lt;/li&gt;
+  &lt;li&gt;客户端使用浏览器自带的数字验证机构的密钥，向数字验证机构确认服务器的公开密钥的合法性&lt;/li&gt;
+  &lt;li&gt;客户端确认公开密钥合法，使用公开密钥加密一串共享密钥，然后把共享密钥发给服务器&lt;/li&gt;
+  &lt;li&gt;服务器使用私有密钥解密获得共享密钥&lt;/li&gt;
+  &lt;li&gt;然后服务器和客户端开始使用共享密钥进行通信&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Gua</name></author><category term="http" /><summary type="html">什么是https？https不是新的协议，而是在http协议的基础上建立SSL加密层，并对传输数据进行加密，是http协议的安全版。</summary></entry><entry><title type="html">基于http的功能追加协议</title><link href="https://sylhare.github.io/2021/07/03/http3.html" rel="alternate" type="text/html" title="基于http的功能追加协议" /><published>2021-07-03T00:00:00+08:00</published><updated>2021-07-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/03/http3</id><content type="html" xml:base="https://sylhare.github.io/2021/07/03/http3.html">&lt;p&gt;&lt;em&gt;为什么要有追加协议？为了弥补http协议的局限性&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;什么是http协议的局限性？http协议因为简单便捷而得到广泛使用，但是http协议的局限性随着互联网的发展日益捉襟见肘。本来呢，解决这些状况需要弄一套全新的协议，但是因为http协议已经遍布全球，无法完全摒弃http。所以在这种情况下，用于弥补http局限性的追加协议就诞生了。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;http协议的瓶颈&quot;&gt;http协议的瓶颈&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;一条链接只能发送一次请求；&lt;/li&gt;
+  &lt;li&gt;请求只能从客户端开始。客户端不可以接收除响应以外的指令；&lt;/li&gt;
+  &lt;li&gt;首部未经压缩，延迟很大；&lt;/li&gt;
+  &lt;li&gt;发送冗长又重复的首部，造成浪费；&lt;/li&gt;
+  &lt;li&gt;可任意选择数据压缩格式。非强制压缩发&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;ajax异步的javascript和xml&quot;&gt;Ajax：异步的JavaScript和XML&lt;/h4&gt;
+
+&lt;p&gt;优点：通过 JavaScript 脚本语言的调用就能和服务器进行 HTTP 通信，通过这种手段从已加载完毕的web页面上发起请求，只更新局部页面。&lt;/p&gt;
+
+&lt;p&gt;缺点：可能导致大量请求产生；仍未解决http协议本身的问题&lt;/p&gt;
+
+&lt;h4 id=&quot;comet延迟应答&quot;&gt;comet：延迟应答&lt;/h4&gt;
+
+&lt;p&gt;优点：客户端的请求先不响应而是保存在服务器中，这样做服务器内容一更新就立马响应；&lt;/p&gt;
+
+&lt;p&gt;缺点：为了保留响应要消耗很多服务器资源；仍未解决http协议本身的问题&lt;/p&gt;
+
+&lt;h4 id=&quot;spdy从协议层面上消除http瓶颈&quot;&gt;SPDY：从协议层面上消除http瓶颈&lt;/h4&gt;
+
+&lt;p&gt;SPDY 没有完全改写 HTTP 协议，而是在 TCP/IP 的应用层与运输层之间通过新加会话层的形式运作。同时，考虑到安全性问题，SPDY 规定通信中使用 SSL；&lt;/p&gt;
+
+&lt;p&gt;采用http通信，可照常使用http方法和报文、cookie等；&lt;/p&gt;
+
+&lt;p&gt;优点：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;多路复用流：无限制处理多个http请求；&lt;/li&gt;
+  &lt;li&gt;请求优先级：是为了在发送多个请求时，解决因带宽低而导致响应变慢的问题；&lt;/li&gt;
+  &lt;li&gt;压缩http首部：减少通信产生的字节数量&lt;/li&gt;
+  &lt;li&gt;推送功能：服务器可直接向客户端推送数据&lt;/li&gt;
+  &lt;li&gt;服务器提示功能：服务器可以主动提示客户端请求所需的资源；这样可以避免不必要的请求。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;缺点：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;把该技术导入实际的 Web 网站进展不佳；&lt;/li&gt;
+  &lt;li&gt;还有很多web问题不是因为http瓶颈产生的；&lt;/li&gt;
+  &lt;li&gt;SPDY 基本上只是将单个域名（ IP 地址）的通信多路复用，所以当一个 Web 网站上使用多个域名下的资源，改善效果就会受到限制；&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;websocketweb浏览器与服务器之间全双工通信标准&quot;&gt;webSocket：web浏览器与服务器之间全双工通信标准&lt;/h4&gt;
+
+&lt;p&gt;它不同于SPDY，是为了彻底解决HTTP瓶颈而实现的一套建立在http基础的新协议及API（如ajax和comit中的XMLHttpRequest附带的缺陷）&lt;/p&gt;
+
+&lt;p&gt;特点：&lt;/p&gt;
+
+&lt;p&gt;推送（服务器直接推送数据）、减少通信量（长连接、连接总开销减少、ws本身的首部信息也很小）&lt;/p&gt;
+
+&lt;p&gt;流程：&lt;/p&gt;
+
+&lt;p&gt;（1）握手请求：这里客户端要用到首部字段Upgrade来升级为webSocket协议；还要用到Sec-WebSocket-Key和Sec-WebSocket-Protocol等非标准首部字段；&lt;/p&gt;
+
+&lt;p&gt;（2）握手响应：服务器返回状态码101和相关字段确认连接成功；&lt;/p&gt;
+
+&lt;p&gt;（3）开始使用：连接成功后不再使用http数据帧，而开始使用webSocket数据帧；&lt;/p&gt;
+
+&lt;p&gt;API：webSocket有自己单独的Api，可以用js调用这些api&lt;/p&gt;
+
+&lt;p&gt;// 一个调用webSocket Api的例子&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WebSocket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;ws://game.example.com:12010/updates&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onopen&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;setInterval&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bufferedAmount&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;socket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getUpdateData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;http20随着上面提到的这些新技术的出现旧的http标准已经不再适用http20随之诞生&quot;&gt;HTTP2.0：随着上面提到的这些新技术的出现，旧的http标准已经不再适用，http2.0随之诞生&lt;/h4&gt;
+
+&lt;p&gt;特点：&lt;/p&gt;
+
+&lt;p&gt;SPDY；&lt;/p&gt;
+
+&lt;p&gt;HTTP Speed ＋ Mobility；（用于改善并提高移动端通信时的通信速度和性能的标准）&lt;/p&gt;
+
+&lt;p&gt;Network-Friendly HTTP Upgrade；（主要是在移动端通信时改善 HTTP 性能的标准）&lt;/p&gt;
+
+&lt;p&gt;主要技术：&lt;/p&gt;
+
+&lt;p&gt;http2.0围绕着主要的7项技术进行讨论，现阶段大都倾向于采用以下协议的技术。&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;压缩&lt;/td&gt;
+      &lt;td&gt;SPDY、Friendly&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;多路复用&lt;/td&gt;
+      &lt;td&gt;SPDY&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;TLS义务化&lt;/td&gt;
+      &lt;td&gt;Speed + Mobility&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;协商&lt;/td&gt;
+      &lt;td&gt;Speed + Mobility，Friendly&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;服务器推送&lt;/td&gt;
+      &lt;td&gt;Speed + Mobility&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;流量控制&lt;/td&gt;
+      &lt;td&gt;SPDY&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;WebSocket&lt;/td&gt;
+      &lt;td&gt;Speed + Mobility&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>Gua</name></author><category term="http" /><summary type="html">为什么要有追加协议？为了弥补http协议的局限性</summary></entry><entry><title type="html">常见http状态码</title><link href="https://sylhare.github.io/2021/07/02/http2.html" rel="alternate" type="text/html" title="常见http状态码" /><published>2021-07-02T00:00:00+08:00</published><updated>2021-07-02T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/02/http2</id><content type="html" xml:base="https://sylhare.github.io/2021/07/02/http2.html">&lt;p&gt;&lt;em&gt;http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右&lt;/em&gt; &lt;!--more--&gt; &lt;em&gt;，这里记录我开发过程中遭遇的部分常用状态码&lt;/em&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;http状态码的类别&quot;&gt;http状态码的类别&lt;/h4&gt;
 
@@ -716,180 +930,4 @@ If you want another one, put it in &lt;code class=&quot;language-plaintext highl
 
 &lt;blockquote&gt;
   &lt;p&gt;⚠️ It’s a bit hacking the css in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;post.html&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Sylhare</name></author><category term="Test" /><category term="Color" /><summary type="html">What a colorful post! This is an idea that came from xukimseven/HardCandy-Jekyll looking at this cheerful and colorful theme, I wanted to enable something similar for Type-on-Strap. You can go fork and star HardCandy-Jekyll too! 😉</summary></entry><entry><title type="html">Bootstrap</title><link href="https://sylhare.github.io/2017/09/17/Use-Bootstrap.html" rel="alternate" type="text/html" title="Bootstrap" /><published>2017-09-17T00:00:00+08:00</published><updated>2017-09-17T00:00:00+08:00</updated><id>https://sylhare.github.io/2017/09/17/Use-Bootstrap</id><content type="html" xml:base="https://sylhare.github.io/2017/09/17/Use-Bootstrap.html">&lt;p&gt;This theme is compatible with Bootstrap if you choose to use it in your pages or posts.
-Here is a little demo with a code snippet, look at the source to see how the HTML and markdown get tangled.&lt;/p&gt;
-
-&lt;h2 id=&quot;use-bootstrap&quot;&gt;Use bootstrap&lt;/h2&gt;
-
-&lt;p&gt;Add some custom Bootstrap in the custom layout!&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://startbootstrap.com/assets/img/sb-logo.svg&quot; alt=&quot;startbootstrap&quot; width=&quot;500&quot; /&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;snippet-example&quot;&gt;Snippet example&lt;/h3&gt;
-
-&lt;p&gt;If you are new to Bootstrap you can  always check the &lt;a href=&quot;https://getbootstrap.com/docs/4.1/getting-started/introduction/&quot;&gt;documentation&lt;/a&gt;.&lt;br /&gt;
-Here is an example from &lt;a href=&quot;https://startbootstrap.com/snippets/portfolio-two-column&quot;&gt;startbootstrap.com&lt;/a&gt;.&lt;/p&gt;
-
-&lt;!-- Page Content --&gt;
-&lt;div class=&quot;container&quot;&gt;
-
-  &lt;div class=&quot;row&quot;&gt;
-    &lt;div class=&quot;col-lg-6 mb-4&quot;&gt;
-      &lt;div class=&quot;card h-100&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img class=&quot;card-img-top&quot; src=&quot;http://placehold.it/700x400&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-        &lt;div class=&quot;card-body&quot;&gt;
-          &lt;h4 class=&quot;card-title&quot;&gt;
-            &lt;a href=&quot;#&quot;&gt;Project One&lt;/a&gt;
-          &lt;/h4&gt;
-          &lt;p class=&quot;card-text&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col-lg-6 mb-4&quot;&gt;
-      &lt;div class=&quot;card h-100&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img class=&quot;card-img-top&quot; src=&quot;http://placehold.it/700x400&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-        &lt;div class=&quot;card-body&quot;&gt;
-          &lt;h4 class=&quot;card-title&quot;&gt;
-            &lt;a href=&quot;#&quot;&gt;Project Two&lt;/a&gt;
-          &lt;/h4&gt;
-          &lt;p class=&quot;card-text&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit aliquam aperiam nulla perferendis dolor nobis numquam, rem expedita, aliquid optio, alias illum eaque. Non magni, voluptates quae, necessitatibus unde temporibus.&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col-lg-6 mb-4&quot;&gt;
-      &lt;div class=&quot;card h-100&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img class=&quot;card-img-top&quot; src=&quot;http://placehold.it/700x400&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-        &lt;div class=&quot;card-body&quot;&gt;
-          &lt;h4 class=&quot;card-title&quot;&gt;
-            &lt;a href=&quot;#&quot;&gt;Project Three&lt;/a&gt;
-          &lt;/h4&gt;
-          &lt;p class=&quot;card-text&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col-lg-6 mb-4&quot;&gt;
-      &lt;div class=&quot;card h-100&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img class=&quot;card-img-top&quot; src=&quot;http://placehold.it/700x400&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-        &lt;div class=&quot;card-body&quot;&gt;
-          &lt;h4 class=&quot;card-title&quot;&gt;
-            &lt;a href=&quot;#&quot;&gt;Project Four&lt;/a&gt;
-          &lt;/h4&gt;
-          &lt;p class=&quot;card-text&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit aliquam aperiam nulla perferendis dolor nobis numquam, rem expedita, aliquid optio, alias illum eaque. Non magni, voluptates quae, necessitatibus unde temporibus.&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col-lg-6 mb-4&quot;&gt;
-      &lt;div class=&quot;card h-100&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img class=&quot;card-img-top&quot; src=&quot;http://placehold.it/700x400&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-        &lt;div class=&quot;card-body&quot;&gt;
-          &lt;h4 class=&quot;card-title&quot;&gt;
-            &lt;a href=&quot;#&quot;&gt;Project Five&lt;/a&gt;
-          &lt;/h4&gt;
-          &lt;p class=&quot;card-text&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div class=&quot;col-lg-6 mb-4&quot;&gt;
-      &lt;div class=&quot;card h-100&quot;&gt;
-        &lt;a href=&quot;#&quot;&gt;&lt;img class=&quot;card-img-top&quot; src=&quot;http://placehold.it/700x400&quot; alt=&quot;&quot; /&gt;&lt;/a&gt;
-        &lt;div class=&quot;card-body&quot;&gt;
-          &lt;h4 class=&quot;card-title&quot;&gt;
-            &lt;a href=&quot;#&quot;&gt;Project Six&lt;/a&gt;
-          &lt;/h4&gt;
-          &lt;p class=&quot;card-text&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit aliquam aperiam nulla perferendis dolor nobis numquam, rem expedita, aliquid optio, alias illum eaque. Non magni, voluptates quae, necessitatibus unde temporibus.&lt;/p&gt;
-        &lt;/div&gt;
-      &lt;/div&gt;
-    &lt;/div&gt;
-  &lt;/div&gt;
-  &lt;!-- /.row --&gt;
-
-&lt;/div&gt;
-&lt;!-- /.container --&gt;
-
-&lt;h3 id=&quot;mix-it-with-markdown&quot;&gt;Mix it with Markdown&lt;/h3&gt;
-
-&lt;p&gt;All the above was custom HTML with Bootstrap.
-You can also mix it up with some markdown.&lt;/p&gt;
-
-&lt;p&gt;You can use the bootstrap’s build in javascript API to control your event.
-Here is a code snippet for the &lt;a href=&quot;https://getbootstrap.com/docs/4.0/getting-started/javascript/&quot;&gt;documentation&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;#myModal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;show.bs.modal&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// stops modal from being shown&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;That’s just for demo though, you would need to properly integrate your javascript in your page.
-Usually you would put any custom javascript script in the &lt;em&gt;assets&lt;/em&gt; folder under js and reference it in your page from there.&lt;/p&gt;
-
-&lt;p&gt;So try it out using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bootstrap: true&lt;/code&gt; flag! 😉&lt;/p&gt;</content><author><name></name></author><category term="Test" /><summary type="html">This theme is compatible with Bootstrap if you choose to use it in your pages or posts. Here is a little demo with a code snippet, look at the source to see how the HTML and markdown get tangled.</summary></entry><entry><title type="html">Feature images</title><link href="https://sylhare.github.io/2014/11/29/feature-images.html" rel="alternate" type="text/html" title="Feature images" /><published>2014-11-29T00:00:00+08:00</published><updated>2014-11-29T00:00:00+08:00</updated><id>https://sylhare.github.io/2014/11/29/feature-images</id><content type="html" xml:base="https://sylhare.github.io/2014/11/29/feature-images.html">&lt;p&gt;Hopefully you will find enough information about how to set images in your blog here.
-This is an example of a post which includes a feature image specified in the front matter of the post. 
-The feature image spans the full-width of the page, and is shown with the title on permalink pages:&lt;/p&gt;
-
-&lt;div class=&quot;language-yaml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;feature-img&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;assets/img/feature-img/desk-messy.jpeg&quot;&lt;/span&gt;
-&lt;span class=&quot;na&quot;&gt;thumbnail&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;assets/img/thumbnails/feature-img/desk-messy.jpeg&quot;&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;You can also use a thumbnail, a smaller version of the same image to improve loading of the page.
-The thumbnail will also be used when you share your article on other platform (linkedin, whatsapp, facebook, …).&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;ul&gt;
-    &lt;li&gt;And now it is working&lt;/li&gt;
-  &lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;You can also add images aligned in your post using the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;aligner&lt;/code&gt; include.
-Make sure to separate all of the image path from in a string separated with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;,&lt;/code&gt;.
-It by default look into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;assets/img/&lt;/code&gt; so give the path from there, example:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% include &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aligner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pexels/book-glass.jpeg,triangle.png&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;div class=&quot;row&quot;&gt;
-    
-    &lt;div class=&quot;column&quot;&gt;
-        &lt;img src=&quot;/assets/img/pexels/book-glass.jpeg&quot; alt=&quot;book-glass.jpeg&quot; /&gt;
-    &lt;/div&gt;
-    
-    &lt;div class=&quot;column&quot;&gt;
-        &lt;img src=&quot;/assets/img/feature-img/desk-messy.jpeg&quot; alt=&quot;desk-messy.jpeg&quot; /&gt;
-    &lt;/div&gt;
-    
-&lt;/div&gt;
-
-&lt;p&gt;Here you have two images side by side, but you can set more and set the amount per columns 
-(by specifying the number of columns or let it be automatic using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&quot;auto&quot;&lt;/code&gt;):&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% include &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aligner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;portfolio/cabin.png,portfolio/cake.png,portfolio/circus.png&quot;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;column&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;div class=&quot;row&quot;&gt;
-    
-    &lt;div style=&quot;flex: 33.333333333333336%&quot;&gt;
-        &lt;img src=&quot;/assets/img/portfolio/cabin.png&quot; alt=&quot;cabin.png&quot; /&gt;
-    &lt;/div&gt;
-    
-    &lt;div style=&quot;flex: 33.333333333333336%&quot;&gt;
-        &lt;img src=&quot;/assets/img/portfolio/cake.png&quot; alt=&quot;cake.png&quot; /&gt;
-    &lt;/div&gt;
-    
-    &lt;div style=&quot;flex: 33.333333333333336%&quot;&gt;
-        &lt;img src=&quot;/assets/img/portfolio/circus.png&quot; alt=&quot;circus.png&quot; /&gt;
-    &lt;/div&gt;
-    
-&lt;/div&gt;
-
-&lt;p&gt;it also works with only one images, it is made to display it smaller than normally.
-However you can just use the Markdown way of doing it to get the image normal sized and centered.&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;c1&quot;&gt;# Markdown way (bigger)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Travel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]({{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;/assets/img/pexels/computer.jpeg&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;relative_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}})&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# Aligner with only One (50% of width)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;sx&quot;&gt;% include &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;aligner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;html&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;images&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;pexels/computer.jpeg&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;div class=&quot;row&quot;&gt;
-    
-    &lt;div class=&quot;column&quot;&gt;
-        &lt;img class=&quot;single&quot; src=&quot;/assets/img/pexels/computer.jpeg&quot; alt=&quot;computer.jpeg&quot; /&gt;
-    &lt;/div&gt;
-    
-&lt;/div&gt;</content><author><name></name></author><category term="Test" /><category term="Image" /><summary type="html">Hopefully you will find enough information about how to set images in your blog here. This is an example of a post which includes a feature image specified in the front matter of the post. The feature image spans the full-width of the page, and is shown with the title on permalink pages:</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name>Sylhare</name></author><category term="Test" /><category term="Color" /><summary type="html">What a colorful post! This is an idea that came from xukimseven/HardCandy-Jekyll looking at this cheerful and colorful theme, I wanted to enable something similar for Type-on-Strap. You can go fork and star HardCandy-Jekyll too! 😉</summary></entry></feed>
