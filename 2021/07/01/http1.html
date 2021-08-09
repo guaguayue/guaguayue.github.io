@@ -65,10 +65,10 @@
 <title>web攻击技术简述 | Guo Yue Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="web攻击技术简述" />
-<meta name="author" content="Gua" />
+<meta name="author" content="gua" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。" />
-<meta property="og:description" content="web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。" />
+<meta name="description" content="前言 web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。" />
+<meta property="og:description" content="前言 web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。" />
 <link rel="canonical" href="https://sylhare.github.io/2021/07/01/http1.html" />
 <meta property="og:url" content="https://sylhare.github.io/2021/07/01/http1.html" />
 <meta property="og:site_name" content="Guo Yue Blog" />
@@ -77,7 +77,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="web攻击技术简述" />
 <script type="application/ld+json">
-{"headline":"web攻击技术简述","description":"web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。","dateModified":"2021-07-01T00:00:00+08:00","datePublished":"2021-07-01T00:00:00+08:00","url":"https://sylhare.github.io/2021/07/01/http1.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2021/07/01/http1.html"},"author":{"@type":"Person","name":"Gua"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"前言 web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。","url":"https://sylhare.github.io/2021/07/01/http1.html","headline":"web攻击技术简述","dateModified":"2021-07-01T00:00:00+08:00","datePublished":"2021-07-01T00:00:00+08:00","author":{"@type":"Person","name":"gua"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2021/07/01/http1.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -86,7 +86,7 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:title" content="web攻击技术简述">
-    <meta name="twitter:description" content="web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。 http协议的特点http不具备必要的安全功能http协议本身是一个简单的单纯协议机制，这一点使它具备众多优势，也使它在安全性方面呈现劣...">
+    <meta name="twitter:description" content="前言web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。 http协议的特点http不具备必要的安全功能http协议本身是一个简单的单纯协议机制，这一点使它具备众多优势，也使它在安全性方面呈...">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://sylhare.github.io/assets/img/pexels/triangular.jpeg">
@@ -202,12 +202,6 @@
             
             
         
-            
-            
-        
-            
-            
-        
         
         
         <li class="separator"> | </li>
@@ -227,14 +221,12 @@
       
 
 
-<div class="post-info"><a href="https://github.com/guaguayue" target="_blank">
-      <img alt="Author's avatar" src="/assets/img/triangle.png">
-    
+<div class="post-info">
     <p class="meta">
-      Gua - 
+      
       
       July 01, 2021
-    </p></a></div>
+    </p></div>
 
       
     </div>
@@ -242,7 +234,9 @@
 
   <section class="post-content">
   
-      <p><em>web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。</em> <!--more--></p>
+      <h2 id="前言">前言</h2>
+
+<p><em>web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。</em> <!--more--></p>
 
 <h2 id="http协议的特点">http协议的特点</h2>
 
@@ -407,12 +401,12 @@
   }
   
   
-  .feature-image a { color: #eeeeee !important; }
-  div#post-nav a { color: #eeeeee !important; }
-  footer a { color: #eeeeee !important; }
-  .site-header nav a:hover {  color: #eeeeee !important; }
+  .feature-image a { color: #983232 !important; }
+  div#post-nav a { color: #983232 !important; }
+  footer a { color: #983232 !important; }
+  .site-header nav a:hover {  color: #983232 !important; }
   header#main { 
-      background-color: #eeeeee !important;
+      background-color: #983232 !important;
       background-image: url('/assets/img/lineart.png');
   }
   
@@ -429,88 +423,7 @@
                 <ul>
                 <!-- Social icons from Font Awesome, if enabled -->
                 <!--  -->
-<!-- 这里默认给了一个可以去social中设置的参数，具体是什么没看，先注释掉 -->
-<!-- <li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li> -->
-<!--  -->
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 
                 </ul>

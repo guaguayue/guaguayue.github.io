@@ -65,10 +65,10 @@
 <title>基于http的功能追加协议 | Guo Yue Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="基于http的功能追加协议" />
-<meta name="author" content="Gua" />
+<meta name="author" content="gua" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="为什么要有追加协议？为了弥补http协议的局限性" />
-<meta property="og:description" content="为什么要有追加协议？为了弥补http协议的局限性" />
+<meta name="description" content="前言 - 为什么要有追加协议？ 为了弥补http协议的局限性。" />
+<meta property="og:description" content="前言 - 为什么要有追加协议？ 为了弥补http协议的局限性。" />
 <link rel="canonical" href="https://sylhare.github.io/2021/07/03/http3.html" />
 <meta property="og:url" content="https://sylhare.github.io/2021/07/03/http3.html" />
 <meta property="og:site_name" content="Guo Yue Blog" />
@@ -77,7 +77,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="基于http的功能追加协议" />
 <script type="application/ld+json">
-{"headline":"基于http的功能追加协议","description":"为什么要有追加协议？为了弥补http协议的局限性","dateModified":"2021-07-03T00:00:00+08:00","datePublished":"2021-07-03T00:00:00+08:00","url":"https://sylhare.github.io/2021/07/03/http3.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2021/07/03/http3.html"},"author":{"@type":"Person","name":"Gua"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"前言 - 为什么要有追加协议？ 为了弥补http协议的局限性。","url":"https://sylhare.github.io/2021/07/03/http3.html","headline":"基于http的功能追加协议","dateModified":"2021-07-03T00:00:00+08:00","datePublished":"2021-07-03T00:00:00+08:00","author":{"@type":"Person","name":"gua"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2021/07/03/http3.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -86,7 +86,7 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:title" content="基于http的功能追加协议">
-    <meta name="twitter:description" content="为什么要有追加协议？为了弥补http协议的局限性 什么是http协议的局限性？http协议因为简单便捷而得到广泛使用，但是http协议的局限性随着互联网的发展日益捉襟见肘。本来呢，解决这些状况需要弄一套全新的协议，但是因为http协议已经遍布全球，无法完全摒弃http。所以在这种情况下，用于弥补http局限性的追...">
+    <meta name="twitter:description" content="前言- 为什么要有追加协议？为了弥补http协议的局限性。 - 什么是http协议的局限性？http协议因为简单便捷而得到广泛使用，但是http协议的局限性随着互联网的发展日益捉襟见肘。本来呢，解决这些状况需要弄一套全新的协议，但是因为http协议已经遍布全球，无法完全摒弃http。所以在这种情况下，用于弥补ht...">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://sylhare.github.io/assets/img/pexels/triangular.jpeg">
@@ -202,12 +202,6 @@
             
             
         
-            
-            
-        
-            
-            
-        
         
         
         <li class="separator"> | </li>
@@ -227,14 +221,12 @@
       
 
 
-<div class="post-info"><a href="https://github.com/guaguayue" target="_blank">
-      <img alt="Author's avatar" src="/assets/img/triangle.png">
-    
+<div class="post-info">
     <p class="meta">
-      Gua - 
+      
       
       July 03, 2021
-    </p></a></div>
+    </p></div>
 
       
     </div>
@@ -242,11 +234,17 @@
 
   <section class="post-content">
   
-      <p><em>为什么要有追加协议？为了弥补http协议的局限性</em> <!--more--></p>
+      <h2 id="前言">前言</h2>
 
-<p><em>什么是http协议的局限性？http协议因为简单便捷而得到广泛使用，但是http协议的局限性随着互联网的发展日益捉襟见肘。本来呢，解决这些状况需要弄一套全新的协议，但是因为http协议已经遍布全球，无法完全摒弃http。所以在这种情况下，用于弥补http局限性的追加协议就诞生了。</em></p>
+<p><em>- 为什么要有追加协议？</em></p>
 
-<h4 id="http协议的瓶颈">http协议的瓶颈</h4>
+<p><em>为了弥补http协议的局限性。</em> <!--more--></p>
+
+<p><em>- 什么是http协议的局限性？</em></p>
+
+<p><em>http协议因为简单便捷而得到广泛使用，但是http协议的局限性随着互联网的发展日益捉襟见肘。本来呢，解决这些状况需要弄一套全新的协议，但是因为http协议已经遍布全球，无法完全摒弃http。所以在这种情况下，用于弥补http局限性的追加协议就诞生了。</em></p>
+
+<h2 id="http协议的瓶颈">http协议的瓶颈</h2>
 
 <ul>
   <li>一条链接只能发送一次请求；</li>
@@ -255,6 +253,8 @@
   <li>发送冗长又重复的首部，造成浪费；</li>
   <li>可任意选择数据压缩格式。非强制压缩发</li>
 </ul>
+
+<h2 id="一些追加协议">一些追加协议</h2>
 
 <h4 id="ajax异步的javascript和xml">Ajax：异步的JavaScript和XML</h4>
 
@@ -437,12 +437,12 @@
   }
   
   
-  .feature-image a { color: #cc8bc8 !important; }
-  div#post-nav a { color: #cc8bc8 !important; }
-  footer a { color: #cc8bc8 !important; }
-  .site-header nav a:hover {  color: #cc8bc8 !important; }
+  .feature-image a { color: #983232 !important; }
+  div#post-nav a { color: #983232 !important; }
+  footer a { color: #983232 !important; }
+  .site-header nav a:hover {  color: #983232 !important; }
   header#main { 
-      background-color: #cc8bc8 !important;
+      background-color: #983232 !important;
       background-image: url('/assets/img/lineart.png');
   }
   
@@ -459,88 +459,7 @@
                 <ul>
                 <!-- Social icons from Font Awesome, if enabled -->
                 <!--  -->
-<!-- 这里默认给了一个可以去social中设置的参数，具体是什么没看，先注释掉 -->
-<!-- <li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li> -->
-<!--  -->
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 
                 </ul>

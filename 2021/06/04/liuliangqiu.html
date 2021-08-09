@@ -65,10 +65,10 @@
 <title>纯css和css属性实现动态流量小球 | Guo Yue Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="纯css和css属性实现动态流量小球" />
-<meta name="author" content="Gua" />
+<meta name="author" content="gua" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="郭越的博客" />
-<meta property="og:description" content="郭越的博客" />
+<meta name="description" content="前言 在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？" />
+<meta property="og:description" content="前言 在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？" />
 <link rel="canonical" href="https://sylhare.github.io/2021/06/04/liuliangqiu.html" />
 <meta property="og:url" content="https://sylhare.github.io/2021/06/04/liuliangqiu.html" />
 <meta property="og:site_name" content="Guo Yue Blog" />
@@ -77,7 +77,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="纯css和css属性实现动态流量小球" />
 <script type="application/ld+json">
-{"headline":"纯css和css属性实现动态流量小球","description":"郭越的博客","dateModified":"2021-06-04T00:00:00+08:00","datePublished":"2021-06-04T00:00:00+08:00","url":"https://sylhare.github.io/2021/06/04/liuliangqiu.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2021/06/04/liuliangqiu.html"},"author":{"@type":"Person","name":"Gua"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"前言 在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？","url":"https://sylhare.github.io/2021/06/04/liuliangqiu.html","headline":"纯css和css属性实现动态流量小球","dateModified":"2021-06-04T00:00:00+08:00","datePublished":"2021-06-04T00:00:00+08:00","author":{"@type":"Person","name":"gua"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2021/06/04/liuliangqiu.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -86,7 +86,7 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:title" content="纯css和css属性实现动态流量小球">
-    <meta name="twitter:description" content="前记在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？静态CSS实现波浪效果研究前端实现波浪效果的过程中，我查阅到一些不同的实现方式，比如使用css库CSS Trick；再如使用canvas画贝塞尔曲线；或者干脆就是通过定时器循环移动一个切图等。而...">
+    <meta name="twitter:description" content="前言在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？静态CSS实现波浪效果研究前端实现波浪效果的过程中，我查阅到一些不同的实现方式，比如使用css库CSS Trick；再如使用canvas画贝塞尔曲线；或者干脆就是通过定时器循环移动一个切图等。而...">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://sylhare.github.io/assets/img/pexels/triangular.jpeg">
@@ -202,12 +202,6 @@
             
             
         
-            
-            
-        
-            
-            
-        
         
         
         <li class="separator"> | </li>
@@ -227,14 +221,12 @@
       
 
 
-<div class="post-info"><a href="https://github.com/guaguayue" target="_blank">
-      <img alt="Author's avatar" src="/assets/img/triangle.png">
-    
+<div class="post-info">
     <p class="meta">
-      Gua - 
+      
       
       June 04, 2021
-    </p></a></div>
+    </p></div>
 
       
     </div>
@@ -242,10 +234,9 @@
 
   <section class="post-content">
   
-      <!--more-->
-<h2 id="前记">前记</h2>
+      <h2 id="前言">前言</h2>
 
-<p>在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？</p>
+<p><em>在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？</em><!--more--></p>
 
 <p><img src="https://img-blog.csdnimg.cn/2021061916155095.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70" alt="img" /></p>
 
@@ -253,7 +244,7 @@
 
 <p>研究前端实现波浪效果的过程中，我查阅到一些不同的实现方式，比如使用css库CSS Trick；再如使用canvas画贝塞尔曲线；或者干脆就是通过定时器循环移动一个切图等。</p>
 
-<p>而最打动我的方式是来自chokcoco先生的纯css实现波浪效果，于是自己尝试着也实现一次。</p>
+<p>而最打动我的方式是来自chokcoco大神的纯css实现波浪效果，于是自己尝试着也实现一次。</p>
 
 <h4 id="原理">原理</h4>
 
@@ -338,16 +329,12 @@
   <div class="tag-list">
     <ul>
       
-        <li class="meta">Tags</li>
+        <li class="meta">Tag</li>
       
 
       
         <li><a class="button" href="/tags#CSS">
           <p><i class="fas fa-tag fa-fw fa-sm"></i> CSS</p>
-        </a></li>
-      
-        <li><a class="button" href="/tags#vue">
-          <p><i class="fas fa-tag fa-fw fa-sm"></i> vue</p>
         </a></li>
       
     </ul>
@@ -399,12 +386,12 @@
   }
   
   
-  .feature-image a { color: #6bc368 !important; }
-  div#post-nav a { color: #6bc368 !important; }
-  footer a { color: #6bc368 !important; }
-  .site-header nav a:hover {  color: #6bc368 !important; }
+  .feature-image a { color: #9a9ada !important; }
+  div#post-nav a { color: #9a9ada !important; }
+  footer a { color: #9a9ada !important; }
+  .site-header nav a:hover {  color: #9a9ada !important; }
   header#main { 
-      background-color: #6bc368 !important;
+      background-color: #9a9ada !important;
       background-image: url('/assets/img/lineart.png');
   }
   
@@ -421,88 +408,7 @@
                 <ul>
                 <!-- Social icons from Font Awesome, if enabled -->
                 <!--  -->
-<!-- 这里默认给了一个可以去social中设置的参数，具体是什么没看，先注释掉 -->
-<!-- <li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li> -->
-<!--  -->
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 
                 </ul>

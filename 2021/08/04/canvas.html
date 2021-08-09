@@ -65,10 +65,10 @@
 <title>canvas实现图片-点阵转化 | Guo Yue Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="canvas实现图片-点阵转化" />
-<meta name="author" content="Gua" />
+<meta name="author" content="gua" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？" />
-<meta property="og:description" content="你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？" />
+<meta name="description" content="前言 你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？" />
+<meta property="og:description" content="前言 你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？" />
 <link rel="canonical" href="https://sylhare.github.io/2021/08/04/canvas.html" />
 <meta property="og:url" content="https://sylhare.github.io/2021/08/04/canvas.html" />
 <meta property="og:site_name" content="Guo Yue Blog" />
@@ -77,7 +77,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="canvas实现图片-点阵转化" />
 <script type="application/ld+json">
-{"headline":"canvas实现图片-点阵转化","description":"你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？","dateModified":"2021-08-04T00:00:00+08:00","datePublished":"2021-08-04T00:00:00+08:00","url":"https://sylhare.github.io/2021/08/04/canvas.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2021/08/04/canvas.html"},"author":{"@type":"Person","name":"Gua"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"description":"前言 你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？","url":"https://sylhare.github.io/2021/08/04/canvas.html","headline":"canvas实现图片-点阵转化","dateModified":"2021-08-04T00:00:00+08:00","datePublished":"2021-08-04T00:00:00+08:00","author":{"@type":"Person","name":"gua"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2021/08/04/canvas.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -86,7 +86,7 @@
 
     <!-- Twitter Cards -->
     <meta name="twitter:title" content="canvas实现图片-点阵转化">
-    <meta name="twitter:description" content="你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？你有没有看过无人机矩阵的精彩表演？你有见过黑白木刻风的艺术照片吗？今天，我想尝试借助canvas，来实现一些有趣的图片点阵化转化。话不多说，直接开始。一、绘图1.canvas绘图的第一步，当然是绑定canvas标签// html...">
+    <meta name="twitter:description" content="前言你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？你有没有看过无人机矩阵的精彩表演？你有见过黑白木刻风的艺术照片吗？今天，基于这些启发，我尝试借助canvas，来实现一些有趣的图片点阵化转化。话不多说，直接开始。一、绘图1.canvas绘图的第一步，当然是绑定canvas标...">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://sylhare.github.io/assets/img/pexels/triangular.jpeg">
@@ -202,12 +202,6 @@
             
             
         
-            
-            
-        
-            
-            
-        
         
         
         <li class="separator"> | </li>
@@ -227,14 +221,12 @@
       
 
 
-<div class="post-info"><a href="https://github.com/guaguayue" target="_blank">
-      <img alt="Author's avatar" src="/assets/img/triangle.png">
-    
+<div class="post-info">
     <p class="meta">
-      Gua - 
+      
       
       August 04, 2021
-    </p></a></div>
+    </p></div>
 
       
     </div>
@@ -242,11 +234,13 @@
 
   <section class="post-content">
   
-      <p><em>你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？</em><!--more--><em>你有没有看过无人机矩阵的精彩表演？你有见过黑白木刻风的艺术照片吗？</em></p>
+      <h2 id="前言">前言</h2>
+
+<p><em>你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？</em><!--more--><em>你有没有看过无人机矩阵的精彩表演？你有见过黑白木刻风的艺术照片吗？</em></p>
 
 <p><img src="https://img-blog.csdnimg.cn/20210807175828367.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70" alt="img" /></p>
 
-<p>今天，我想尝试借助canvas，来实现一些有趣的图片点阵化转化。话不多说，直接开始。</p>
+<p>今天，基于这些启发，我尝试借助canvas，来实现一些有趣的图片点阵化转化。话不多说，直接开始。</p>
 
 <h2 id="一绘图">一、绘图</h2>
 <p>1.canvas绘图的第一步，当然是绑定canvas标签</p>
@@ -261,7 +255,7 @@
 <span class="kd">let</span> <span class="nx">img</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">'</span><span class="s1">img2</span><span class="dl">'</span><span class="p">)</span><span class="c1">// 获取图片对象</span>
 </code></pre></div></div>
 
-<p>2.这里创建context对象需要再浏览器加载完毕后执行，别忘了将代码放在window.onload中</p>
+<p>2.这里创建context对象需要在浏览器加载完毕后执行，别忘了将代码放在window.onload中</p>
 
 <p>3.接着，需要根据照片的长宽对canvas的长宽进行调整（这里我固定了图片和canvas容器的宽度为500px，然后计算高度）</p>
 
@@ -283,7 +277,7 @@
 
 <p>1.有了图片，我们就可以开始对每个像素点进行分析了。这里我们要用到的是canvas context对象的getImageData来获取像素点信息，分别可以定义的参数为（左上角x轴，左上角y轴，所需获取的x轴像素，所需获取的y轴像素）。</p>
 
-<p>2.这里关于getImageData方法有一个需要注意的点，如果我们是引入本地图片后使用getImageData，会出现跨域想象。改用网传的火狐浏览器还是不能使用。无奈改为以vue-cli来构建整个demo，然后从node服务器获取图片资源。</p>
+<p>2.这里关于getImageData方法有一个需要注意的点，如果我们是引入本地图片后使用getImageData，会出现跨域现象。网传的火狐浏览器下不会出现该问题（亲测无效）。无奈改为以vue-cli来构建整个demo，然后从node服务器获取图片资源。</p>
 
 <div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="nx">canvas2</span><span class="p">.</span><span class="nx">width</span>
 <span class="kd">let</span> <span class="nx">y</span> <span class="o">=</span> <span class="nx">canvas2</span><span class="p">.</span><span class="nx">height</span>
@@ -303,9 +297,9 @@
 
 <h2 id="三像素点信息初步处理"> 三、像素点信息初步处理</h2>
 
-<p>1.我们的最终目的，是为了把图片转换成点阵。所以，我们需要采用某种方式判断当前的点是否打点。这里我们利用rgb颜色值的特点，采用#r<em> 0.299+#g</em>0.587+#b* 0.114的值来判断颜色的深浅。这个值是在0~255之间，越靠近255，说明当前点的颜色越浅。</p>
+<p>1.我们的最终目的，是为了把图片转换成点阵。所以，我们需要采用某种方式判断当前的点是否打点。这里我们利用rgb颜色值的特点，采用一条公式<code class="language-plaintext highlighter-rouge">#R* 0.299+#G*0.587+#B* 0.114</code>的值来判断颜色的深浅。这个值是在0~255之间，越靠近255，说明当前点的颜色越浅。</p>
 
-<p>这里，我暂时已225作为临界值，如果值超过225则为浅色打空心点，如果值低于225则为深色打实心点。</p>
+<p>这里，我暂时以225作为临界值，如果值超过225则为浅色打空心点，如果值低于225则为深色打实心点。</p>
 
 <p>同时，我暂时设置每十个点获取一次，这样不会因为图片过大导致点阵过大。</p>
 
@@ -333,7 +327,7 @@
 
 <h2 id="四像素点进一步处理">四、像素点进一步处理</h2>
 
-<p>为什么上面的效果不太理想呢，这里多个原因。</p>
+<p>为什么上面的效果不太理想呢，这里我分析可能有多个原因。</p>
 
 <ul>
   <li>
@@ -343,11 +337,12 @@
     <p>其次，刚刚我们写死了判断深浅的的关键数值为225，这并不能适用于每一张图片，因为有的图深色像素多，有的图深色像素少。</p>
   </li>
   <li>
-    <p>同时，刚刚我们也写死了像素获取的精度为十分之一，这也导致了没张图的处理效果差异；</p>
+    <p>同时，刚刚我们也写死了像素获取的精度为十分之一，这也导致了每张图的处理效果有一定差异；</p>
+  </li>
+  <li>
+    <p>最后，本来我们这里就只设置了黑白两色，对于细节的表示肯定是有所欠缺。</p>
   </li>
 </ul>
-
-<p>- 最后，本来我们这里就只设置了黑白两色，对于细节的表示肯定是有所欠缺；</p>
 
 <p>基于上面的点，我们做一些优化。</p>
 
@@ -358,7 +353,7 @@
     <p>图片灰度，解决无法分辨深红深蓝深绿的问题，我们可以先把图片转化为黑白，这样，判断颜色深浅变得更加纯粹，只是判断颜色的黑白程度。</p>
   </li>
   <li>
-    <p>一个灰度像素的颜色值特点是r、g、b三个颜色值相同（即红青蓝三色等比混合后为黑灰）。所以我们只需要对每个像素的明度进行计算得到灰度值gray，然后把gray赋给r、g、b，便得到了灰黑色。灰度的计算公式有多种，我们这里采用#r<em>0.3 + #g *0.59 + #b</em>0.11（平均灰度法）得到灰度值。</p>
+    <p>一个灰度像素的颜色值特点是r、g、b三个颜色值相同（即红青蓝三色等比混合后为黑灰）。所以我们只需要对每个像素的明度进行计算得到灰度值gray，然后把gray赋给r、g、b，便得到了灰黑色。灰度的计算公式有多种，我们这里采用平均灰度法得到灰度值。</p>
   </li>
 </ol>
 
@@ -382,9 +377,9 @@
 
 <h2 id="六调整容差和像素获取精度">六、调整容差和像素获取精度</h2>
 
-<ol>
-  <li>前面提到，我们写死225作为判断深浅的值。这里其实就是对黑色的容差。什么是容差？容差，指的是在选取颜色时所设置的选取范围，容差越大，选取的范围也越大。</li>
-</ol>
+<p>1.前面提到，我们写死225作为判断深浅的值。这里其实就是对黑色的选择容差。</p>
+
+<p>什么是容差？容差，指的是在选取颜色时所设置的选取范围，容差越大，选取的范围也越大。</p>
 
 <p><img src="https://img-blog.csdnimg.cn/20210807192620120.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70" alt="img" /></p>
 
@@ -449,6 +444,13 @@
 
 <div id="post-nav">
     
+    <div id="previous-post">
+        <a alt="小程序平台登录和业务登录流程" href="/2021/08/05/xcx1.html">
+            <p>Previous post</p>
+            小程序平台登录和业务登录流程
+        </a>
+    </div>
+    
 
     
     <div id="next-post">
@@ -480,12 +482,12 @@
   }
   
   
-  .feature-image a { color: #91d0c6 !important; }
-  div#post-nav a { color: #91d0c6 !important; }
-  footer a { color: #91d0c6 !important; }
-  .site-header nav a:hover {  color: #91d0c6 !important; }
+  .feature-image a { color: #f3ec68 !important; }
+  div#post-nav a { color: #f3ec68 !important; }
+  footer a { color: #f3ec68 !important; }
+  .site-header nav a:hover {  color: #f3ec68 !important; }
   header#main { 
-      background-color: #91d0c6 !important;
+      background-color: #f3ec68 !important;
       background-image: url('/assets/img/lineart.png');
   }
   
@@ -502,88 +504,7 @@
                 <ul>
                 <!-- Social icons from Font Awesome, if enabled -->
                 <!--  -->
-<!-- 这里默认给了一个可以去social中设置的参数，具体是什么没看，先注释掉 -->
-<!-- <li>
-    <a feed.xml href="/feed.xml"
-       title="Follow RSS feed">
-        <span class="fa-stack fa-lg">
-            <i class="fas fa-circle fa-stack-2x"></i>
-            <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
-        </span>
-    </a>
-</li> -->
-<!--  -->
 
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
 
 
                 </ul>

@@ -1,8 +1,176 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-08-08T22:34:19+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">canvas实现图片-点阵转化</title><link href="https://sylhare.github.io/2021/08/04/canvas.html" rel="alternate" type="text/html" title="canvas实现图片-点阵转化" /><published>2021-08-04T00:00:00+08:00</published><updated>2021-08-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/04/canvas</id><content type="html" xml:base="https://sylhare.github.io/2021/08/04/canvas.html">&lt;p&gt;&lt;em&gt;你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？&lt;/em&gt;&lt;!--more--&gt;&lt;em&gt;你有没有看过无人机矩阵的精彩表演？你有见过黑白木刻风的艺术照片吗？&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-08-09T20:12:35+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">小程序平台登录和业务登录流程</title><link href="https://sylhare.github.io/2021/08/05/xcx1.html" rel="alternate" type="text/html" title="小程序平台登录和业务登录流程" /><published>2021-08-05T00:00:00+08:00</published><updated>2021-08-05T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/05/xcx1</id><content type="html" xml:base="https://sylhare.github.io/2021/08/05/xcx1.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;总结一下小程序平台登录和业务登录。&lt;/em&gt;&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;流程&quot;&gt;流程&lt;/h2&gt;
+
+&lt;h4 id=&quot;先上流程图&quot;&gt;先上流程图&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210809161305304.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;一-获取code&quot;&gt;一. 获取code&lt;/h4&gt;
+
+&lt;p&gt;小程序前端通过&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;wx.login&lt;/code&gt;向微信平台获取code作为用户登录的凭证。&lt;/p&gt;
+
+&lt;p&gt;code由微信平台根据AppID和个人设备等信息关联生成，具有一次性和时效性。使用一次或者获取约五分钟后失效。&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;getLogin&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+   &lt;span class=&quot;c1&quot;&gt;// 小程序登录&lt;/span&gt;
+   &lt;span class=&quot;nx&quot;&gt;wx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+   &lt;span class=&quot;na&quot;&gt;success&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;二-开发者服务器获取code并拿回sessin_key和openid&quot;&gt;二. 开发者服务器获取code，并拿回sessin_key和openid&lt;/h4&gt;
+
+&lt;p&gt;通过自己的业务接口，小程序前端把刚刚获取的code传回开发者服务器。&lt;/p&gt;
+
+&lt;p&gt;服务器拿到code以后，带上小程序的appid和appsecret一并传给微信服务器进行验证。&lt;/p&gt;
+
+&lt;p&gt;微信服务器验证通过后，将sessin_key和openid传回给开发者服务器。&lt;/p&gt;
+
+&lt;p&gt;到这里，才正式实现了小程序、开发者服务器和微信接口服务的联通。&lt;/p&gt;
+
+&lt;h4 id=&quot;三-开发者服务器返回自定义登录态&quot;&gt;三. 开发者服务器返回自定义登录态&lt;/h4&gt;
+
+&lt;p&gt;有了密钥，才能进行接下来通讯的加密和解密。开发者服务器通过对这些信息和我们自己的登录态进行包装，传出一个token给前端，当然也可以附带一些权限信息什么的。&lt;/p&gt;
+
+&lt;h4 id=&quot;四-前端获得token&quot;&gt;四. 前端获得token&lt;/h4&gt;
+
+&lt;p&gt;接着，前端通过wx.setStorageSync将权限和token信息等长期存放在本地；或者通过app的全局参数，把信息短期存在本次生命周期里（视业务情况而定）&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;// 调业务接口&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;httpPromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;postPromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/getToken?code=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;code&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;获取登录状态&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;app&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;token&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ifStaff&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;是公司员工&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;wx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setStorageSync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hadAuth&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;不是公司员工&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;wx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setStorageSync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hadAuth&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;五-业务登录&quot;&gt;五. 业务登录&lt;/h4&gt;
+
+&lt;p&gt;完成前面四步，我们已经走完了小程序平台登录流程，从code到sessionid到token，完成了从小程序连接到业务连接的步骤。&lt;/p&gt;
+
+&lt;p&gt;如果我们的项目除了微信的账号，还有业务逻辑的账号。就需要进一步的业务登录了。&lt;/p&gt;
+
+&lt;p&gt;其实道理也是一样，在第四步拿到token之后，进一步带上用户账号和密码通过业务接口获取新的一个_token，就完成了业务账号的登录。&lt;/p&gt;</content><author><name>gua</name></author><category term="小程序" /><summary type="html">前言 总结一下小程序平台登录和业务登录。</summary></entry><entry><title type="html">小程序用户权限询问组件封装</title><link href="https://sylhare.github.io/2021/08/05/xcx2.html" rel="alternate" type="text/html" title="小程序用户权限询问组件封装" /><published>2021-08-05T00:00:00+08:00</published><updated>2021-08-05T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/05/xcx2</id><content type="html" xml:base="https://sylhare.github.io/2021/08/05/xcx2.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;以手机号权限询问为例子，总结小程序权限询问业务。&lt;/em&gt;&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;权限询问注意点&quot;&gt;权限询问注意点&lt;/h2&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;手机号获取api是需要通过点击按钮实现的；&lt;/li&gt;
+  &lt;li&gt;用户拒绝一次以后，就不能再通过这个按钮唤醒了。
+所以，我们一般需要封装一个自定义弹框，在必须要使用手机号权限的地方可以多次弹出。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;流程&quot;&gt;流程&lt;/h2&gt;
+
+&lt;h4 id=&quot;1-权限判定&quot;&gt;1. 权限判定&lt;/h4&gt;
+&lt;p&gt;首先，通过自定义的权限标识判断当前权限获取状态&lt;/p&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 点击需要唤起手机号的地方&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;handleTask&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 已有权限&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;wx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getStorageSync&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;hadAuth&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)){&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 未有权限，唤起自己的弹框&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+      &lt;span class=&quot;na&quot;&gt;isPhone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;2-自定义组件&quot;&gt;2. 自定义组件&lt;/h4&gt;
+
+&lt;p&gt;封装一个手机弹框的自定义组件，给这个组件分别绑定同意事件和拒绝事件。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210809195814421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 同意绑定&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;clickToBindPhone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 手机验证接口&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;closeBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;phoneAuth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;encryptedData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;iv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210809195814377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;（这个询问框才是真正的微信询问框，如果用户拒绝。下次我们还回生成新的询问事件触发按钮。）&lt;/p&gt;
+
+&lt;h4 id=&quot;3-父子组件传值&quot;&gt;3. 父子组件传值&lt;/h4&gt;
+
+&lt;p&gt;由于关闭窗口的事件是要由父组件进行关闭的，所以这里的的closebox事件必须传递到外部，也就是&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cm&quot;&gt;/** 子组件中 **/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 关闭盒子&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;closeBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 触发外部事件，并传递数据&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;detail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;ifPhone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;triggerEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;showBox&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;bubbles&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;composed&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+
+&lt;span class=&quot;cm&quot;&gt;/** 父组件中 **/&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 询问手机&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;bindphone&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ifPhone_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;wx&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;showBox&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;showClick&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/bindphone&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//组件接受操作&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;showClick&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;setData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;({&lt;/span&gt;
+    &lt;span class=&quot;na&quot;&gt;isPhone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ifPhone&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;4-询问手机号&quot;&gt;4. 询问手机号&lt;/h4&gt;
+
+&lt;p&gt;询问手机号，需要把打开询问的按钮类型设置为getPhoneNumber，这样，当我们点击同意时，回调函数自带的参数中，就会有请求到的相关信息encryptedData和iv&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;button&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;st-bp-btn-2&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;getPhoneNumber&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;bindgetphonenumber&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;clickToBindPhone&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;绑定&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/button&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 同意绑定&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;clickToBindPhone&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 手机验证接口&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;closeBox&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;phoneAuth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;encryptedData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;detail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;iv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;5-把encrypteddata和iv传回微信接口服务器就能获得授权并拿到手机号了&quot;&gt;5. 把encryptedData和iv传回微信接口服务器，就能获得授权并拿到手机号了。&lt;/h4&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 手机号业务登录&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;phoneAuth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;encryptedData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;iv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;// 调手机登录接口&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;http&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;httpPromise1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;postPromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;/getphone?encryptedData=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;encryptedData&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;amp;iv=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;iv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>gua</name></author><category term="小程序" /><summary type="html">前言 以手机号权限询问为例子，总结小程序权限询问业务。</summary></entry><entry><title type="html">canvas实现图片-点阵转化</title><link href="https://sylhare.github.io/2021/08/04/canvas.html" rel="alternate" type="text/html" title="canvas实现图片-点阵转化" /><published>2021-08-04T00:00:00+08:00</published><updated>2021-08-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/04/canvas</id><content type="html" xml:base="https://sylhare.github.io/2021/08/04/canvas.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？&lt;/em&gt;&lt;!--more--&gt;&lt;em&gt;你有没有看过无人机矩阵的精彩表演？你有见过黑白木刻风的艺术照片吗？&lt;/em&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210807175828367.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;今天，我想尝试借助canvas，来实现一些有趣的图片点阵化转化。话不多说，直接开始。&lt;/p&gt;
+&lt;p&gt;今天，基于这些启发，我尝试借助canvas，来实现一些有趣的图片点阵化转化。话不多说，直接开始。&lt;/p&gt;
 
 &lt;h2 id=&quot;一绘图&quot;&gt;一、绘图&lt;/h2&gt;
 &lt;p&gt;1.canvas绘图的第一步，当然是绑定canvas标签&lt;/p&gt;
@@ -17,7 +185,7 @@
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;img&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getElementById&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;img2&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 获取图片对象&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;2.这里创建context对象需要再浏览器加载完毕后执行，别忘了将代码放在window.onload中&lt;/p&gt;
+&lt;p&gt;2.这里创建context对象需要在浏览器加载完毕后执行，别忘了将代码放在window.onload中&lt;/p&gt;
 
 &lt;p&gt;3.接着，需要根据照片的长宽对canvas的长宽进行调整（这里我固定了图片和canvas容器的宽度为500px，然后计算高度）&lt;/p&gt;
 
@@ -39,7 +207,7 @@
 
 &lt;p&gt;1.有了图片，我们就可以开始对每个像素点进行分析了。这里我们要用到的是canvas context对象的getImageData来获取像素点信息，分别可以定义的参数为（左上角x轴，左上角y轴，所需获取的x轴像素，所需获取的y轴像素）。&lt;/p&gt;
 
-&lt;p&gt;2.这里关于getImageData方法有一个需要注意的点，如果我们是引入本地图片后使用getImageData，会出现跨域想象。改用网传的火狐浏览器还是不能使用。无奈改为以vue-cli来构建整个demo，然后从node服务器获取图片资源。&lt;/p&gt;
+&lt;p&gt;2.这里关于getImageData方法有一个需要注意的点，如果我们是引入本地图片后使用getImageData，会出现跨域现象。网传的火狐浏览器下不会出现该问题（亲测无效）。无奈改为以vue-cli来构建整个demo，然后从node服务器获取图片资源。&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;width&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;canvas2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;height&lt;/span&gt;
@@ -59,9 +227,9 @@
 
 &lt;h2 id=&quot;三像素点信息初步处理&quot;&gt; 三、像素点信息初步处理&lt;/h2&gt;
 
-&lt;p&gt;1.我们的最终目的，是为了把图片转换成点阵。所以，我们需要采用某种方式判断当前的点是否打点。这里我们利用rgb颜色值的特点，采用#r&lt;em&gt; 0.299+#g&lt;/em&gt;0.587+#b* 0.114的值来判断颜色的深浅。这个值是在0~255之间，越靠近255，说明当前点的颜色越浅。&lt;/p&gt;
+&lt;p&gt;1.我们的最终目的，是为了把图片转换成点阵。所以，我们需要采用某种方式判断当前的点是否打点。这里我们利用rgb颜色值的特点，采用一条公式&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#R* 0.299+#G*0.587+#B* 0.114&lt;/code&gt;的值来判断颜色的深浅。这个值是在0~255之间，越靠近255，说明当前点的颜色越浅。&lt;/p&gt;
 
-&lt;p&gt;这里，我暂时已225作为临界值，如果值超过225则为浅色打空心点，如果值低于225则为深色打实心点。&lt;/p&gt;
+&lt;p&gt;这里，我暂时以225作为临界值，如果值超过225则为浅色打空心点，如果值低于225则为深色打实心点。&lt;/p&gt;
 
 &lt;p&gt;同时，我暂时设置每十个点获取一次，这样不会因为图片过大导致点阵过大。&lt;/p&gt;
 
@@ -89,7 +257,7 @@
 
 &lt;h2 id=&quot;四像素点进一步处理&quot;&gt;四、像素点进一步处理&lt;/h2&gt;
 
-&lt;p&gt;为什么上面的效果不太理想呢，这里多个原因。&lt;/p&gt;
+&lt;p&gt;为什么上面的效果不太理想呢，这里我分析可能有多个原因。&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
@@ -99,11 +267,12 @@
     &lt;p&gt;其次，刚刚我们写死了判断深浅的的关键数值为225，这并不能适用于每一张图片，因为有的图深色像素多，有的图深色像素少。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;同时，刚刚我们也写死了像素获取的精度为十分之一，这也导致了没张图的处理效果差异；&lt;/p&gt;
+    &lt;p&gt;同时，刚刚我们也写死了像素获取的精度为十分之一，这也导致了每张图的处理效果有一定差异；&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;最后，本来我们这里就只设置了黑白两色，对于细节的表示肯定是有所欠缺。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;- 最后，本来我们这里就只设置了黑白两色，对于细节的表示肯定是有所欠缺；&lt;/p&gt;
 
 &lt;p&gt;基于上面的点，我们做一些优化。&lt;/p&gt;
 
@@ -114,7 +283,7 @@
     &lt;p&gt;图片灰度，解决无法分辨深红深蓝深绿的问题，我们可以先把图片转化为黑白，这样，判断颜色深浅变得更加纯粹，只是判断颜色的黑白程度。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;一个灰度像素的颜色值特点是r、g、b三个颜色值相同（即红青蓝三色等比混合后为黑灰）。所以我们只需要对每个像素的明度进行计算得到灰度值gray，然后把gray赋给r、g、b，便得到了灰黑色。灰度的计算公式有多种，我们这里采用#r&lt;em&gt;0.3 + #g *0.59 + #b&lt;/em&gt;0.11（平均灰度法）得到灰度值。&lt;/p&gt;
+    &lt;p&gt;一个灰度像素的颜色值特点是r、g、b三个颜色值相同（即红青蓝三色等比混合后为黑灰）。所以我们只需要对每个像素的明度进行计算得到灰度值gray，然后把gray赋给r、g、b，便得到了灰黑色。灰度的计算公式有多种，我们这里采用平均灰度法得到灰度值。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 
@@ -138,9 +307,9 @@
 
 &lt;h2 id=&quot;六调整容差和像素获取精度&quot;&gt;六、调整容差和像素获取精度&lt;/h2&gt;
 
-&lt;ol&gt;
-  &lt;li&gt;前面提到，我们写死225作为判断深浅的值。这里其实就是对黑色的容差。什么是容差？容差，指的是在选取颜色时所设置的选取范围，容差越大，选取的范围也越大。&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;1.前面提到，我们写死225作为判断深浅的值。这里其实就是对黑色的选择容差。&lt;/p&gt;
+
+&lt;p&gt;什么是容差？容差，指的是在选取颜色时所设置的选取范围，容差越大，选取的范围也越大。&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210807192620120.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
@@ -169,7 +338,9 @@
 
 &lt;p&gt;（使用▂▃▅▇）&lt;/p&gt;
 
-&lt;p&gt;是不是还不错。&lt;/p&gt;</content><author><name>Gua</name></author><category term="html" /><summary type="html">你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？</summary></entry><entry><title type="html">https对http做了什么改进</title><link href="https://sylhare.github.io/2021/07/04/http4.html" rel="alternate" type="text/html" title="https对http做了什么改进" /><published>2021-07-04T00:00:00+08:00</published><updated>2021-07-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/04/http4</id><content type="html" xml:base="https://sylhare.github.io/2021/07/04/http4.html">&lt;p&gt;&lt;em&gt;什么是https？https不是新的协议，而是在http协议的基础上建立SSL加密层，并对传输数据进行加密，是http协议的安全版。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;是不是还不错。&lt;/p&gt;</content><author><name>gua</name></author><category term="html" /><summary type="html">前言 你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？</summary></entry><entry><title type="html">https对http做了什么改进</title><link href="https://sylhare.github.io/2021/07/04/http4.html" rel="alternate" type="text/html" title="https对http做了什么改进" /><published>2021-07-04T00:00:00+08:00</published><updated>2021-07-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/04/http4</id><content type="html" xml:base="https://sylhare.github.io/2021/07/04/http4.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;什么是https？https不是新的协议，而是在http协议的基础上建立SSL加密层，并对传输数据进行加密，是http协议的安全版。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;随着互联网业务对数据信息安全需求的日益提升，https的使用也越来越广泛&lt;/em&gt;&lt;/p&gt;
 
@@ -262,11 +433,17 @@
   &lt;li&gt;客户端确认公开密钥合法，使用公开密钥加密一串共享密钥，然后把共享密钥发给服务器&lt;/li&gt;
   &lt;li&gt;服务器使用私有密钥解密获得共享密钥&lt;/li&gt;
   &lt;li&gt;然后服务器和客户端开始使用共享密钥进行通信&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Gua</name></author><category term="http" /><summary type="html">什么是https？https不是新的协议，而是在http协议的基础上建立SSL加密层，并对传输数据进行加密，是http协议的安全版。</summary></entry><entry><title type="html">基于http的功能追加协议</title><link href="https://sylhare.github.io/2021/07/03/http3.html" rel="alternate" type="text/html" title="基于http的功能追加协议" /><published>2021-07-03T00:00:00+08:00</published><updated>2021-07-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/03/http3</id><content type="html" xml:base="https://sylhare.github.io/2021/07/03/http3.html">&lt;p&gt;&lt;em&gt;为什么要有追加协议？为了弥补http协议的局限性&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 什么是https？https不是新的协议，而是在http协议的基础上建立SSL加密层，并对传输数据进行加密，是http协议的安全版。</summary></entry><entry><title type="html">基于http的功能追加协议</title><link href="https://sylhare.github.io/2021/07/03/http3.html" rel="alternate" type="text/html" title="基于http的功能追加协议" /><published>2021-07-03T00:00:00+08:00</published><updated>2021-07-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/03/http3</id><content type="html" xml:base="https://sylhare.github.io/2021/07/03/http3.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
-&lt;p&gt;&lt;em&gt;什么是http协议的局限性？http协议因为简单便捷而得到广泛使用，但是http协议的局限性随着互联网的发展日益捉襟见肘。本来呢，解决这些状况需要弄一套全新的协议，但是因为http协议已经遍布全球，无法完全摒弃http。所以在这种情况下，用于弥补http局限性的追加协议就诞生了。&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;- 为什么要有追加协议？&lt;/em&gt;&lt;/p&gt;
 
-&lt;h4 id=&quot;http协议的瓶颈&quot;&gt;http协议的瓶颈&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;为了弥补http协议的局限性。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;- 什么是http协议的局限性？&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;http协议因为简单便捷而得到广泛使用，但是http协议的局限性随着互联网的发展日益捉襟见肘。本来呢，解决这些状况需要弄一套全新的协议，但是因为http协议已经遍布全球，无法完全摒弃http。所以在这种情况下，用于弥补http局限性的追加协议就诞生了。&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http协议的瓶颈&quot;&gt;http协议的瓶颈&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;一条链接只能发送一次请求；&lt;/li&gt;
@@ -275,6 +452,8 @@
   &lt;li&gt;发送冗长又重复的首部，造成浪费；&lt;/li&gt;
   &lt;li&gt;可任意选择数据压缩格式。非强制压缩发&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h2 id=&quot;一些追加协议&quot;&gt;一些追加协议&lt;/h2&gt;
 
 &lt;h4 id=&quot;ajax异步的javascript和xml&quot;&gt;Ajax：异步的JavaScript和XML&lt;/h4&gt;
 
@@ -383,9 +562,11 @@
       &lt;td&gt;Speed + Mobility&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>Gua</name></author><category term="http" /><summary type="html">为什么要有追加协议？为了弥补http协议的局限性</summary></entry><entry><title type="html">常见http状态码</title><link href="https://sylhare.github.io/2021/07/02/http2.html" rel="alternate" type="text/html" title="常见http状态码" /><published>2021-07-02T00:00:00+08:00</published><updated>2021-07-02T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/02/http2</id><content type="html" xml:base="https://sylhare.github.io/2021/07/02/http2.html">&lt;p&gt;&lt;em&gt;http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右&lt;/em&gt; &lt;!--more--&gt; &lt;em&gt;，这里记录我开发过程中遭遇的部分常用状态码&lt;/em&gt;&lt;/p&gt;
+&lt;/table&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 - 为什么要有追加协议？ 为了弥补http协议的局限性。</summary></entry><entry><title type="html">常见http状态码</title><link href="https://sylhare.github.io/2021/07/02/http2.html" rel="alternate" type="text/html" title="常见http状态码" /><published>2021-07-02T00:00:00+08:00</published><updated>2021-07-02T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/02/http2</id><content type="html" xml:base="https://sylhare.github.io/2021/07/02/http2.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
-&lt;h4 id=&quot;http状态码的类别&quot;&gt;http状态码的类别&lt;/h4&gt;
+&lt;p&gt;&lt;em&gt;http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右&lt;/em&gt; &lt;!--more--&gt; &lt;em&gt;，这里记录我开发过程中遭遇的部分常用状态码&lt;/em&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;http状态码的类别&quot;&gt;http状态码的类别&lt;/h2&gt;
 
 &lt;p&gt;一般情况下http的状态码首位数字代表着状态所在的请求阶段（当然也有例外）。而且随着http协议的发展，有一些状态码正在慢慢被取消使用。&lt;/p&gt;
 
@@ -397,7 +578,7 @@
   &lt;li&gt;5xx：服务器处理请求出错（服务器的锅）&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;一些常用的状态码&quot;&gt;一些常用的状态码&lt;/h4&gt;
+&lt;h2 id=&quot;一些常用的状态码&quot;&gt;一些常用的状态码&lt;/h2&gt;
 
 &lt;p&gt;200：正常处理&lt;/p&gt;
 
@@ -425,7 +606,9 @@
 
 &lt;p&gt;500：服务器出错&lt;/p&gt;
 
-&lt;p&gt;503：服务器超负载或正在维护（这里可以加一个响应首部字段Retry-After用来告诉客户端以上状况的解决时间）&lt;/p&gt;</content><author><name>Gua</name></author><category term="http" /><summary type="html">http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右</summary></entry><entry><title type="html">web攻击技术简述</title><link href="https://sylhare.github.io/2021/07/01/http1.html" rel="alternate" type="text/html" title="web攻击技术简述" /><published>2021-07-01T00:00:00+08:00</published><updated>2021-07-01T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/01/http1</id><content type="html" xml:base="https://sylhare.github.io/2021/07/01/http1.html">&lt;p&gt;&lt;em&gt;web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;503：服务器超负载或正在维护（这里可以加一个响应首部字段Retry-After用来告诉客户端以上状况的解决时间）&lt;/p&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右</summary></entry><entry><title type="html">web攻击技术简述</title><link href="https://sylhare.github.io/2021/07/01/http1.html" rel="alternate" type="text/html" title="web攻击技术简述" /><published>2021-07-01T00:00:00+08:00</published><updated>2021-07-01T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/01/http1</id><content type="html" xml:base="https://sylhare.github.io/2021/07/01/http1.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;http协议的特点&quot;&gt;http协议的特点&lt;/h2&gt;
 
@@ -516,10 +699,9 @@
 &lt;ul&gt;
   &lt;li&gt;中间人攻击&lt;/li&gt;
   &lt;li&gt;XST攻击&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Gua</name></author><category term="http" /><summary type="html">web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。</summary></entry><entry><title type="html">纯css和css属性实现动态流量小球</title><link href="https://sylhare.github.io/2021/06/04/liuliangqiu.html" rel="alternate" type="text/html" title="纯css和css属性实现动态流量小球" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/04/liuliangqiu</id><content type="html" xml:base="https://sylhare.github.io/2021/06/04/liuliangqiu.html">&lt;!--more--&gt;
-&lt;h2 id=&quot;前记&quot;&gt;前记&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。</summary></entry><entry><title type="html">纯css和css属性实现动态流量小球</title><link href="https://sylhare.github.io/2021/06/04/liuliangqiu.html" rel="alternate" type="text/html" title="纯css和css属性实现动态流量小球" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/04/liuliangqiu</id><content type="html" xml:base="https://sylhare.github.io/2021/06/04/liuliangqiu.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
-&lt;p&gt;在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？&lt;/em&gt;&lt;!--more--&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/2021061916155095.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
@@ -527,7 +709,7 @@
 
 &lt;p&gt;研究前端实现波浪效果的过程中，我查阅到一些不同的实现方式，比如使用css库CSS Trick；再如使用canvas画贝塞尔曲线；或者干脆就是通过定时器循环移动一个切图等。&lt;/p&gt;
 
-&lt;p&gt;而最打动我的方式是来自chokcoco先生的纯css实现波浪效果，于是自己尝试着也实现一次。&lt;/p&gt;
+&lt;p&gt;而最打动我的方式是来自chokcoco大神的纯css实现波浪效果，于是自己尝试着也实现一次。&lt;/p&gt;
 
 &lt;h4 id=&quot;原理&quot;&gt;原理&lt;/h4&gt;
 
@@ -595,11 +777,16 @@
 
 &lt;blockquote&gt;
   &lt;p&gt;相关连接：&lt;a href=&quot;https://qishaoxuan.github.io/css_tricks/notCSS/wave.html&quot;&gt;CSS-Trick官网&lt;/a&gt; &lt;a href=&quot;https://github.com/chokcoco/iCSS/issues/22&quot;&gt;chokcoco的主页&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Gua</name></author><category term="vue" /><category term="CSS" /><summary type="html"></summary></entry><entry><title type="html">前端切图仔的简易文本加密工具</title><link href="https://sylhare.github.io/2021/06/03/jiami.html" rel="alternate" type="text/html" title="前端切图仔的简易文本加密工具" /><published>2021-06-03T00:00:00+08:00</published><updated>2021-06-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/03/jiami</id><content type="html" xml:base="https://sylhare.github.io/2021/06/03/jiami.html">&lt;p&gt;&lt;em&gt;这是什么？一张马赛克，马赛克的背后往往隐匿着令人兴奋的真相。这是一张埋藏着秘密的文本加密图。&lt;/em&gt;
-&lt;!--more--&gt;
-&lt;img src=&quot;https://img-blog.csdnimg.cn/20210618161658592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==&quot; alt=&quot;点击并拖拽以移动&quot; /&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</content><author><name>gua</name></author><category term="CSS" /><summary type="html">前言 在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？</summary></entry><entry><title type="html">前端切图仔的简易文本加密工具</title><link href="https://sylhare.github.io/2021/06/03/jiami.html" rel="alternate" type="text/html" title="前端切图仔的简易文本加密工具" /><published>2021-06-03T00:00:00+08:00</published><updated>2021-06-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/03/jiami</id><content type="html" xml:base="https://sylhare.github.io/2021/06/03/jiami.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
-&lt;h2 id=&quot;前记&quot;&gt;前记&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;- 这是什么？&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;一张马赛克，马赛克的背后往往隐匿着令人兴奋的真相。这是一张埋藏着秘密的文本加密图。&lt;/em&gt;&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210618161658592.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;img src=&quot;data:image/gif;base64,R0lGODlhAQABAPABAP///wAAACH5BAEKAAAALAAAAAABAAEAAAICRAEAOw==&quot; alt=&quot;点击并拖拽以移动&quot; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;汉字的转化&quot;&gt;汉字的转化&lt;/h2&gt;
 
 &lt;h4 id=&quot;加密&quot;&gt;加密&lt;/h4&gt;
 
@@ -614,9 +801,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;那么今天我们就来尝试下用最简单最不专业的方式制作一张文本加密图吧。&lt;/p&gt;
-
-&lt;h2 id=&quot;汉字的转化&quot;&gt;汉字的转化&lt;/h2&gt;
+&lt;p&gt;那么今天我们就来尝试下用最简单的方式制作一张文本加密图吧。&lt;/p&gt;
 
 &lt;h4 id=&quot;使用unicode将汉字转换为数字&quot;&gt;使用Unicode将汉字转换为数字&lt;/h4&gt;
 
@@ -624,11 +809,11 @@
 &lt;center&gt;（Unicode可以容纳世界上所有文字）&lt;/center&gt;
 &lt;h4 id=&quot;unicode编码&quot;&gt;Unicode编码&lt;/h4&gt;
 
-&lt;p&gt;一开始就是为了解决不同语言之间的障碍而出现的，于是乎，世界上的每个汉字和不同语言的文字都拥有了属于自己的unicode码，进行汉字加密的第一步便是将汉字转为unicode码，比如下面的这段话：&lt;/p&gt;
+&lt;p&gt;Unicode一开始就是为了解决不同语言之间的障碍而出现的。于是乎，世界上的每个汉字和不同语言的文字都拥有了属于自己的unicode码，进行汉字加密的第一步便是将汉字转为unicode码，比如下面的这段话：&lt;/p&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;晚上一起去喝酒别告诉你老婆&lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;经过charCodeAt的转化，顺利转成了&lt;/p&gt;
+&lt;p&gt;经过charCodeAt方法的转化，顺利转成了&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -707,7 +892,7 @@
 &lt;center&gt;（每一个p标签代表一个编码）&lt;/center&gt;
 
 &lt;h4 id=&quot;下一步&quot;&gt;下一步&lt;/h4&gt;
-&lt;p&gt;就是通过每个数据的前三个值，为p标签染色啦，当当当，经过染色的p标签终于华丽变身为灿烂的自己；&lt;/p&gt;
+&lt;p&gt;就是通过每个数据的前三个值，为p标签染色啦，当当当，经过染色的p标签终于成为了多姿多彩的自己；&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; 
   &lt;span class=&quot;nx&quot;&gt;v&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(item,index) in passwords&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; 
@@ -802,39 +987,48 @@
 &lt;p&gt;上面只是提供了一种进行简单加密的思路，举一反三，我们同样可以将数字编码转换为对应的圆角、旋转角度、长度等等视觉表现；是不是很高(zhuang)级(bi)快搞一个试试吧，冲啊。&lt;/p&gt;
 
 &lt;h4 id=&quot;解密&quot;&gt;解密&lt;/h4&gt;
-&lt;p&gt;如此这般自己解吧&lt;/p&gt;</content><author><name>Gua</name></author><category term="JavaScript" /><category term="CSS" /><summary type="html">这是什么？一张马赛克，马赛克的背后往往隐匿着令人兴奋的真相。这是一张埋藏着秘密的文本加密图。</summary></entry><entry><title type="html">展开语法和剩余语法(…)</title><link href="https://sylhare.github.io/2021/05/03/zhangkai.html" rel="alternate" type="text/html" title="展开语法和剩余语法(…)" /><published>2021-05-03T00:00:00+08:00</published><updated>2021-05-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/05/03/zhangkai</id><content type="html" xml:base="https://sylhare.github.io/2021/05/03/zhangkai.html">&lt;p&gt;&lt;em&gt;展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;如此这般自己解吧&lt;/p&gt;</content><author><name>gua</name></author><category term="CSS" /><summary type="html">前言 - 这是什么？ 一张马赛克，马赛克的背后往往隐匿着令人兴奋的真相。这是一张埋藏着秘密的文本加密图。</summary></entry><entry><title type="html">展开语法和剩余语法(…)</title><link href="https://sylhare.github.io/2021/05/03/zhangkai.html" rel="alternate" type="text/html" title="展开语法和剩余语法(…)" /><published>2021-05-03T00:00:00+08:00</published><updated>2021-05-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/05/03/zhangkai</id><content type="html" xml:base="https://sylhare.github.io/2021/05/03/zhangkai.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;展开语法&quot;&gt;展开语法&lt;/h2&gt;
 
-&lt;p&gt;展开语法…用于展开数组或者对象。（展开语法无法在IE浏览器中使用）&lt;/p&gt;
+&lt;p&gt;展开语法…用于展开数组或者对象。&lt;/p&gt;
 
 &lt;h4 id=&quot;展开语法的基本用法&quot;&gt;展开语法的基本用法&lt;/h4&gt;
+
 &lt;p&gt;如果是数组，展开成一项一项；在构造字面量对象时, 将对象表达式按key-value的方式展开。&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;函数调用时，像apply一样展开
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
+  &lt;li&gt;函数调用时，像apply一样展开&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
   &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 输出: 6 &lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 输出: 6 &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;在构造数组的时候使用
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;在构造数组的时候使用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
   &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;用于复制对象，或者属性拷贝
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c1&quot;&gt;// 复制 &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;用于复制对象，或者属性拷贝&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c1&quot;&gt;// 复制 &lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newobj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
   &lt;span class=&quot;c1&quot;&gt;// 增加 &lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newobj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210126134528629.png#pic_center&quot; alt=&quot;在这里插入图片描述&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210126134528629.png#pic_center&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;展开语法的实用例子&quot;&gt;展开语法的实用例子&lt;/h4&gt;
 
@@ -843,37 +1037,47 @@
 &lt;/ul&gt;
 
 &lt;p&gt;使用 new 关键字来调用构造函数时，&lt;strong&gt;不能直接使用数组+ apply 的方式&lt;/strong&gt;（apply 执行的是调用 [[Call]] , 而不是构造 [[Construct]]）。当然, 有了展开语法, 将数组展开为构造函数的参数就很简单了：&lt;/p&gt;
+
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dateFields&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1970&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dateFields&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210126134658936.png#pic_center&quot; alt=&quot;在这里插入图片描述&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210126134658936.png#pic_center&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;使用展开语法进行数组操作非常给力，可以直接替代push、concat、unshift等方法的使用
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;shoulders&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;knees&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
+  &lt;li&gt;使用展开语法进行数组操作非常给力，可以直接替代push、concat、unshift等方法的使用&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;shoulders&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;knees&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lyrics&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;toes&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;使用展开语法拷贝数组和对象后不再是单纯的地址指针复制
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;使用展开语法拷贝数组和对象后不再是单纯的地址指针复制&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// like arr.slice() &lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;arr2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// arr2 此时变成 [1, 2, 3, 4]// arr 不受影响 &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;但是呢，这个拷贝与Object.assign一样，都只进行第一层的浅拷贝，如果下面的a是一个二维数组，那第二维还是指针，这时候修改拷贝后的参数，还是会影响到原来的a&lt;/p&gt;
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;但是呢，这个拷贝与Object.assign一样，都只进行第一层的浅拷贝，如果下面的a是一个二维数组，那第二维还是指针，这时候修改拷贝后的参数，还是会影响到原来的a&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
   &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;shift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;shift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 1 &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210126134727209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70#pic_center&quot; alt=&quot;在这里插入图片描述&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210126134727209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70#pic_center&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;在数组或函数参数中使用时，展开语法只能用于&lt;strong&gt;可迭代对象&lt;/strong&gt; &lt;em&gt;（可以被for..of循环使用）&lt;/em&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;剩余语法&quot;&gt;剩余语法&lt;/h2&gt;
+
 &lt;p&gt;剩余语法准确来说跟展开语法相反，它被放在形参的最后一位，用来把多余的输入参数整合为一个数组&lt;/p&gt;
 
 &lt;h4 id=&quot;用在不定输入参数的函数形参中&quot;&gt;用在不定输入参数的函数形参中&lt;/h4&gt;
+
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
       &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;previous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
           &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;previous&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
@@ -881,190 +1085,63 @@
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 6，前两个1被赋值到形参a和b中 输出: 6 &lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
 &lt;h4 id=&quot;剩余参数和-arguments对象的区别&quot;&gt;剩余参数和 arguments对象的区别&lt;/h4&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;剩余参数只包含那些没有对应形参的实参，而 arguments 对象包含了传给函数的所有实参。&lt;/li&gt;
-  &lt;li&gt;arguments对象不是一个真正的数组，而剩余参数是真正的 Array实例，也就是说你能够在它上面直接使用所有的数组方法，比如 sort，map，forEach或pop。&lt;/li&gt;
-  &lt;li&gt;arguments对象还有一些附加的属性 （如callee属性）。&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;剩余参数只包含那些没有对应形参的实参，而 arguments 对象包含了传给函数的所有实参。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;arguments对象不是一个真正的数组，而剩余参数是真正的 Array实例，也就是说你能够在它上面直接使用所有的数组方法，比如 sort，map，forEach或pop。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;arguments对象还有一些附加的属性 （如callee属性）。&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;剩余语法的使用实例&quot;&gt;剩余语法的使用实例&lt;/h4&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;用于判断参数数量
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;li&gt;用于判断参数数量&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;fun1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 弹出 &quot;0&quot;, 因为theArgs没有元素&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;fun1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 弹出 &quot;1&quot;, 因为theArgs只有一个元素&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;fun1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 弹出 &quot;3&quot;, 因为theArgs有三个元素&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;累乘
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;multiplier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiplier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;});}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;累乘&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;multiplier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiplier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});}&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// [2, 4, 6]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-  &lt;li&gt;下例演示了你可以在剩余参数上使用任意的数组方法，而arguments对象不可以
-    &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortRestArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;下例演示了你可以在剩余参数上使用任意的数组方法，而arguments对象不可以&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortRestArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sortRestArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 弹出 1,3,5,7&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortArguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 不会执行到这里&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 不会执行到这里&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sortArguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 抛出TypeError异常:arguments.sort is not a function&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;blockquote&gt;
   &lt;p&gt;相关文档：&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax&quot;&gt;MDN文档&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>Gua</name></author><category term="JavaScript" /><summary type="html">展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异</summary></entry><entry><title type="html">Dark Mode</title><link href="https://sylhare.github.io/2021/04/27/dark-mode.html" rel="alternate" type="text/html" title="Dark Mode" /><published>2021-04-27T00:00:00+08:00</published><updated>2021-04-27T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/04/27/dark-mode</id><content type="html" xml:base="https://sylhare.github.io/2021/04/27/dark-mode.html">&lt;p&gt;&lt;strong&gt;More colors with less light.&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Click the half-moon most top-right button to turn the lights on/off.&lt;/p&gt;
-
-&lt;h1 id=&quot;headers&quot;&gt;Headers&lt;/h1&gt;
-&lt;h2 id=&quot;level-2&quot;&gt;Level 2&lt;/h2&gt;
-&lt;h3 id=&quot;level-3&quot;&gt;Level 3&lt;/h3&gt;
-&lt;h4 id=&quot;level-4&quot;&gt;Level 4&lt;/h4&gt;
-&lt;h5 id=&quot;level-5&quot;&gt;Level 5&lt;/h5&gt;
-&lt;h6 id=&quot;level-6&quot;&gt;Level 6&lt;/h6&gt;
-
-&lt;h1 id=&quot;headers-with-links&quot;&gt;&lt;a href=&quot;http://localhost&quot;&gt;Headers with links&lt;/a&gt;&lt;/h1&gt;
-&lt;h2 id=&quot;level-2-1&quot;&gt;&lt;a href=&quot;http://localhost&quot;&gt;Level 2&lt;/a&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;level-3-1&quot;&gt;&lt;a href=&quot;http://localhost&quot;&gt;Level 3&lt;/a&gt;&lt;/h3&gt;
-&lt;h4 id=&quot;level-4-1&quot;&gt;&lt;a href=&quot;http://localhost&quot;&gt;Level 4&lt;/a&gt;&lt;/h4&gt;
-&lt;h5 id=&quot;level-5-1&quot;&gt;&lt;a href=&quot;http://localhost&quot;&gt;Level 5&lt;/a&gt;&lt;/h5&gt;
-&lt;h6 id=&quot;level-6-1&quot;&gt;&lt;a href=&quot;http://localhost&quot;&gt;Level 6&lt;/a&gt;&lt;/h6&gt;
-
-&lt;h2 id=&quot;code-highlight&quot;&gt;Code highlight&lt;/h2&gt;
-&lt;p&gt;Mode specific code highlighting themes. &lt;a href=&quot;https://kramdown.gettalong.org/&quot;&gt;Kramdown&lt;/a&gt; which is responsible for the color highlighting may be more limited than your IDE.&lt;/p&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;#!/usr/bin/env python
-&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;
-Test file for syntax
-&quot;&quot;&quot;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# TODO: Use dark mode
-&lt;/span&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sys&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;os&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; 
-    &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;NameError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Variable bar is not defined&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-
-
-&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; 
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;octal&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\04&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;
-        &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Example &lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;&lt;/span&gt;
-    
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__exit__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;args&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'exit&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\u1111\xFF&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;pass&lt;/span&gt;
-    
-    &lt;span class=&quot;o&quot;&gt;@&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;staticmethod&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;il&quot;&gt;2L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;or&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;True&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;example&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,),&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sa&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'raw'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sa&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'unicode'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)]}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;tables&quot;&gt;Tables&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;hex&lt;/th&gt;
-      &lt;th&gt;dec&lt;/th&gt;
-      &lt;th&gt;oct&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-      &lt;td&gt;0&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;5&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;A&lt;/td&gt;
-      &lt;td&gt;10&lt;/td&gt;
-      &lt;td&gt;12&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;F&lt;/td&gt;
-      &lt;td&gt;16&lt;/td&gt;
-      &lt;td&gt;20&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;F5&lt;/td&gt;
-      &lt;td&gt;21&lt;/td&gt;
-      &lt;td&gt;25&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h2 id=&quot;katex&quot;&gt;KaTeX&lt;/h2&gt;
-
-&lt;p&gt;Some KaTeX diagrams to check in dark mode:&lt;/p&gt;
-
-\[\begin{CD}
-A @&amp;gt;a&amp;gt;&amp;gt; B \\
-@VbVV @AAcA \\
-C @= D
-\end{CD}\]
-
-\[\utilde{AB}\]</content><author><name></name></author><category term="Katex" /><category term="Markdown" /><summary type="html">More colors with less light.</summary></entry><entry><title type="html">Sample post</title><link href="https://sylhare.github.io/2019/06/30/sample-post.html" rel="alternate" type="text/html" title="Sample post" /><published>2019-06-30T00:00:00+08:00</published><updated>2019-06-30T00:00:00+08:00</updated><id>https://sylhare.github.io/2019/06/30/sample-post</id><content type="html" xml:base="https://sylhare.github.io/2019/06/30/sample-post.html">&lt;p&gt;Consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. 
-Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur. 
-&lt;!--more--&gt;
-Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ut gravida lorem.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Consectetur adipiscing elit&lt;/li&gt;
-  &lt;li&gt;Donec a diam lectus&lt;/li&gt;
-  &lt;li&gt;Sed sit amet ipsum mauris&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Ut turpis felis, pulvinar a semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet. Ut convallis libero in urna ultrices accumsan. Donec sed odio eros. Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.&lt;/p&gt;
-
-&lt;p&gt;Nunc diam velit, adipiscing ut tristique vitae, sagittis vel odio. Maecenas convallis ullamcorper ultricies. Curabitur ornare, ligula &lt;em&gt;semper consectetur sagittis&lt;/em&gt;, nisi diam iaculis velit, id fringilla sem nunc vel mi. Nam dictum, odio nec pretium volutpat, arcu ante placerat erat, non tristique elit urna et turpis. Quisque mi metus, ornare sit amet fermentum et, tincidunt et orci. Fusce eget orci a orci congue vestibulum.&lt;/p&gt;
-
-&lt;div class=&quot;row&quot;&gt;
-    
-    &lt;div style=&quot;flex: 100.0%&quot;&gt;
-        &lt;img class=&quot;single&quot; src=&quot;/assets/img/pexels/travel.jpeg&quot; alt=&quot;travel.jpeg&quot; /&gt;
-    &lt;/div&gt;
-    
-&lt;/div&gt;
-
-&lt;p&gt;Ut dolor diam, elementum et vestibulum eu, porttitor vel elit. Curabitur venenatis pulvinar tellus gravida ornare. Sed et erat faucibus nunc euismod ultricies ut id justo. Nullam cursus suscipit nisi, et ultrices justo sodales nec. Fusce venenatis facilisis lectus ac semper. Aliquam at massa ipsum. Quisque bibendum purus convallis nulla ultrices ultricies. Nullam aliquam, mi eu aliquam tincidunt, purus velit laoreet tortor, viverra pretium nisi quam vitae mi. Fusce vel volutpat elit. Nam sagittis nisi dui.&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Suspendisse lectus leo, consectetur in tempor sit amet, placerat quis neque&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;Etiam luctus porttitor lorem, sed suscipit est rutrum non. Curabitur lobortis nisl a enim congue semper. Aenean commodo ultrices imperdiet. Vestibulum ut justo vel sapien venenatis tincidunt.&lt;/p&gt;
-
-\[\Theta \ne \Gamma\]
-
-&lt;p&gt;Phasellus eget dolor sit amet ipsum dapibus condimentum vitae quis lectus. Aliquam ut massa in turpis dapibus convallis. Praesent elit lacus, vestibulum at malesuada et, ornare et est. Ut augue nunc, sodales ut euismod non, adipiscing vitae orci&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;. Mauris ut placerat justo. Mauris in ultricies enim. Quisque nec est eleifend nulla ultrices egestas quis ut quam. Donec sollicitudin lectus a mauris pulvinar id aliquam urna cursus. Cras quis ligula sem, vel elementum mi. Phasellus non ullamcorper urna.&lt;/p&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-
-      &lt;p&gt;&lt;span class=&quot;cit-authors&quot;&gt;John Smith&lt;/span&gt;, &lt;span class=&quot;cit-title&quot;&gt;A Title About Citations&lt;/span&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name></name></author><category term="A Tag" /><category term="Katex" /><summary type="html">Consectetur adipiscing elit. Donec a diam lectus. Sed sit amet ipsum mauris. Maecenas congue ligula ac quam viverra nec consectetur ante hendrerit. Donec et mollis dolor. Praesent et diam eget libero egestas mattis sit amet vitae augue. Nam tincidunt congue enim, ut porta lorem lacinia consectetur.</summary></entry></feed>
+&lt;/blockquote&gt;</content><author><name>gua</name></author><category term="JavaScript" /><summary type="html">前言 展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异。</summary></entry></feed>
