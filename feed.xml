@@ -1,4 +1,145 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-08-09T20:12:35+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">小程序平台登录和业务登录流程</title><link href="https://sylhare.github.io/2021/08/05/xcx1.html" rel="alternate" type="text/html" title="小程序平台登录和业务登录流程" /><published>2021-08-05T00:00:00+08:00</published><updated>2021-08-05T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/05/xcx1</id><content type="html" xml:base="https://sylhare.github.io/2021/08/05/xcx1.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-08-10T20:56:17+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">去闭包的宇宙看看</title><link href="https://sylhare.github.io/2021/08/06/JS2bibao.html" rel="alternate" type="text/html" title="去闭包的宇宙看看" /><published>2021-08-06T00:00:00+08:00</published><updated>2021-08-06T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/06/JS2bibao</id><content type="html" xml:base="https://sylhare.github.io/2021/08/06/JS2bibao.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+
+&lt;p&gt;学习闭包的时候，我的脑海中经常出现一个宇宙的画面。&lt;/p&gt;
+
+&lt;p&gt;在我的理解中，作用域链、函数、闭包、变量之间的关系，就有点像漫威中的多元宇宙，他们之间的关系千丝万缕，而闭包就是宇宙间的桥梁。&lt;!--more--&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;闭包所在的宇宙&quot;&gt;闭包所在的宇宙&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;全局变量：全局变量是最外层的作用域，闭包的故事，发生在最外层宇宙中，而这个外层宇宙就是我们的全局变量globalData。全局变量永远存在，就像宇宙永恒一般。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;作用域：作用域是每一个函数的执行环境，它就像一个个分支宇宙，存在于全局变量之中。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;作用域链：作用域链，就像是通往每个宇宙的空间通道。作用域链的前端始终都是当前执行的代码所在环境的变量对象，这条链从自己的作用域开始不断溯源，一直到全局执行环境。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;活动对象：活动对象就像是每个次级宇宙中的一切物质（属性和方法），它随着函数被创建而创建，随着函数被销毁而被销毁。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;闭包：闭包是一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。闭包就是能读取其他函数内部数据的函数。由于JavaScript中只有函数内部的子函数可以读取局部数据，所以js的闭包，其实就是定义在函数内部的函数。闭包本质上是连接函数内部和外部的桥梁。
+闭包在这个多元宇宙中，是一个特殊的存在，他是沟通不同宇宙间活动对象的虫洞。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;由于闭包而产生的情况：&lt;/p&gt;
+
+    &lt;p&gt;由于闭包这座虫洞的存在。当二级宇宙被销毁时，二级宇宙只销毁了它的作用域链（也就是说，随着二级宇宙被销毁，去往二级宇宙的路被销毁了，我们再也不能通过这条路去拿二级宇宙的东西了）&lt;/p&gt;
+
+    &lt;p&gt;但是由于三级宇宙还在通过闭包虫洞在使用二级宇宙的活动对象，所以二级宇宙的活动对象并没有被销毁，还是占着内存空间。&lt;/p&gt;
+
+    &lt;p&gt;我们还是可以通过闭包借道三级宇宙去访问二级宇宙。而只有当三级宇宙也被销毁，真正的二级宇宙的活动对象才会被销毁。&lt;/p&gt;
+
+    &lt;p&gt;这似乎印证了一句格言：&lt;/p&gt;
+
+    &lt;p&gt;一个人一生要经历两次死亡，一次是身体死亡（作用域链销毁），一次是世间最后一个记得你的人死去（你的所有子函数都被销毁）。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;正文&quot;&gt;正文&lt;/h2&gt;
+
+&lt;h4 id=&quot;作用域链的创建&quot;&gt;作用域链的创建&lt;/h4&gt;
+
+&lt;p&gt;当某个函数被调用时，会创建一个执行环境及相应的作用域链。然后，使用 arguments 和其他命名参数的值来初始化函数的活动对象。&lt;/p&gt;
+
+&lt;p&gt;但在作用域链中，外部函数的活动对象始终处于第二位，外部函数的外部函数的活动对象处于第三位，……直至作为作用域链终点的全局执行环境。&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210810201824524.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;全局环境的变量对象始终存在，而像compare()函数这样的局部环境的变量对象，则只在函数执行的过程中存在。&lt;/p&gt;
+
+&lt;p&gt;在创建函数时，会创建一个包含全局变量对象的作用域链，这个作用域链被保存在内部的[[Scope]]属性中。&lt;/p&gt;
+
+&lt;p&gt;当调用函数时，会为函数创建一个执行环境，然后通过复制函数的[[Scope]]属性中的对象构建起执行环境的作用域链。此后，又有一个活动对象被创建并被推入执行环境作用域链的前端。作用域链本质上是一个指向变量对象的指针列表。&lt;/p&gt;
+
+&lt;p&gt;一般来讲，当函数执行完毕后，局部活动对象就会被销毁，内存中仅保存全局作用域。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210810202133565.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;(控制台打印的window对象中的某个参数的作用域，全局作用域global用于在作用域链的后端)&lt;/p&gt;
+
+&lt;h4 id=&quot;存在闭包时作用域链的情况&quot;&gt;存在闭包时作用域链的情况&lt;/h4&gt;
+
+&lt;p&gt;在一个函数内部定义的函数会将包含函数的活动对象添加到它的作用域链中。
+所以，当外层函数在执行完毕后，其活动对象也不会被销毁，因为内层函数的作用域链仍然在引用这个活动对象。换句话说，当外层函数return后，其执行环境的作用域链会被销毁，但它的活动对象仍然会留在内存中；直到内层函数被销毁后外层的活动对象才会被销毁。&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 没用使用闭包的时候，a是局部变量，即使先调用了了b()，也打印不出来变量a&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;aaa&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 'a is not defined'&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// 使用闭包后，虽然a是局部变量，但是b()通过return一个子函数，并且在外部定义新函数进行接收，最终打印出了变量a&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;aaa&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()()&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 'aaa'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210810201834101.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;闭包的作用&quot;&gt;闭包的作用&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;可以读取函数内部的变量&lt;/li&gt;
+  &lt;li&gt;可以让某些变量长期保存在内存中实现共享&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;闭包的缺点&quot;&gt;闭包的缺点&lt;/h4&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;闭包会携带包含它的函数的作用域，所以闭包比其他函数更占内存；&lt;/li&gt;
+  &lt;li&gt;不合理地使用闭包会导致已经完成的函数的作用域仍然没有被回收；&lt;/li&gt;
+  &lt;li&gt;闭包允许了在父函数外部改变函数内部的值，这产生了父函数中值被错误改变的风险。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id=&quot;闭包使用中出现的问题&quot;&gt;闭包使用中出现的问题&lt;/h4&gt;
+
+&lt;p&gt;作用域链的配置机制引出了问题，即闭包只能取得包含函数中任何变量的最后一个值。&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createFunctions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;上面的代码是一个常见的错误，我们希望0时返回0，1是返回1。但是实际上全部结果都是返回10。原因就是二级活动对象里面并没有i这个变量，我们每次调用，都直接取了createFunctions里面的活动对象的i变量。&lt;/p&gt;
+
+&lt;p&gt;解决上面代码出现的问题，我们通常会在每次for循环时都自执行一次function，这实际上就是在每个二级活动对象中都定义一个属于自己的变量i&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createFunctions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+         &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
+             &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+         &lt;span class=&quot;p&quot;&gt;}(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h4 id=&quot;最后&quot;&gt;最后&lt;/h4&gt;</content><author><name>gua</name></author><category term="JavaScript" /><summary type="html">前言</summary></entry><entry><title type="html">小程序平台登录和业务登录流程</title><link href="https://sylhare.github.io/2021/08/05/XCX1denglu.html" rel="alternate" type="text/html" title="小程序平台登录和业务登录流程" /><published>2021-08-05T00:00:00+08:00</published><updated>2021-08-05T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/05/XCX1denglu</id><content type="html" xml:base="https://sylhare.github.io/2021/08/05/XCX1denglu.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;总结一下小程序平台登录和业务登录。&lt;/em&gt;&lt;!--more--&gt;&lt;/p&gt;
 
@@ -66,7 +207,7 @@
 
 &lt;p&gt;如果我们的项目除了微信的账号，还有业务逻辑的账号。就需要进一步的业务登录了。&lt;/p&gt;
 
-&lt;p&gt;其实道理也是一样，在第四步拿到token之后，进一步带上用户账号和密码通过业务接口获取新的一个_token，就完成了业务账号的登录。&lt;/p&gt;</content><author><name>gua</name></author><category term="小程序" /><summary type="html">前言 总结一下小程序平台登录和业务登录。</summary></entry><entry><title type="html">小程序用户权限询问组件封装</title><link href="https://sylhare.github.io/2021/08/05/xcx2.html" rel="alternate" type="text/html" title="小程序用户权限询问组件封装" /><published>2021-08-05T00:00:00+08:00</published><updated>2021-08-05T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/05/xcx2</id><content type="html" xml:base="https://sylhare.github.io/2021/08/05/xcx2.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;其实道理也是一样，在第四步拿到token之后，进一步带上用户账号和密码通过业务接口获取新的一个_token，就完成了业务账号的登录。&lt;/p&gt;</content><author><name>gua</name></author><category term="小程序" /><summary type="html">前言 总结一下小程序平台登录和业务登录。</summary></entry><entry><title type="html">小程序用户权限询问组件封装</title><link href="https://sylhare.github.io/2021/08/05/XCX2quanxian.html" rel="alternate" type="text/html" title="小程序用户权限询问组件封装" /><published>2021-08-05T00:00:00+08:00</published><updated>2021-08-05T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/05/XCX2quanxian</id><content type="html" xml:base="https://sylhare.github.io/2021/08/05/XCX2quanxian.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;以手机号权限询问为例子，总结小程序权限询问业务。&lt;/em&gt;&lt;!--more--&gt;&lt;/p&gt;
 
@@ -164,7 +305,7 @@
     &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>gua</name></author><category term="小程序" /><summary type="html">前言 以手机号权限询问为例子，总结小程序权限询问业务。</summary></entry><entry><title type="html">canvas实现图片-点阵转化</title><link href="https://sylhare.github.io/2021/08/04/canvas.html" rel="alternate" type="text/html" title="canvas实现图片-点阵转化" /><published>2021-08-04T00:00:00+08:00</published><updated>2021-08-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/04/canvas</id><content type="html" xml:base="https://sylhare.github.io/2021/08/04/canvas.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>gua</name></author><category term="小程序" /><summary type="html">前言 以手机号权限询问为例子，总结小程序权限询问业务。</summary></entry><entry><title type="html">canvas实现图片→点阵转化</title><link href="https://sylhare.github.io/2021/08/04/HTML1canvas.html" rel="alternate" type="text/html" title="canvas实现图片→点阵转化" /><published>2021-08-04T00:00:00+08:00</published><updated>2021-08-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/04/HTML1canvas</id><content type="html" xml:base="https://sylhare.github.io/2021/08/04/HTML1canvas.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？&lt;/em&gt;&lt;!--more--&gt;&lt;em&gt;你有没有看过无人机矩阵的精彩表演？你有见过黑白木刻风的艺术照片吗？&lt;/em&gt;&lt;/p&gt;
 
@@ -338,13 +479,13 @@
 
 &lt;p&gt;（使用▂▃▅▇）&lt;/p&gt;
 
-&lt;p&gt;是不是还不错。&lt;/p&gt;</content><author><name>gua</name></author><category term="html" /><summary type="html">前言 你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？</summary></entry><entry><title type="html">https对http做了什么改进</title><link href="https://sylhare.github.io/2021/07/04/http4.html" rel="alternate" type="text/html" title="https对http做了什么改进" /><published>2021-07-04T00:00:00+08:00</published><updated>2021-07-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/04/http4</id><content type="html" xml:base="https://sylhare.github.io/2021/07/04/http4.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;是不是还不错。&lt;/p&gt;</content><author><name>gua</name></author><category term="html" /><summary type="html">前言 你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？</summary></entry><entry><title type="html">HTTPS对HTTP做了什么改进</title><link href="https://sylhare.github.io/2021/07/04/HTTP4https.html" rel="alternate" type="text/html" title="HTTPS对HTTP做了什么改进" /><published>2021-07-04T00:00:00+08:00</published><updated>2021-07-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/04/HTTP4https</id><content type="html" xml:base="https://sylhare.github.io/2021/07/04/HTTP4https.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
-&lt;p&gt;&lt;em&gt;什么是https？https不是新的协议，而是在http协议的基础上建立SSL加密层，并对传输数据进行加密，是http协议的安全版。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;什么是HTTPS？HTTPS不是新的协议，而是在HTTP协议的基础上建立SSL加密层，并对传输数据进行加密，是HTTP协议的安全版。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;em&gt;随着互联网业务对数据信息安全需求的日益提升，https的使用也越来越广泛&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;随着互联网业务对数据信息安全需求的日益提升，HTTPS的使用也越来越广泛&lt;/em&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;http协议的缺点&quot;&gt;http协议的缺点&lt;/h2&gt;
+&lt;h2 id=&quot;http协议的缺点&quot;&gt;HTTP协议的缺点&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;明文通信，在任何环节都可以被窃听；&lt;/li&gt;
@@ -352,7 +493,7 @@
   &lt;li&gt;无法验证报文完整性，通信过程可能遭到篡改；&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;https对以上缺点的改进&quot;&gt;https对以上缺点的改进&lt;/h2&gt;
+&lt;h2 id=&quot;https对以上缺点的改进&quot;&gt;HTTPS对以上缺点的改进&lt;/h2&gt;
 
 &lt;h4 id=&quot;明文通信被窃听&quot;&gt;明文通信被窃听&lt;/h4&gt;
 
@@ -372,7 +513,7 @@
 
 &lt;p&gt;解决：完整性保护（SSL提供的认证和加密处理、摘要功能）&lt;/p&gt;
 
-&lt;h2 id=&quot;和https协议的优势&quot;&gt;和https协议的优势&lt;/h2&gt;
+&lt;h2 id=&quot;和https协议的优势&quot;&gt;和HTTPS协议的优势&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;数据隐私性：内容经过对称加密，每个连接生成一个唯一的加密密钥&lt;/li&gt;
@@ -380,7 +521,7 @@
   &lt;li&gt;身份认证：第三方无法伪造服务端（客户端）身份&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;说白了，https就是身披SSL外套的http；HTTPS = HTTP+加密+认证+完整性保护&lt;/p&gt;
+&lt;p&gt;说白了，HTTPS就是身披SSL外套的HTTP；HTTPS = HTTP+加密+认证+完整性保护&lt;/p&gt;
 
 &lt;h2 id=&quot;解决内容被窃听的方法&quot;&gt;解决内容被窃听的方法&lt;/h2&gt;
 
@@ -421,11 +562,11 @@
   &lt;li&gt;加密和解密过程占用cpu（所以只在关键部位使用HTTPS，浪费资源还有浪费钱）&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;https的通信方式&quot;&gt;https的通信方式&lt;/h2&gt;
+&lt;h2 id=&quot;https的通信方式&quot;&gt;HTTPS的通信方式&lt;/h2&gt;
 
 &lt;p&gt;HTTPS采用混合加密机制进行通信：公开密钥虽然安全但是比共享密钥慢，先用公开密钥方式交换共享密钥，再使用共享密钥进行通信。&lt;/p&gt;
 
-&lt;h4 id=&quot;https的安全通信流程&quot;&gt;https的安全通信流程&lt;/h4&gt;
+&lt;h4 id=&quot;https的安全通信流程&quot;&gt;HTTPS的安全通信流程&lt;/h4&gt;
 &lt;ol&gt;
   &lt;li&gt;客户端发送通信请求&lt;/li&gt;
   &lt;li&gt;服务器把公开密钥和公开密钥证书发给客户端&lt;/li&gt;
@@ -433,7 +574,7 @@
   &lt;li&gt;客户端确认公开密钥合法，使用公开密钥加密一串共享密钥，然后把共享密钥发给服务器&lt;/li&gt;
   &lt;li&gt;服务器使用私有密钥解密获得共享密钥&lt;/li&gt;
   &lt;li&gt;然后服务器和客户端开始使用共享密钥进行通信&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 什么是https？https不是新的协议，而是在http协议的基础上建立SSL加密层，并对传输数据进行加密，是http协议的安全版。</summary></entry><entry><title type="html">基于http的功能追加协议</title><link href="https://sylhare.github.io/2021/07/03/http3.html" rel="alternate" type="text/html" title="基于http的功能追加协议" /><published>2021-07-03T00:00:00+08:00</published><updated>2021-07-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/03/http3</id><content type="html" xml:base="https://sylhare.github.io/2021/07/03/http3.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;/ol&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 什么是HTTPS？HTTPS不是新的协议，而是在HTTP协议的基础上建立SSL加密层，并对传输数据进行加密，是HTTP协议的安全版。</summary></entry><entry><title type="html">基于HTTP的功能追加协议</title><link href="https://sylhare.github.io/2021/07/03/HTTP3xieyi.html" rel="alternate" type="text/html" title="基于HTTP的功能追加协议" /><published>2021-07-03T00:00:00+08:00</published><updated>2021-07-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/03/HTTP3xieyi</id><content type="html" xml:base="https://sylhare.github.io/2021/07/03/HTTP3xieyi.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;- 为什么要有追加协议？&lt;/em&gt;&lt;/p&gt;
 
@@ -562,7 +703,7 @@
       &lt;td&gt;Speed + Mobility&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 - 为什么要有追加协议？ 为了弥补http协议的局限性。</summary></entry><entry><title type="html">常见http状态码</title><link href="https://sylhare.github.io/2021/07/02/http2.html" rel="alternate" type="text/html" title="常见http状态码" /><published>2021-07-02T00:00:00+08:00</published><updated>2021-07-02T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/02/http2</id><content type="html" xml:base="https://sylhare.github.io/2021/07/02/http2.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;/table&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 - 为什么要有追加协议？ 为了弥补http协议的局限性。</summary></entry><entry><title type="html">常见HTTP状态码</title><link href="https://sylhare.github.io/2021/07/02/HTTP2zhuangtai.html" rel="alternate" type="text/html" title="常见HTTP状态码" /><published>2021-07-02T00:00:00+08:00</published><updated>2021-07-02T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/02/HTTP2zhuangtai</id><content type="html" xml:base="https://sylhare.github.io/2021/07/02/HTTP2zhuangtai.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右&lt;/em&gt; &lt;!--more--&gt; &lt;em&gt;，这里记录我开发过程中遭遇的部分常用状态码&lt;/em&gt;&lt;/p&gt;
 
@@ -606,7 +747,7 @@
 
 &lt;p&gt;500：服务器出错&lt;/p&gt;
 
-&lt;p&gt;503：服务器超负载或正在维护（这里可以加一个响应首部字段Retry-After用来告诉客户端以上状况的解决时间）&lt;/p&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右</summary></entry><entry><title type="html">web攻击技术简述</title><link href="https://sylhare.github.io/2021/07/01/http1.html" rel="alternate" type="text/html" title="web攻击技术简述" /><published>2021-07-01T00:00:00+08:00</published><updated>2021-07-01T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/01/http1</id><content type="html" xml:base="https://sylhare.github.io/2021/07/01/http1.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;p&gt;503：服务器超负载或正在维护（这里可以加一个响应首部字段Retry-After用来告诉客户端以上状况的解决时间）&lt;/p&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右</summary></entry><entry><title type="html">WEB攻击技术简述</title><link href="https://sylhare.github.io/2021/07/01/HTTP1gongji.html" rel="alternate" type="text/html" title="WEB攻击技术简述" /><published>2021-07-01T00:00:00+08:00</published><updated>2021-07-01T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/07/01/HTTP1gongji</id><content type="html" xml:base="https://sylhare.github.io/2021/07/01/HTTP1gongji.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
 
@@ -699,7 +840,7 @@
 &lt;ul&gt;
   &lt;li&gt;中间人攻击&lt;/li&gt;
   &lt;li&gt;XST攻击&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。</summary></entry><entry><title type="html">纯css和css属性实现动态流量小球</title><link href="https://sylhare.github.io/2021/06/04/liuliangqiu.html" rel="alternate" type="text/html" title="纯css和css属性实现动态流量小球" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/04/liuliangqiu</id><content type="html" xml:base="https://sylhare.github.io/2021/06/04/liuliangqiu.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>gua</name></author><category term="http" /><summary type="html">前言 web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。</summary></entry><entry><title type="html">纯CSS和CSS计算属性实现动态流量小球</title><link href="https://sylhare.github.io/2021/06/04/CSS2liuliangqiu.html" rel="alternate" type="text/html" title="纯CSS和CSS计算属性实现动态流量小球" /><published>2021-06-04T00:00:00+08:00</published><updated>2021-06-04T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/04/CSS2liuliangqiu</id><content type="html" xml:base="https://sylhare.github.io/2021/06/04/CSS2liuliangqiu.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？&lt;/em&gt;&lt;!--more--&gt;&lt;/p&gt;
 
@@ -777,7 +918,7 @@
 
 &lt;blockquote&gt;
   &lt;p&gt;相关连接：&lt;a href=&quot;https://qishaoxuan.github.io/css_tricks/notCSS/wave.html&quot;&gt;CSS-Trick官网&lt;/a&gt; &lt;a href=&quot;https://github.com/chokcoco/iCSS/issues/22&quot;&gt;chokcoco的主页&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>gua</name></author><category term="CSS" /><summary type="html">前言 在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？</summary></entry><entry><title type="html">前端切图仔的简易文本加密工具</title><link href="https://sylhare.github.io/2021/06/03/jiami.html" rel="alternate" type="text/html" title="前端切图仔的简易文本加密工具" /><published>2021-06-03T00:00:00+08:00</published><updated>2021-06-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/03/jiami</id><content type="html" xml:base="https://sylhare.github.io/2021/06/03/jiami.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;/blockquote&gt;</content><author><name>gua</name></author><category term="CSS" /><summary type="html">前言 在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？</summary></entry><entry><title type="html">前端切图仔的简易文本加密工具</title><link href="https://sylhare.github.io/2021/06/03/CSS1jiami.html" rel="alternate" type="text/html" title="前端切图仔的简易文本加密工具" /><published>2021-06-03T00:00:00+08:00</published><updated>2021-06-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/06/03/CSS1jiami</id><content type="html" xml:base="https://sylhare.github.io/2021/06/03/CSS1jiami.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;- 这是什么？&lt;/em&gt;&lt;/p&gt;
 
@@ -987,161 +1128,4 @@
 &lt;p&gt;上面只是提供了一种进行简单加密的思路，举一反三，我们同样可以将数字编码转换为对应的圆角、旋转角度、长度等等视觉表现；是不是很高(zhuang)级(bi)快搞一个试试吧，冲啊。&lt;/p&gt;
 
 &lt;h4 id=&quot;解密&quot;&gt;解密&lt;/h4&gt;
-&lt;p&gt;如此这般自己解吧&lt;/p&gt;</content><author><name>gua</name></author><category term="CSS" /><summary type="html">前言 - 这是什么？ 一张马赛克，马赛克的背后往往隐匿着令人兴奋的真相。这是一张埋藏着秘密的文本加密图。</summary></entry><entry><title type="html">展开语法和剩余语法(…)</title><link href="https://sylhare.github.io/2021/05/03/zhangkai.html" rel="alternate" type="text/html" title="展开语法和剩余语法(…)" /><published>2021-05-03T00:00:00+08:00</published><updated>2021-05-03T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/05/03/zhangkai</id><content type="html" xml:base="https://sylhare.github.io/2021/05/03/zhangkai.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
-
-&lt;p&gt;&lt;em&gt;展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异。&lt;/em&gt; &lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;展开语法&quot;&gt;展开语法&lt;/h2&gt;
-
-&lt;p&gt;展开语法…用于展开数组或者对象。&lt;/p&gt;
-
-&lt;h4 id=&quot;展开语法的基本用法&quot;&gt;展开语法的基本用法&lt;/h4&gt;
-
-&lt;p&gt;如果是数组，展开成一项一项；在构造字面量对象时, 将对象表达式按key-value的方式展开。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;函数调用时，像apply一样展开&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;z&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numbers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 输出: 6 &lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sum&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;apply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;numbers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 输出: 6 &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;在构造数组的时候使用&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
-  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;用于复制对象，或者属性拷贝&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;c1&quot;&gt;// 复制 &lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newobj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-  &lt;span class=&quot;c1&quot;&gt;// 增加 &lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;newobj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;123&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210126134528629.png#pic_center&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;展开语法的实用例子&quot;&gt;展开语法的实用例子&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;展开语法在new中的使用&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;使用 new 关键字来调用构造函数时，&lt;strong&gt;不能直接使用数组+ apply 的方式&lt;/strong&gt;（apply 执行的是调用 [[Call]] , 而不是构造 [[Construct]]）。当然, 有了展开语法, 将数组展开为构造函数的参数就很简单了：&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dateFields&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1970&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;d&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;dateFields&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210126134658936.png#pic_center&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;使用展开语法进行数组操作非常给力，可以直接替代push、concat、unshift等方法的使用&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;parts&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;shoulders&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;knees&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;lyrics&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;head&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;parts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;and&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;toes&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;使用展开语法拷贝数组和对象后不再是单纯的地址指针复制&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// like arr.slice() &lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;arr2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;push&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// arr2 此时变成 [1, 2, 3, 4]// arr 不受影响 &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;但是呢，这个拷贝与Object.assign一样，都只进行第一层的浅拷贝，如果下面的a是一个二维数组，那第二维还是指针，这时候修改拷贝后的参数，还是会影响到原来的a&lt;/p&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]];&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt; 
-  &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;shift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;().&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;shift&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 1 &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210126134727209.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70#pic_center&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;在数组或函数参数中使用时，展开语法只能用于&lt;strong&gt;可迭代对象&lt;/strong&gt; &lt;em&gt;（可以被for..of循环使用）&lt;/em&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;剩余语法&quot;&gt;剩余语法&lt;/h2&gt;
-
-&lt;p&gt;剩余语法准确来说跟展开语法相反，它被放在形参的最后一位，用来把多余的输入参数整合为一个数组&lt;/p&gt;
-
-&lt;h4 id=&quot;用在不定输入参数的函数形参中&quot;&gt;用在不定输入参数的函数形参中&lt;/h4&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;reduce&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;previous&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; 
-          &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;previous&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;current&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; 
-      &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt; 
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 6，前两个1被赋值到形参a和b中 输出: 6 &lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h4 id=&quot;剩余参数和-arguments对象的区别&quot;&gt;剩余参数和 arguments对象的区别&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;剩余参数只包含那些没有对应形参的实参，而 arguments 对象包含了传给函数的所有实参。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;arguments对象不是一个真正的数组，而剩余参数是真正的 Array实例，也就是说你能够在它上面直接使用所有的数组方法，比如 sort，map，forEach或pop。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;arguments对象还有一些附加的属性 （如callee属性）。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;剩余语法的使用实例&quot;&gt;剩余语法的使用实例&lt;/h4&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;用于判断参数数量&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fun1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;fun1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// 弹出 &quot;0&quot;, 因为theArgs没有元素&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;fun1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 弹出 &quot;1&quot;, 因为theArgs只有一个元素&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;fun1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 弹出 &quot;3&quot;, 因为theArgs有三个元素&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;累乘&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;multiplier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiplier&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;element&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;});}&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;multiply&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;  &lt;span class=&quot;c1&quot;&gt;// [2, 4, 6]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;下例演示了你可以在剩余参数上使用任意的数组方法，而arguments对象不可以&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortRestArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(...&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;theArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sortRestArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 弹出 1,3,5,7&lt;/span&gt;
-  &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortArguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sort&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;sortedArgs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 不会执行到这里&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-  &lt;span class=&quot;nx&quot;&gt;alert&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sortArguments&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;));&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// 抛出TypeError异常:arguments.sort is not a function&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;相关文档：&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Spread_syntax&quot;&gt;MDN文档&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content><author><name>gua</name></author><category term="JavaScript" /><summary type="html">前言 展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异。</summary></entry></feed>
+&lt;p&gt;如此这般自己解吧&lt;/p&gt;</content><author><name>gua</name></author><category term="CSS" /><summary type="html">前言 - 这是什么？ 一张马赛克，马赛克的背后往往隐匿着令人兴奋的真相。这是一张埋藏着秘密的文本加密图。</summary></entry></feed>
