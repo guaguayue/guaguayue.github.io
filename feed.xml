@@ -1,40 +1,38 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-08-10T20:56:17+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">去闭包的宇宙看看</title><link href="https://sylhare.github.io/2021/08/06/JS2bibao.html" rel="alternate" type="text/html" title="去闭包的宇宙看看" /><published>2021-08-06T00:00:00+08:00</published><updated>2021-08-06T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/06/JS2bibao</id><content type="html" xml:base="https://sylhare.github.io/2021/08/06/JS2bibao.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://sylhare.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://sylhare.github.io/" rel="alternate" type="text/html" /><updated>2021-08-11T11:20:08+08:00</updated><id>https://sylhare.github.io/feed.xml</id><title type="html">Guo Yue Blog</title><subtitle>郭越的博客</subtitle><entry><title type="html">JS闭包和作用域链</title><link href="https://sylhare.github.io/2021/08/06/JS2bibao.html" rel="alternate" type="text/html" title="JS闭包和作用域链" /><published>2021-08-06T00:00:00+08:00</published><updated>2021-08-06T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/06/JS2bibao</id><content type="html" xml:base="https://sylhare.github.io/2021/08/06/JS2bibao.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
-&lt;p&gt;学习闭包的时候，我的脑海中经常出现一个宇宙的画面。&lt;/p&gt;
+&lt;p&gt;学习闭包的时候，我的脑海中经常出现这样一个画面，作用域链、函数、闭包、变量之间组成了像漫威一样的多元宇宙，他们之间的关系千丝万缕，而闭包就是宇宙间的桥梁。&lt;!--more--&gt;&lt;/p&gt;
 
-&lt;p&gt;在我的理解中，作用域链、函数、闭包、变量之间的关系，就有点像漫威中的多元宇宙，他们之间的关系千丝万缕，而闭包就是宇宙间的桥梁。&lt;!--more--&gt;&lt;/p&gt;
-
-&lt;h2 id=&quot;闭包所在的宇宙&quot;&gt;闭包所在的宇宙&lt;/h2&gt;
+&lt;h2 id=&quot;宇宙&quot;&gt;宇宙&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;全局变量：全局变量是最外层的作用域，闭包的故事，发生在最外层宇宙中，而这个外层宇宙就是我们的全局变量globalData。全局变量永远存在，就像宇宙永恒一般。&lt;/p&gt;
+    &lt;p&gt;全局变量：全局变量globalData是最外层的作用域，它就像承载一切的最外层宇宙。全局变量永远存在，就像宇宙永恒一般。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;作用域：作用域是每一个函数的执行环境，它就像一个个分支宇宙，存在于全局变量之中。&lt;/p&gt;
+    &lt;p&gt;作用域：作用域是每一个函数的执行环境，它就像一个个分支宇宙，衍生于最外层宇宙。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;作用域链：作用域链，就像是通往每个宇宙的空间通道。作用域链的前端始终都是当前执行的代码所在环境的变量对象，这条链从自己的作用域开始不断溯源，一直到全局执行环境。&lt;/p&gt;
+    &lt;p&gt;作用域链：作用域链的前端始终都是当前执行的代码所在环境的变量对象，这条链从自己的作用域开始不断溯源，一直到全局执行环境。作用域链，就像是通往每个宇宙空间通道。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;活动对象：活动对象就像是每个次级宇宙中的一切物质（属性和方法），它随着函数被创建而创建，随着函数被销毁而被销毁。&lt;/p&gt;
+    &lt;p&gt;活动对象：活动对象随着函数被创建而创建，随着函数被销毁而被销毁，包含arguments和value。活动对象就像是每个次级宇宙中的一切物质（属性和方法），&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;闭包：闭包是一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。闭包就是能读取其他函数内部数据的函数。由于JavaScript中只有函数内部的子函数可以读取局部数据，所以js的闭包，其实就是定义在函数内部的函数。闭包本质上是连接函数内部和外部的桥梁。
-闭包在这个多元宇宙中，是一个特殊的存在，他是沟通不同宇宙间活动对象的虫洞。&lt;/p&gt;
+    &lt;p&gt;闭包：闭包是一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。说白了，闭包就是能读取其他函数内部数据的函数。由于JavaScript中只有函数内部的子函数可以读取局部数据，所以js的闭包，其实就是定义在函数内部的函数。闭包本质上是连接函数内部和外部的桥梁。
+闭包在这个多元宇宙中，是一个特殊的存在，他是沟通不同级宇宙间活动对象的虫洞。&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;由于闭包而产生的情况：&lt;/p&gt;
+    &lt;p&gt;因为闭包而产生的情况：&lt;/p&gt;
 
-    &lt;p&gt;由于闭包这座虫洞的存在。当二级宇宙被销毁时，二级宇宙只销毁了它的作用域链（也就是说，随着二级宇宙被销毁，去往二级宇宙的路被销毁了，我们再也不能通过这条路去拿二级宇宙的东西了）&lt;/p&gt;
+    &lt;p&gt;当二级宇宙被销毁时，二级宇宙销毁了它的作用域链（也就是说，随着二级宇宙被销毁，去往二级宇宙的路被销毁了，我们再也不能通过这条路去拿二级宇宙的东西了）。&lt;/p&gt;
 
-    &lt;p&gt;但是由于三级宇宙还在通过闭包虫洞在使用二级宇宙的活动对象，所以二级宇宙的活动对象并没有被销毁，还是占着内存空间。&lt;/p&gt;
+    &lt;p&gt;但是由于三级宇宙仍然通过闭包虫洞在使用二级宇宙的活动对象，所以二级宇宙的活动对象并没有被销毁，还是占着内存空间。&lt;/p&gt;
 
-    &lt;p&gt;我们还是可以通过闭包借道三级宇宙去访问二级宇宙。而只有当三级宇宙也被销毁，真正的二级宇宙的活动对象才会被销毁。&lt;/p&gt;
+    &lt;p&gt;我们还是可以通过闭包借道三级宇宙去访问二级宇宙的属性和方法。而只有当三级宇宙也被销毁，真正的二级宇宙的活动对象才会被销毁。&lt;/p&gt;
 
     &lt;p&gt;这似乎印证了一句格言：&lt;/p&gt;
 
-    &lt;p&gt;一个人一生要经历两次死亡，一次是身体死亡（作用域链销毁），一次是世间最后一个记得你的人死去（你的所有子函数都被销毁）。&lt;/p&gt;
+    &lt;p&gt;一个人一生要经历两次死亡，一次是身体死亡（作用域链销毁），一次是世间最后一个记得你的人死去（所有拥有你的作用域的函数都被销毁）。&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
@@ -42,9 +40,9 @@
 
 &lt;h4 id=&quot;作用域链的创建&quot;&gt;作用域链的创建&lt;/h4&gt;
 
-&lt;p&gt;当某个函数被调用时，会创建一个执行环境及相应的作用域链。然后，使用 arguments 和其他命名参数的值来初始化函数的活动对象。&lt;/p&gt;
+&lt;p&gt;当某个函数被调用时，会创建一个执行环境及相应的作用域链。然后初始化函数的活动对象。&lt;/p&gt;
 
-&lt;p&gt;但在作用域链中，外部函数的活动对象始终处于第二位，外部函数的外部函数的活动对象处于第三位，……直至作为作用域链终点的全局执行环境。&lt;/p&gt;
+&lt;p&gt;作用域链中函数本身的活动对象始终处于第一位，外部函数的活动对象处于第二位，外部函数的外部函数的活动对象处于第三位，……直至作为作用域链终点的全局执行环境。&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;compare&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;value2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
@@ -69,19 +67,20 @@
 
 &lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210810202133565.png&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;(控制台打印的window对象中的某个参数的作用域，全局作用域global用于在作用域链的后端)&lt;/p&gt;
+&lt;p&gt;(控制台打印的window对象中的某个参数的作用域，全局作用域global在作用域链数组的最后一项)&lt;/p&gt;
 
 &lt;h4 id=&quot;存在闭包时作用域链的情况&quot;&gt;存在闭包时作用域链的情况&lt;/h4&gt;
 
-&lt;p&gt;在一个函数内部定义的函数会将包含函数的活动对象添加到它的作用域链中。
-所以，当外层函数在执行完毕后，其活动对象也不会被销毁，因为内层函数的作用域链仍然在引用这个活动对象。换句话说，当外层函数return后，其执行环境的作用域链会被销毁，但它的活动对象仍然会留在内存中；直到内层函数被销毁后外层的活动对象才会被销毁。&lt;/p&gt;
+&lt;p&gt;因为在一个函数内部定义的函数会将包含函数的活动对象添加到它的作用域链中。
+所以，当外层函数在执行完毕后，如果内层函数的作用域链仍然在引用这个活动对象，那么外层函数的活动对象也不会被销毁。换句话说，当外层函数return后，其执行环境的作用域链会被销毁，但它的活动对象仍然会留在内存中；直到内层函数也被销毁后，外层的活动对象才会被销毁。&lt;/p&gt;
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 没用使用闭包的时候，a是局部变量，即使先调用了了b()，也打印不出来变量a&lt;/span&gt;
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 没用使用闭包的时候，变量a存在于内层函数的活动对象，即使先调用了b()，也无法在外层作用域找到a&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;aaa&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
 &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;// 'a is not defined'&lt;/span&gt;
+
 &lt;span class=&quot;c1&quot;&gt;// 使用闭包后，虽然a是局部变量，但是b()通过return一个子函数，并且在外部定义新函数进行接收，最终打印出了变量a&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
   &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;aaa&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;
@@ -105,13 +104,13 @@
 
 &lt;ol&gt;
   &lt;li&gt;闭包会携带包含它的函数的作用域，所以闭包比其他函数更占内存；&lt;/li&gt;
-  &lt;li&gt;不合理地使用闭包会导致已经完成的函数的作用域仍然没有被回收；&lt;/li&gt;
-  &lt;li&gt;闭包允许了在父函数外部改变函数内部的值，这产生了父函数中值被错误改变的风险。&lt;/li&gt;
+  &lt;li&gt;不合理地使用闭包会导致已经完成的函数的活动对象仍然没有被回收；&lt;/li&gt;
+  &lt;li&gt;闭包允许了在父函数外部改变函数内部的值，这增加了父函数中值被错误改变的风险。&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;h4 id=&quot;闭包使用中出现的问题&quot;&gt;闭包使用中出现的问题&lt;/h4&gt;
+&lt;h4 id=&quot;使用中出现的问题&quot;&gt;使用中出现的问题&lt;/h4&gt;
 
-&lt;p&gt;作用域链的配置机制引出了问题，即闭包只能取得包含函数中任何变量的最后一个值。&lt;/p&gt;
+&lt;p&gt;作用域链的配置机制引出一个副作用，即闭包只能取得包含函数中任何变量的最后一个值。&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createFunctions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -124,9 +123,9 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;上面的代码是一个常见的错误，我们希望0时返回0，1是返回1。但是实际上全部结果都是返回10。原因就是二级活动对象里面并没有i这个变量，我们每次调用，都直接取了createFunctions里面的活动对象的i变量。&lt;/p&gt;
+&lt;p&gt;上面的代码是一个常见的错误，我们希望索引0时返回0，索引1时返回1。但是实际上全部结果都是返回10。原因就是二级活动对象里面并没有i这个变量，我们每次调用，都直接取了createFunctions活动对象中i变量的最后一次赋值。&lt;/p&gt;
 
-&lt;p&gt;解决上面代码出现的问题，我们通常会在每次for循环时都自执行一次function，这实际上就是在每个二级活动对象中都定义一个属于自己的变量i&lt;/p&gt;
+&lt;p&gt;解决上面代码出现的问题，我们通常会在每次for循环时都自执行一次function，这实际上就是将参数往下传递，在每个二级活动对象中都定义一个属于自己的变量i&lt;/p&gt;
 
 &lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;createFunctions&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(){&lt;/span&gt;
     &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
@@ -139,7 +138,12 @@
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;h4 id=&quot;最后&quot;&gt;最后&lt;/h4&gt;</content><author><name>gua</name></author><category term="JavaScript" /><summary type="html">前言</summary></entry><entry><title type="html">小程序平台登录和业务登录流程</title><link href="https://sylhare.github.io/2021/08/05/XCX1denglu.html" rel="alternate" type="text/html" title="小程序平台登录和业务登录流程" /><published>2021-08-05T00:00:00+08:00</published><updated>2021-08-05T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/05/XCX1denglu</id><content type="html" xml:base="https://sylhare.github.io/2021/08/05/XCX1denglu.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
+&lt;h4 id=&quot;关于this&quot;&gt;关于this&lt;/h4&gt;
+
+&lt;p&gt;在全局函数中，this指向window对象，而当函数被作为某个对象的方法调用时，this指向当前对象。不过，匿名函数的执行环境具有全局性，因此其this对象通常指向window。
+（当然，在通过 call()或 apply()改变函数执行环境的情况下，this 就会指向其他对象）&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://img-blog.csdnimg.cn/20210811105524823.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70&quot; alt=&quot;img&quot; /&gt;&lt;/p&gt;</content><author><name>gua</name></author><category term="JavaScript" /><summary type="html">前言</summary></entry><entry><title type="html">小程序平台登录和业务登录流程</title><link href="https://sylhare.github.io/2021/08/05/XCX1denglu.html" rel="alternate" type="text/html" title="小程序平台登录和业务登录流程" /><published>2021-08-05T00:00:00+08:00</published><updated>2021-08-05T00:00:00+08:00</updated><id>https://sylhare.github.io/2021/08/05/XCX1denglu</id><content type="html" xml:base="https://sylhare.github.io/2021/08/05/XCX1denglu.html">&lt;h2 id=&quot;前言&quot;&gt;前言&lt;/h2&gt;
 
 &lt;p&gt;&lt;em&gt;总结一下小程序平台登录和业务登录。&lt;/em&gt;&lt;!--more--&gt;&lt;/p&gt;
 
