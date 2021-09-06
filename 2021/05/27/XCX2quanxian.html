@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.3.6
+    Copyright 2016-2021 Sylhare
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Guo Yue Blog" href="https://sylhare.github.io/feed.xml"/>
+
+    
+
+    <!-- KaTeX 0.13.9 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.9.2 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://sylhare.github.io';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://sylhare.github.io/assets/img/pexels/triangular.jpeg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>小程序用户权限询问组件封装 | Guo Yue Blog</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="小程序用户权限询问组件封装" />
+<meta name="author" content="gua" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="前言 以手机号权限询问为例子，总结小程序权限询问业务。" />
+<meta property="og:description" content="前言 以手机号权限询问为例子，总结小程序权限询问业务。" />
+<link rel="canonical" href="https://sylhare.github.io/2021/05/27/XCX2quanxian.html" />
+<meta property="og:url" content="https://sylhare.github.io/2021/05/27/XCX2quanxian.html" />
+<meta property="og:site_name" content="Guo Yue Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-27T00:00:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="小程序用户权限询问组件封装" />
+<script type="application/ld+json">
+{"description":"前言 以手机号权限询问为例子，总结小程序权限询问业务。","author":{"@type":"Person","name":"gua"},"url":"https://sylhare.github.io/2021/05/27/XCX2quanxian.html","headline":"小程序用户权限询问组件封装","dateModified":"2021-05-27T00:00:00+08:00","datePublished":"2021-05-27T00:00:00+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2021/05/27/XCX2quanxian.html"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link type="application/atom+xml" rel="alternate" href="https://sylhare.github.io/feed.xml" title="Guo Yue Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="小程序用户权限询问组件封装">
+    <meta name="twitter:description" content="前言以手机号权限询问为例子，总结小程序权限询问业务。权限询问注意点  手机号获取api是需要通过点击按钮实现的；  用户拒绝一次以后，就不能再通过这个按钮唤醒了。所以，我们一般需要封装一个自定义弹框，在必须要使用手机号权限的地方可以多次弹出。流程1. 权限判定首先，通过自定义的权限标识判断当前权限获取状态// 点...">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://sylhare.github.io/assets/img/pexels/triangular.jpeg">
+    <meta name="twitter:image:alt" content="小程序用户权限询问组件封装">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/triangle.png" />
+		</a>
+        
+        <a class="site-title" aria-label="Guo Yue Blog" href="/">
+        Guo Yue Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="ABOUT" title="ABOUT" href="/about/">
+                     ABOUT 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="FOOTPRINT" title="FOOTPRINT" href="/footprint/">
+                     FOOTPRINT 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="HOME" title="HOME" href="/">
+                     HOME 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="PROJECT" title="PROJECT" href="/project/">
+                     PROJECT 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title="小程序用户权限询问组件封装 " aria-label="小程序用户权限询问组件封装" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <article class="feature-image" >
+  <header id="main" style="">
+    <div class="title-padder">
+      
+      <h1 id="%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%94%A8%E6%88%B7%E6%9D%83%E9%99%90%E8%AF%A2%E9%97%AE%E7%BB%84%E4%BB%B6%E5%B0%81%E8%A3%85" class="title">小程序用户权限询问组件封装</h1>
+      
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      May 27, 2021
+    </p></div>
+
+      
+    </div>
+  </header>
+
+  <section class="post-content">
+  
+      <h2 id="前言">前言</h2>
+
+<p><em>以手机号权限询问为例子，总结小程序权限询问业务。</em><!--more--></p>
+
+<h2 id="权限询问注意点">权限询问注意点</h2>
+
+<ol>
+  <li>手机号获取api是需要通过点击按钮实现的；</li>
+  <li>用户拒绝一次以后，就不能再通过这个按钮唤醒了。
+所以，我们一般需要封装一个自定义弹框，在必须要使用手机号权限的地方可以多次弹出。</li>
+</ol>
+
+<h2 id="流程">流程</h2>
+
+<h4 id="1-权限判定">1. 权限判定</h4>
+<p>首先，通过自定义的权限标识判断当前权限获取状态</p>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 点击需要唤起手机号的地方</span>
+<span class="nx">handleTask</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// 已有权限</span>
+  <span class="k">if</span><span class="p">(</span><span class="nx">wx</span><span class="p">.</span><span class="nx">getStorageSync</span><span class="p">(</span><span class="dl">'</span><span class="s1">hadAuth</span><span class="dl">'</span><span class="p">)){</span>
+    <span class="p">...</span>
+  <span class="p">}</span>
+  <span class="c1">// 未有权限，唤起自己的弹框</span>
+  <span class="k">else</span><span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+      <span class="na">isPhone</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<h4 id="2-自定义组件">2. 自定义组件</h4>
+
+<p>封装一个手机弹框的自定义组件，给这个组件分别绑定同意事件和拒绝事件。</p>
+
+<p><img src="https://img-blog.csdnimg.cn/20210809195814421.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70" alt="img" /></p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 同意绑定</span>
+<span class="nx">clickToBindPhone</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+  <span class="c1">// 手机验证接口</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">closeBox</span><span class="p">()</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">phoneAuth</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">encryptedData</span><span class="p">,</span><span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">iv</span><span class="p">)</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<p><img src="https://img-blog.csdnimg.cn/20210809195814377.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b195dWU=,size_16,color_FFFFFF,t_70" alt="img" /></p>
+
+<p>（这个询问框才是真正的微信询问框，如果用户拒绝。下次我们还回生成新的询问事件触发按钮。）</p>
+
+<h4 id="3-父子组件传值">3. 父子组件传值</h4>
+
+<p>由于关闭窗口的事件是要由父组件进行关闭的，所以这里的的closebox事件必须传递到外部，也就是</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/** 子组件中 **/</span>
+<span class="c1">// 关闭盒子</span>
+<span class="nx">closeBox</span><span class="p">:</span> <span class="kd">function</span><span class="p">(){</span>
+  <span class="c1">// 触发外部事件，并传递数据</span>
+  <span class="kd">var</span> <span class="nx">detail</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">ifPhone</span><span class="p">:</span> <span class="kc">false</span>
+  <span class="p">};</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">triggerEvent</span><span class="p">(</span><span class="dl">'</span><span class="s1">showBox</span><span class="dl">'</span><span class="p">,</span> <span class="nx">detail</span><span class="p">,</span> <span class="p">{</span> <span class="na">bubbles</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span> <span class="na">composed</span><span class="p">:</span> <span class="kc">false</span> <span class="p">});</span>
+<span class="p">},</span>
+
+<span class="cm">/** 父组件中 **/</span>
+<span class="c1">// 询问手机</span>
+<span class="o">&lt;</span><span class="nx">bindphone</span> <span class="nx">ifPhone_</span><span class="o">=</span><span class="dl">""</span> <span class="nx">wx</span><span class="p">:</span><span class="k">if</span><span class="o">=</span><span class="dl">""</span> <span class="nx">bind</span><span class="p">:</span><span class="nx">showBox</span><span class="o">=</span><span class="dl">'</span><span class="s1">showClick</span><span class="dl">'</span><span class="o">&gt;&lt;</span><span class="sr">/bindphone</span><span class="err">&gt;
+</span>
+<span class="c1">//组件接受操作</span>
+<span class="nx">showClick</span><span class="p">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">setData</span><span class="p">({</span>
+    <span class="na">isPhone</span><span class="p">:</span> <span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">ifPhone</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="4-询问手机号">4. 询问手机号</h4>
+
+<p>询问手机号，需要把打开询问的按钮类型设置为getPhoneNumber，这样，当我们点击同意时，回调函数自带的参数中，就会有请求到的相关信息encryptedData和iv</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">button</span> <span class="kd">class</span><span class="o">=</span><span class="dl">"</span><span class="s2">st-bp-btn-2</span><span class="dl">"</span> <span class="nx">open</span><span class="o">-</span><span class="nx">type</span><span class="o">=</span><span class="dl">"</span><span class="s2">getPhoneNumber</span><span class="dl">"</span> <span class="nx">bindgetphonenumber</span><span class="o">=</span><span class="dl">"</span><span class="s2">clickToBindPhone</span><span class="dl">"</span><span class="o">&gt;</span><span class="nx">绑定</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>
+<span class="c1">// 同意绑定</span>
+<span class="nx">clickToBindPhone</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+  <span class="c1">// 手机验证接口</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">closeBox</span><span class="p">()</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">phoneAuth</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">encryptedData</span><span class="p">,</span><span class="nx">e</span><span class="p">.</span><span class="nx">detail</span><span class="p">.</span><span class="nx">iv</span><span class="p">)</span>
+<span class="p">},</span>
+</code></pre></div></div>
+
+<h4 id="5-把encrypteddata和iv传回微信接口服务器就能获得授权并拿到手机号了">5. 把encryptedData和iv传回微信接口服务器，就能获得授权并拿到手机号了。</h4>
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// 手机号业务登录</span>
+<span class="nx">phoneAuth</span><span class="p">(</span><span class="nx">encryptedData</span><span class="p">,</span><span class="nx">iv</span><span class="p">){</span>
+  <span class="c1">// 调手机登录接口</span>
+  <span class="nx">http</span><span class="p">.</span><span class="nx">httpPromise1</span><span class="p">.</span><span class="nx">postPromise</span><span class="p">(</span><span class="dl">'</span><span class="s1">/getphone?encryptedData=</span><span class="dl">'</span><span class="o">+</span><span class="nx">encryptedData</span><span class="o">+</span><span class="dl">'</span><span class="s1">&amp;iv=</span><span class="dl">'</span> <span class="o">+</span> <span class="nx">iv</span><span class="p">)</span>
+  <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">res</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="p">...</span>
+  <span class="p">})</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+    
+  </section>
+
+  <!-- Social media shares -->
+  
+
+
+   <!-- Tag list -->
+  
+  
+
+
+  <div class="tag-list">
+    <ul>
+      
+        <li class="meta">Tag</li>
+      
+
+      
+        <li><a class="button" href="/tags#%E5%B0%8F%E7%A8%8B%E5%BA%8F">
+          <p><i class="fas fa-tag fa-fw fa-sm"></i> 小程序</p>
+        </a></li>
+      
+    </ul>
+  </div>
+
+
+
+</article>
+
+<!-- Post navigation -->
+
+<div id="post-nav">
+    
+    <div id="previous-post">
+        <a alt="apply、call和bind" href="/2021/06/02/JS3apply.html">
+            <p>Previous post</p>
+            apply、call和bind
+        </a>
+    </div>
+    
+
+    
+    <div id="next-post">
+        <a alt="小程序平台登录和业务登录流程" href="/2021/05/19/XCX1denglu.html">
+            <p>Next post</p>
+            小程序平台登录和业务登录流程
+        </a>
+    </div>
+    
+</div>
+
+
+
+<!--Utterances-->
+
+
+<!-- Cusdis -->
+
+
+<!-- Disqus -->
+
+
+<!-- To change color of links in the page -->
+<style>
+  header#main {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+  }
+  
+  
+  .feature-image a { color: #7db18a !important; }
+  div#post-nav a { color: #7db18a !important; }
+  footer a { color: #7db18a !important; }
+  .site-header nav a:hover {  color: #7db18a !important; }
+  header#main { 
+      background-color: #7db18a !important;
+      background-image: url('/assets/img/lineart.png');
+  }
+  
+  
+  
+</style>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Hi, i am Gua<br> Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                <!--  -->
+
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>
