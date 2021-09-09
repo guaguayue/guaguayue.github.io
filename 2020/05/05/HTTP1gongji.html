@@ -62,22 +62,22 @@
     <meta property="og:type" content="website" />
     
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>常见HTTP状态码 | Guo Yue Blog</title>
+<title>WEB攻击技术简述 | Guo Yue Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="常见HTTP状态码" />
+<meta property="og:title" content="WEB攻击技术简述" />
 <meta name="author" content="gua" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="前言 http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右" />
-<meta property="og:description" content="前言 http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右" />
-<link rel="canonical" href="https://sylhare.github.io/2019/12/11/HTTP2zhuangtai.html" />
-<meta property="og:url" content="https://sylhare.github.io/2019/12/11/HTTP2zhuangtai.html" />
+<meta name="description" content="前言 web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。" />
+<meta property="og:description" content="前言 web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。" />
+<link rel="canonical" href="https://sylhare.github.io/2020/05/05/HTTP1gongji.html" />
+<meta property="og:url" content="https://sylhare.github.io/2020/05/05/HTTP1gongji.html" />
 <meta property="og:site_name" content="Guo Yue Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-12-11T00:00:00+08:00" />
+<meta property="article:published_time" content="2020-05-05T00:00:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="常见HTTP状态码" />
+<meta property="twitter:title" content="WEB攻击技术简述" />
 <script type="application/ld+json">
-{"description":"前言 http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右","author":{"@type":"Person","name":"gua"},"url":"https://sylhare.github.io/2019/12/11/HTTP2zhuangtai.html","headline":"常见HTTP状态码","dateModified":"2019-12-11T00:00:00+08:00","datePublished":"2019-12-11T00:00:00+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2019/12/11/HTTP2zhuangtai.html"},"@context":"https://schema.org"}</script>
+{"headline":"WEB攻击技术简述","description":"前言 web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。","dateModified":"2020-05-05T00:00:00+08:00","datePublished":"2020-05-05T00:00:00+08:00","url":"https://sylhare.github.io/2020/05/05/HTTP1gongji.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://sylhare.github.io/2020/05/05/HTTP1gongji.html"},"author":{"@type":"Person","name":"gua"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -85,12 +85,12 @@
     <link type="application/atom+xml" rel="alternate" href="https://sylhare.github.io/feed.xml" title="Guo Yue Blog" />
 
     <!-- Twitter Cards -->
-    <meta name="twitter:title" content="常见HTTP状态码">
-    <meta name="twitter:description" content="前言http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右  ，这里记录我开发过程中遭遇的部分常用状态码http状态码的类别一般情况下http的状态码首位数字代表着状态所在的请求阶段（当然也有例外）。而且随着http协议的发展，有一些状态码正在慢慢被取消使用。  1xx：请求正在处理（请...">
+    <meta name="twitter:title" content="WEB攻击技术简述">
+    <meta name="twitter:description" content="前言web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。 http协议的特点http不具备必要的安全功能http协议本身是一个简单的单纯协议机制，这一点使它具备众多优势，也使它在安全性方面呈...">
     
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://sylhare.github.io/assets/img/pexels/triangular.jpeg">
-    <meta name="twitter:image:alt" content="常见HTTP状态码">
+    <meta name="twitter:image:alt" content="WEB攻击技术简述">
 </head>
 
   <body>
@@ -205,7 +205,7 @@
         
         
         <li class="separator"> | </li>
-        <li><a id="theme-toggle" title="常见HTTP状态码 " aria-label="常见HTTP状态码" onclick="themeToggle()"></a></li>
+        <li><a id="theme-toggle" title="WEB攻击技术简述 " aria-label="WEB攻击技术简述" onclick="themeToggle()"></a></li>
         
     </ul>
 
@@ -217,7 +217,7 @@
   <header id="main" style="">
     <div class="title-padder">
       
-      <h1 id="%E5%B8%B8%E8%A7%81HTTP%E7%8A%B6%E6%80%81%E7%A0%81" class="title">常见HTTP状态码</h1>
+      <h1 id="WEB%E6%94%BB%E5%87%BB%E6%8A%80%E6%9C%AF%E7%AE%80%E8%BF%B0" class="title">WEB攻击技术简述</h1>
       
 
 
@@ -225,7 +225,7 @@
     <p class="meta">
       
       
-      December 11, 2019
+      May 05, 2020
     </p></div>
 
       
@@ -236,50 +236,98 @@
   
       <h2 id="前言">前言</h2>
 
-<p><em>http的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右</em> <!--more--> <em>，这里记录我开发过程中遭遇的部分常用状态码</em></p>
+<p><em>web攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。</em> <!--more--></p>
 
-<h2 id="http状态码的类别">http状态码的类别</h2>
+<h2 id="http协议的特点">http协议的特点</h2>
 
-<p>一般情况下http的状态码首位数字代表着状态所在的请求阶段（当然也有例外）。而且随着http协议的发展，有一些状态码正在慢慢被取消使用。</p>
+<h4 id="http不具备必要的安全功能">http不具备必要的安全功能</h4>
+
+<p>http协议本身是一个简单的单纯协议机制，这一点使它具备众多优势，也使它在安全性方面呈现劣势。</p>
+
+<p>比如不同于http协议的ssh协议，它具备协议级别的安全机制，所以每个人都可以轻易搭建安全级别较高的ssh服务，而http就不行，一般假设好http服务器后还要重新开发。</p>
+
+<h4 id="在客户端即可篡改请求">在客户端即可篡改请求</h4>
+
+<p>从浏览器那接收到的 HTTP 请求的全部内容，都可以在客户端自由地变更、篡改。所以 Web 应用可能会接收到与预期数据不相同的内容。</p>
+
+<p>在 HTTP 请求报文内加载攻击代码，就能发起对 Web 应用的攻击。通过 URL查询字段或表单、HTTP 首部、Cookie 等途径把攻击代码传入，若这时 Web 应用存在安全漏洞，那内部信息就会遭到窃取，或被攻击者拿到管理权限</p>
+
+<h2 id="web攻击的主要方式">web攻击的主要方式</h2>
+
+<p>主动攻击：通过访问资源进行攻击；如sql注入、os注入</p>
+
+<p>被动攻击：圈套策略；如跨站脚本攻击、跨站点请求伪造</p>
+
+<h4 id="跨站脚本攻击xss">跨站脚本攻击XSS</h4>
+
+<p>通过存在安全漏洞的Web 网站注册用户的浏览器内运行非法的 HTML标签或 JavaScript 进行的一种攻击</p>
 
 <ul>
-  <li>1xx：请求正在处理（请求正在处理）</li>
-  <li>2xx：正常处理完毕（成功）</li>
-  <li>3xx：需要附加操作来完成请求（重定向，请求没有成功）</li>
-  <li>4xx：服务器无法处理请求（客户端错误请求的过程有一些问题，可能是请求没写对，也可能是没有权限，或者找不到对应的资源）</li>
-  <li>5xx：服务器处理请求出错（服务器的锅）</li>
+  <li>影响：
+    <ul>
+      <li>利用虚假输入表单骗取用户个人信息；</li>
+      <li>利用脚本窃取用户的 Cookie 值，被害者在不知情的情况下，帮助攻击者发送恶意请求；</li>
+      <li>显示伪造的文章或图片；</li>
+    </ul>
+  </li>
+  <li>案例
+    <ul>
+      <li>通过输入框或者url栏偷偷嵌入js代码；</li>
+      <li>窃取用户cookie</li>
+    </ul>
+  </li>
 </ul>
 
-<h2 id="一些常用的状态码">一些常用的状态码</h2>
+<h4 id="sql注入攻击">sql注入攻击</h4>
 
-<p>200：正常处理</p>
+<p>通过运行非法的 SQL而产生的攻击</p>
 
-<p>204：请求成功，但是没有可以返回的资源，只返回响应首部没有实体主体</p>
+<ul>
+  <li>影响：
+    <ul>
+      <li>非法查看或篡改数据库内的数据；</li>
+      <li>规避认证；</li>
+      <li>执行和数据库服务器业务关联的程序等；</li>
+    </ul>
+  </li>
+</ul>
 
-<p>206：客户端进行了范围请求，服务器成功响应了这部分请求（这里响应首部字段必须有一个content-Range来说明响应范围）</p>
+<h2 id="各类web攻击的机制">各类web攻击的机制</h2>
 
-<p>301：永久性重定向，要求以后都用新的URI请求</p>
+<h4 id="利用转义不完全产生的漏洞">利用转义不完全产生的漏洞</h4>
 
-<p>302：临时性重定向，要求临时用新的URI访问；它不允许在重定向的过程中变换请求方法（虽然很多人经常不遵守这一规定）</p>
+<ul>
+  <li>xss跨站脚本攻击</li>
+  <li>sql注入：通过sql注入控制数据库</li>
+  <li>os注入：通过os注入控制操作系统</li>
+  <li>http首部攻击：恶意修改http请求首部或请求主体</li>
+  <li>邮件首部攻击：恶意修改邮件请求首部</li>
+  <li>外部文件攻击</li>
+  <li>目标遍历攻击：相对地址转绝对地址查找隐藏文件</li>
+</ul>
 
-<p>303：与302类似，但是要求改用GET请求进行重定向</p>
+<h4 id="利用设计不合理的缺陷">利用设计不合理的缺陷</h4>
 
-<p>304：虽然是3字辈，但是跟重定向没有半毛钱关系。找到了对应资源，但是不满足请求中包含的一些筛选条件（比如过期了）（这些条件由几个请求首部字段控制）</p>
+<ul>
+  <li>不合理的提示信息：不错提示信息暴露后台数据模式</li>
+  <li>重定向url攻击：开放重定向后攻击者利用重定向功能诱导跳转虚假网站</li>
+  <li>强制浏览：图片等资源的强制地址</li>
+</ul>
 
-<p>307：和302就是一样的</p>
+<h4 id="利用会话管理疏忽引发的漏洞">利用会话管理疏忽引发的漏洞</h4>
 
-<p>400：请求不能被识别，可能是请求报文的语法错误</p>
+<ul>
+  <li>会话劫持：偷session id</li>
+  <li>会话固定攻击：让用户用你的session id</li>
+  <li>跨站点请求伪造</li>
+</ul>
 
-<p>401：需要附带http验证，或之前的http验证失败了（这里需要有个响应首部字段www-Authenticate用以质询用户信息）</p>
+<h4 id="其他">其他</h4>
 
-<p>403：没有访问的权限</p>
-
-<p>404：无法找到对应资源，或者你拒绝请求，但是不想跟客户端说明原因，也可以用这个</p>
-
-<p>500：服务器出错</p>
-
-<p>503：服务器超负载或正在维护（这里可以加一个响应首部字段Retry-After用来告诉客户端以上状况的解决时间）</p>
-
+<ul>
+  <li>中间人攻击</li>
+  <li>XST攻击</li>
+</ul>
 
     
   </section>
@@ -316,20 +364,13 @@
 <div id="post-nav">
     
     <div id="previous-post">
-        <a alt="基于HTTP的功能追加协议" href="/2019/12/18/HTTP3xieyi.html">
+        <a alt="常见HTTP状态码" href="/2020/05/11/HTTP2zhuangtai.html">
             <p>Previous post</p>
-            基于HTTP的功能追加协议
+            常见HTTP状态码
         </a>
     </div>
     
 
-    
-    <div id="next-post">
-        <a alt="WEB攻击技术简述" href="/2019/12/05/HTTP1gongji.html">
-            <p>Next post</p>
-            WEB攻击技术简述
-        </a>
-    </div>
     
 </div>
 
