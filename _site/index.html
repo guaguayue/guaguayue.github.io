@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<!--
+    Type on Strap jekyll theme v2.3.6
+    Copyright 2016-2021 Sylhare
+    Theme free for personal and commercial use under the MIT license
+    https://github.com/sylhare/Type-on-Strap/blob/master/LICENSE
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.5, maximum-scale=5">
+
+    <!-- Theme Mode-->
+    
+    <script>
+        const isAutoTheme = true;
+        document.documentElement.setAttribute('data-theme', sessionStorage.getItem('theme'))
+    </script>
+    
+
+    <!-- Main JS (navbar.js, katex_init.js and masonry_init.js)-->
+    <script defer src="/assets/js/main.min.js"></script>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!--Favicon-->
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/atom+xml" title="Guo Yue Blog" href="https://sylhare.github.io/feed.xml"/>
+
+    
+
+    <!-- KaTeX 0.13.9 -->
+    
+    <script defer src="/assets/js/vendor/katex.min.js"></script>
+    <script defer src="/assets/js/vendor/auto-render.min.js" onload="renderMathInElement(document.body);"></script>
+    
+
+    <!-- Mermaid 8.9.2 -->
+    
+    <script defer src="/assets/js/vendor/mermaid.min.js" onload="mermaid.initialize({startOnLoad:true});"></script>
+    
+
+    <!-- Simple Jekyll Search 1.9.1 -->
+    <script src="/assets/js/vendor/simple-jekyll-search.min.js" type="text/javascript"></script>
+
+    <!-- Google Analytics / Cookie Consent -->
+    <script>
+      const cookieName = 'cookie-notice-dismissed-https://sylhare.github.io';
+      const isCookieConsent = 'false';
+      const analyticsName = '';
+    </script>
+
+    
+    
+
+    <!-- seo tags -->
+    <meta property="og:image" content="https://sylhare.github.io/assets/img/pexels/triangular.jpeg">
+    
+    <meta property="og:type" content="website" />
+    
+    <!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Guo Yue Blog | 郭越的博客</title>
+<meta name="generator" content="Jekyll v4.2.0" />
+<meta property="og:title" content="Guo Yue Blog" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="郭越的博客" />
+<meta property="og:description" content="郭越的博客" />
+<link rel="canonical" href="https://sylhare.github.io/" />
+<meta property="og:url" content="https://sylhare.github.io/" />
+<meta property="og:site_name" content="Guo Yue Blog" />
+<link rel="next" href="https://sylhare.github.io/blog/page2" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Guo Yue Blog" />
+<script type="application/ld+json">
+{"headline":"Guo Yue Blog","description":"郭越的博客","url":"https://sylhare.github.io/","@type":"WebSite","name":"Guo Yue Blog","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- RSS -->
+    <link type="application/atom+xml" rel="alternate" href="https://sylhare.github.io/feed.xml" title="Guo Yue Blog" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:title" content="Guo Yue Blog">
+    <meta name="twitter:description" content="Guo Yue Blog">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content="https://sylhare.github.io/assets/img/pexels/triangular.jpeg">
+    <meta name="twitter:image:alt" content="Guo Yue Blog">
+</head>
+
+  <body>
+    <header class="site-header">
+
+    <!-- Logo and title -->
+	<div class="branding">
+        
+		<a href="/">
+			<img alt="logo img" class="avatar" src="/assets/img/triangle.png" />
+		</a>
+        
+        <a class="site-title" aria-label="Guo Yue Blog" href="/">
+        Guo Yue Blog
+		</a>
+	</div>
+
+    <!-- Toggle menu -->
+    <nav class="clear">
+    <a aria-label="pull" id="pull" class="toggle" href="#">
+    <i class="fas fa-bars fa-lg"></i>
+    </a>
+
+    <!-- Menu -->
+    <ul class="hide">
+        
+
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="ABOUT" title="ABOUT" href="/about/">
+                     ABOUT 
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="FOOTPRINT" title="FOOTPRINT" href="/footprint/">
+                     FOOTPRINT 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="HOME" title="HOME" href="/">
+                     HOME 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="PROJECT" title="PROJECT" href="/project/">
+                     PROJECT 
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Search" title="Search" href="/search/">
+                     <i class="fas fa-search" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            <li class="separator"> | </li>
+            <li>
+                <a class="clear" aria-label="Tags" title="Tags" href="/tags/">
+                     <i class="fas fa-tags" aria-hidden="true"></i>
+                    
+                </a>
+            </li>
+            
+            
+        
+            
+            
+        
+            
+            
+        
+        
+        
+        <li class="separator"> | </li>
+        <li><a id="theme-toggle" title=" " aria-label="" onclick="themeToggle()"></a></li>
+        
+    </ul>
+
+	</nav>
+</header>
+
+    <div class="content">
+      <div class="home">
+
+    <div id="main" class="call-out"
+         style="background-image: url('/assets/img/pexels/triangular.jpeg')">
+        <h1> Guo Yue Blog </h1>
+    </div>
+
+    <div class="posts">
+    
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="JS闭包和作用域链" class="post-link" href="/2021/08/06/JS2bibao.html">
+                JS闭包和作用域链
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      August 06, 2021
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     前言
+
+学习闭包的时候，我的脑海中经常出现这样一个画面，作用域链、函数、闭包、变量之间组成了像漫威一样的多元宇宙，他们之间的关系千丝万缕，而闭包就是沟通宇宙间的黑洞。
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="前端切图仔的简易文本加密工具" class="post-link" href="/2021/07/03/CSS1jiami.html">
+                前端切图仔的简易文本加密工具
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      July 03, 2021
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     前言
+
+- 这是什么？
+
+一张马赛克，马赛克的背后往往隐匿着令人兴奋的真相。这是一张埋藏着秘密的文本加密图。
+
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="apply、call和bind" class="post-link" href="/2021/06/02/JS3apply.html">
+                apply、call和bind
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      June 02, 2021
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     前言
+
+JavaScript中apply、call和bind三兄弟通常被用来改变this指针的指向。这样设计的目的是什么，它们之间又有什么区别？
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="小程序用户权限询问组件封装" class="post-link" href="/2021/05/27/XCX2quanxian.html">
+                小程序用户权限询问组件封装
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      May 27, 2021
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     前言
+
+以手机号权限询问为例子，总结小程序权限询问业务。
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="小程序平台登录和业务登录流程" class="post-link" href="/2021/05/19/XCX1denglu.html">
+                小程序平台登录和业务登录流程
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      May 19, 2021
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     前言
+
+总结一下小程序平台登录和业务登录。
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="展开语法和剩余语法(...)" class="post-link" href="/2021/04/11/JS1zhangkai.html">
+                展开语法和剩余语法(...)
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      April 11, 2021
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     前言
+
+展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异。
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="canvas实现图片→点阵转化" class="post-link" href="/2021/03/24/HTML1canvas.html">
+                canvas实现图片→点阵转化
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      March 24, 2021
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     前言
+
+你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+    <div class="post-teaser">
+        
+        <span>
+          <header>
+            <h1>
+              <a aria-label="纯CSS和CSS计算属性实现动态流量小球" class="post-link" href="/2020/10/04/CSS2liuliangqiu.html">
+                纯CSS和CSS计算属性实现动态流量小球
+              </a>
+            </h1>
+            
+
+
+<div class="post-info">
+    <p class="meta">
+      
+      
+      October 04, 2020
+    </p></div>
+
+          </header>
+          
+              <div class="excerpt">
+                  
+                     前言
+
+在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？
+
+                  
+              </div>
+          
+      </span>
+    </div>
+    
+</div>
+
+
+<div class="pagination">
+    <div class="previous">
+        
+        
+        
+        <!-- < previous -->
+        <a aria-label="Prev" href=""
+           style="visibility:hidden" class="button">
+            <span><i class="fas fa-chevron-left"></i></span>
+            Prev
+        </a>
+    </div>
+
+    <div class="page_number">
+        1 / 2
+    </div>
+
+    <div class="next">
+        
+        <!-- next > -->
+        <a aria-label="Next" href="/blog/page2"
+            class="button">
+            Next
+            <span><i class="fas fa-chevron-right"></i></span>
+        </a>
+
+        
+        
+    </div>
+</div>
+
+
+
+
+</div>
+
+    </div>
+    <footer class="site-footer">
+    <p class="text">
+        Hi, i am Gua<br> Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+</p>
+            <div class="footer-icons">
+                <ul>
+                <!-- Social icons from Font Awesome, if enabled -->
+                <!--  -->
+
+
+
+                </ul>
+            </div>
+</footer>
+
+
+
+  </body>
+</html>

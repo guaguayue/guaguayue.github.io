@@ -1,0 +1,221 @@
+[
+  
+  {
+    "title"    : "JS闭包和作用域链",
+    "category" : "",
+    "tags"     : " JavaScript",
+    "url"      : "/2021/08/06/JS2bibao.html",
+    "date"     : "August 6, 2021",
+    "excerpt"  : "前言\n\n学习闭包的时候，我的脑海中经常出现这样一个画面，作用域链、函数、闭包、变量之间组成了像漫威一样的多元宇宙，他们之间的关系千丝万缕，而闭包就是沟通宇宙间的黑洞。\n\n宇宙\n\n\n  \n    全局变量：全局变量globalData是最外层的作用域，它就像承载一切的最外层宇宙。全局变量永远存在，就像宇宙永恒一般。\n  \n  \n    作用域：作用域是每一个函数的执行环境，它就像一个个分支宇宙，衍生于最外层宇宙。\n  \n  \n    作用域链：作用域链的前端始终都是当前执行的代码所在环境的变...",
+  "content"  : "前言\n\n学习闭包的时候，我的脑海中经常出现这样一个画面，作用域链、函数、闭包、变量之间组成了像漫威一样的多元宇宙，他们之间的关系千丝万缕，而闭包就是沟通宇宙间的黑洞。\n\n宇宙\n\n\n  \n    全局变量：全局变量globalData是最外层的作用域，它就像承载一切的最外层宇宙。全局变量永远存在，就像宇宙永恒一般。\n  \n  \n    作用域：作用域是每一个函数的执行环境，它就像一个个分支宇宙，衍生于最外层宇宙。\n  \n  \n    作用域链：作用域链的前端始终都是当前执行的代码所在环境的变量对象，这条链从自己的作用域开始不断溯源，一直到全局执行环境。作用域链，就像是通往每个宇宙空间通道。\n  \n  \n    活动对象：活动对象随着函数被创建而创建，随着函数被销毁而被销毁，包含arguments和value。活动对象就像是每个次级宇宙中的一切物质（属性和方法），\n  \n  \n    闭包：闭包是一个拥有许多变量和绑定了这些变量的环境的表达式（通常是一个函数），因而这些变量也是该表达式的一部分。说白了，闭包就是能读取其他函数内部数据的函数。由于JavaScript中只有函数内部的子函数可以读取局部数据，所以js的闭包，其实就是定义在函数内部的函数。闭包本质上是连接函数内部和外部的桥梁。\n闭包在这个多元宇宙中，是一个特殊的存在，他是沟通不同级宇宙间活动对象的虫洞。\n  \n  \n    因为闭包而产生的情况：\n\n    当二级宇宙被销毁时，二级宇宙销毁了它的作用域链（也就是说，随着二级宇宙被销毁，去往二级宇宙的路被销毁了，我们再也不能通过这条路去拿二级宇宙的东西了）。\n\n    但是由于三级宇宙仍然通过闭包虫洞在使用二级宇宙的活动对象，所以二级宇宙的活动对象并没有被销毁，还是占着内存空间。\n\n    我们还是可以通过闭包借道三级宇宙去访问二级宇宙的属性和方法。而只有当三级宇宙也被销毁，真正的二级宇宙的活动对象才会被销毁。\n\n    这似乎印证了一句格言：\n\n    一个人一生要经历两次死亡，一次是身体死亡（作用域链销毁），一次是世间最后一个记得你的人死去（所有拥有你的作用域的函数都被销毁）。\n  \n\n\n正文\n\n作用域链的创建\n\n当某个函数被调用时，会创建一个执行环境及相应的作用域链。然后初始化函数的活动对象。\n\n作用域链中函数本身的活动对象始终处于第一位，外部函数的活动对象处于第二位，外部函数的外部函数的活动对象处于第三位，……直至作为作用域链终点的全局执行环境。\n\nfunction compare(value1, value2){\n    if (value1 &amp;lt; value2){\n        return -1;\n    } else if (value1 &amp;gt; value2){\n        return 1;\n    } else {\n        return 0;\n    }\n}\nvar result = compare(5, 10);\n\n\n\n全局环境的变量对象始终存在，而像compare()函数这样的局部环境的变量对象，则只在函数执行的过程中存在。\n\n在创建函数时，会创建一个包含全局变量对象的作用域链，这个作用域链被保存在内部的[[Scope]]属性中。\n\n当调用函数时，会为函数创建一个执行环境，然后通过复制函数的[[Scope]]属性中的对象构建起执行环境的作用域链。此后，又有一个活动对象被创建并被推入执行环境作用域链的前端。作用域链本质上是一个指向变量对象的指针列表。\n\n一般来讲，当函数执行完毕后，局部活动对象就会被销毁，内存中仅保存全局作用域。\n\n\n\n(控制台打印的window对象中的某个参数的作用域，全局作用域global在作用域链数组的最后一项)\n\n存在闭包时作用域链的情况\n\n因为在一个函数内部定义的函数会将包含函数的活动对象添加到它的作用域链中。\n所以，当外层函数在执行完毕后，如果内层函数的作用域链仍然在引用这个活动对象，那么外层函数的活动对象也不会被销毁。换句话说，当外层函数return后，其执行环境的作用域链会被销毁，但它的活动对象仍然会留在内存中；直到内层函数也被销毁后，外层的活动对象才会被销毁。\n\n// 没用使用闭包的时候，变量a存在于内层函数的活动对象，即使先调用了b()，也无法在外层作用域找到a\nfunction b(){\n  var a = &#39;aaa&#39;\n}\nb();\nconsole.log(a)// &#39;a is not defined&#39;\n\n// 使用闭包后，虽然a是局部变量，但是b()通过return一个子函数，并且在外部定义新函数进行接收，最终打印出了变量a\nfunction b(){\n  var a = &#39;aaa&#39;\n  return function(){\n    console.log(a)\n  }\n}\nb()()// &#39;aaa&#39;\n\n\n\n\n闭包的作用\n\n\n  可以读取函数内部的变量\n  可以让某些变量长期保存在内存中实现共享\n\n\n闭包的缺点\n\n\n  闭包会携带包含它的函数的作用域，所以闭包比其他函数更占内存；\n  不合理地使用闭包会导致已经完成的函数的活动对象仍然没有被回收；\n  闭包允许了在父函数外部改变函数内部的值，这增加了父函数中值被错误改变的风险。\n\n\n使用中出现的问题\n\n作用域链的配置机制引出一个副作用，即闭包只能取得包含函数中任何变量的最后一个值。\n\nfunction createFunctions(){\n    var result = new Array();\n    for (var i=0; i &amp;lt; 10; i++){\n        result[i] = function(){\n        return i;\n    };\n    }\n    return result;\n}\n\n\n上面的代码是一个常见的错误，我们希望索引0时返回0，索引1时返回1。但是实际上全部结果都是返回10。原因就是二级活动对象里面并没有i这个变量，我们每次调用，都直接取了createFunctions活动对象中i变量的最后一次赋值。\n\n解决上面代码出现的问题，我们通常会在每次for循环时都自执行一次function，这实际上就是将参数往下传递，在每个二级活动对象中都定义一个属于自己的变量i\n\nfunction createFunctions(){\n    var result = new Array();\n    for (var i=0; i &amp;lt; 10; i++){\n         result[i] = function(){\n             return i;\n         }(i);\n    }\nreturn result;\n}\n\n\n关于this\n\n在全局函数中，this指向window对象，而当函数被作为某个对象的方法调用时，this指向当前对象。不过，匿名函数的执行环境具有全局性，因此其this对象通常指向window。\n（当然，在通过 call()或 apply()改变函数执行环境的情况下，this 就会指向其他对象）\n\n\n"
+} ,
+  
+  {
+    "title"    : "前端切图仔的简易文本加密工具",
+    "category" : "",
+    "tags"     : " CSS",
+    "url"      : "/2021/07/03/CSS1jiami.html",
+    "date"     : "July 3, 2021",
+    "excerpt"  : "前言\n\n- 这是什么？\n\n一张马赛克，马赛克的背后往往隐匿着令人兴奋的真相。这是一张埋藏着秘密的文本加密图。\n\n\n\n\n汉字的转化\n\n加密\n\n听起来一直是一个颇具难度的词，进行加密操作似乎需要你学习某个太平洋岛国的小众方言或者精通各类密码学；其实加密的原理简单粗暴，无非是两步：\n\n\n  \n    对汉字（字符）进行转化；\n  \n  \n    通过特定的公式进行加密和解密。\n  \n\n\n那么今天我们就来尝试下用最简单的方式制作一张文本加密图吧。\n\n使用Unicode将汉字转换为数字\n\n\n（Uni...",
+  "content"  : "前言\n\n- 这是什么？\n\n一张马赛克，马赛克的背后往往隐匿着令人兴奋的真相。这是一张埋藏着秘密的文本加密图。\n\n\n\n\n汉字的转化\n\n加密\n\n听起来一直是一个颇具难度的词，进行加密操作似乎需要你学习某个太平洋岛国的小众方言或者精通各类密码学；其实加密的原理简单粗暴，无非是两步：\n\n\n  \n    对汉字（字符）进行转化；\n  \n  \n    通过特定的公式进行加密和解密。\n  \n\n\n那么今天我们就来尝试下用最简单的方式制作一张文本加密图吧。\n\n使用Unicode将汉字转换为数字\n\n\n（Unicode可以容纳世界上所有文字）\nUnicode编码\n\nUnicode一开始就是为了解决不同语言之间的障碍而出现的。于是乎，世界上的每个汉字和不同语言的文字都拥有了属于自己的unicode码，进行汉字加密的第一步便是将汉字转为unicode码，比如下面的这段话：\n\n晚上一起去喝酒别告诉你老婆\n\n经过charCodeAt方法的转化，顺利转成了\n\ndata() {\n  return {\n    encryption:&#39;晚上一起去喝酒别告诉你老婆&#39;,\n  }\n},\nmounted () {\n  // 遍历字符串\n  for(let i=0;i&amp;lt;this.encryption.length;i++){\n    console.log(this.encryption.charAt(i))\n    console.log(this.encryption.charAt(i).charCodeAt(0).toString())\n  }\n},\n\n\n\n\n（经过转化后，汉字“晚”被转化为对应的Unicode编码“26202”）\n初步加密\n\n转化为Unicode码后的文本，已经初步得到了加密，但是经验丰富的程序员还是能一眼看出这其中的含义，我们需要对这些编码进行更进一步（更花里胡哨）的加密；\n\n进一步转化为rgb颜色值似乎是一个够骚的办法；但是rgb的颜色值由三个0-255的数字组成，而转换后的编码包含0~9的数字，怎样才能完成Unicode码到rgb的转化呢？\n\n\n\n（每一个rgb颜色值由R(0~255)、G(0~255)、B(0~255)组成）\n\n有了！对Unicode编码进行三进制转换不就能将每个数字都控制在0-2之间吗？于是这串汉字在进行Unicode编码转换后，又进行了一次三进制转换，得到了这样的结果：\n\n// 遍历字符串\nfor(let i=0;i&amp;lt;this.encryption.length;i++){\n  console.log(this.encryption.charAt(i))\n  console.log(this.encryption.charAt(i).charCodeAt(0).toString(3))// 转化为三进制\n}\n\n\n\n\n（汉字“晚”先被转化为对应的Unicode编码“26202”，而后又被转化为对应的三进制数字“1022221110”）\n进一步地\n我们对每一个编码进行截取，终于得到了类似rgb一样数值；\n\n// 遍历字符串\nfor(let i=0;i&amp;lt;this.encryption.length;i++){\n  console.log(this.encryption.charAt(i))\n  let a = this.encryption.charAt(i).charCodeAt(0).toString(3)// 转化为三进制\n  console.log(a.substring(0,3)+&#39;,&#39;+a.substring(3,6)+&#39;,&#39;+a.substring(6,9)+&#39;,&#39;+a.substring(9,10))// 将得到的三进制数字切割为4份\n}\n\n\n\n（汉字对应的三进制数字“1022221110”，被分割为“102,222,111,0”）\n这样的数字，是不是已经很像我们所需要的rgb颜色值了，但是每个编码都由10位数字组成，似乎比rgb的9位多了一位！别急，最后的一位我们之后再处理；在这之前我们先进行最令人兴奋的一步，将这些编码转化为颜色；\n\n首先，我们先去掉之前的多余操作，对获取到的数据进行整合，得到了passwords数组；\n\n// 遍历字符串\nfor(let i=0;i&amp;lt;this.encryption.length;i++){\n  this.$set(this.passwords,i,this.encryption.charAt(i).charCodeAt(0).toString(3))\n}\nconsole.log(this.encryption)\nconsole.log(&#39;passwords:&#39;+this.passwords)\n\n\n\n\n然后遍历passwords数组创建一个个p标签；\n\n&amp;lt;p class=&quot;p&quot; v-for=&quot;(item,index) in passwords&quot; :key=&quot;index&quot;&amp;gt;\n  ,,\n&amp;lt;/p&amp;gt;\n\n\n\n（每一个p标签代表一个编码）\n\n下一步\n就是通过每个数据的前三个值，为p标签染色啦，当当当，经过染色的p标签终于成为了多姿多彩的自己；\n\n&amp;lt;p class=&quot;p&quot; \n  v-for=&quot;(item,index) in passwords&quot; \n  :key=&quot;index&quot; \n  :style=&quot;{backgroundColor: &#39;rgb(&#39;+item.substring(0,3)+&#39;,&#39;+item.substring(3,6)+&#39;,&#39;+item.substring(6,9)+&#39;)&#39;}&quot;&amp;gt;\n&amp;lt;/p&amp;gt;\n\n\n\n\n接下来\n只需要将p标签的规格改动一下，一个个类似像素点的标签骤然出现；这个时候，我们已经初步有了一个经过加密的文字加密图；\n\n然而\n当前的加密数据仍然不够准确，因为刚刚，我们漏掉了字符编码的最后一位没有处理。那我们该怎么处理这最后一位字符编码呢？\n\n其实依靠上面的思路，处理最后一位的方式有很多，可以转化为像素的圆角，宽度等，这里我选择将它们转换为透明度也就是rgba中的A\n\n三进制数字的最后一位只有三种可能，即0、1和2；通过简单的数学公式（-x+4）*0.25便能将这三者转化为对应的透明度1、0.75和0.5；说干就干，一个带透明度的加密图片出现了；\n\n&amp;lt;p class=&quot;p&quot; \nv-for=&quot;(item,index) in passwords&quot; \n:key=&quot;index&quot; \n:style=&quot;{backgroundColor: &#39;rgba(&#39;+item.substring(0,3)+&#39;,&#39;+item.substring(3,6)+&#39;,&#39;+item.substring(6,9)+&#39;,&#39;+ (-item.substring(9,10)+4)*0.25+&#39;)&#39;}&quot;\n&amp;gt;&amp;lt;/p&amp;gt;\n\n\n\n\n进一步优化\n\n字母和符号\n\n我们发现，以上方法只适用于汉字，对于Unicode编码很短的常见数字和字母并不适用；为了适配数字和字母，我们应该怎样给数字和字母进行单独的加密操作呢？\n\n上文的介绍中，我们提到，rgb的颜色值在0-255之间，而我们使用了三进制加密使得颜色值最高只能达到222；222以上的数值并没出现的可能；那么解决思路就来了，给数字和字母加上255作为标识符不就可以的了吗！\n\n单独对数字和字母进行特殊的操作（这里我在处理数字和字母时改用十进制编码，同时在编码的前面三位加上255作为标识，编码的后面补足够的0，达到长度为10字符的要求）\n\n例如\n\n字母’a’的unicode为97，增加前缀255，在后面补足0；我们便得到了专属于’a’的加密编码\n\n255,097,000,0 \n\n英文逗号’,’的unicode为44，增加前缀255，在后面补足0；我们便得到了专属于’,’的加密编码\n\n255,044,000,0\n\n// 遍历字符串\nfor(let i=0;i&amp;lt;this.encryption.length;i++){\n  // 汉字\n  if(this.encryption.charAt(i).charCodeAt(0).toString()&amp;gt;255){\n    this.$set(this.passwords,i,this.encryption.charAt(i).charCodeAt(0).toString(3))\n  }\n  // 数字和字母\n  else{\n    // unicode码为0~9\n    if(this.encryption.charAt(i).charCodeAt(0).toString().length == 1){\n      this.$set(this.passwords,i,&#39;25500&#39; + this.encryption.charAt(i).charCodeAt(0).toString() + &#39;0000&#39;)\n    }\n    // unicode码为10~99\n    else if(this.encryption.charAt(i).charCodeAt(0).toString().length == 2){\n      this.$set(this.passwords,i,&#39;2550&#39; + this.encryption.charAt(i).charCodeAt(0).toString() + &#39;0000&#39;)\n    }\n    // unicode码为100~255\n    else{\n      this.$set(this.passwords,i,&#39;255&#39; + this.encryption.charAt(i).charCodeAt(0).toString() + &#39;0000&#39;)\n    }\n  }\n}\n\n\n最后\n\n完成\n\n最后简单加上按钮和输入框，一个前端文本加密工具就完成啦；\n\n\n\n当我们把代表一个汉字的每一小格子缩小到一个像素，加密图片信息存储量便达到了惊人的高度；一张800w像素的图片，可以储存800w字相当于数十本书的字数；\n\n\n\n（默写一百遍《琵琶行》）\n\n改进\n使用p标签进行渲染有诸多坏处，比如你并不能保存为图片，而且图片格式也不利于JS直接解密，可以改为使用canvas进行渲染，这里使用p标签进行演示纯粹是因为我懒；\n\n延伸\n上面只是提供了一种进行简单加密的思路，举一反三，我们同样可以将数字编码转换为对应的圆角、旋转角度、长度等等视觉表现；是不是很高(zhuang)级(bi)快搞一个试试吧，冲啊。\n\n解密\n如此这般自己解吧\n"
+} ,
+  
+  {
+    "title"    : "apply、call和bind",
+    "category" : "",
+    "tags"     : " JavaScript",
+    "url"      : "/2021/06/02/JS3apply.html",
+    "date"     : "June 2, 2021",
+    "excerpt"  : "前言\n\nJavaScript中apply、call和bind三兄弟通常被用来改变this指针的指向。这样设计的目的是什么，它们之间又有什么区别？\n\nthis指针的表现\n\nvar name=&quot;father&quot;;\nlet obj={\n  name:&quot;son&quot;,\n  getName:function () {\n    console.log(this.name);\n  }\n};\n// 1. son，this指向obj对象\nobj.getName(); \n// 2. father，this指向外层对...",
+  "content"  : "前言\n\nJavaScript中apply、call和bind三兄弟通常被用来改变this指针的指向。这样设计的目的是什么，它们之间又有什么区别？\n\nthis指针的表现\n\nvar name=&quot;father&quot;;\nlet obj={\n  name:&quot;son&quot;,\n  getName:function () {\n    console.log(this.name);\n  }\n};\n// 1. son，this指向obj对象\nobj.getName(); \n// 2. father，this指向外层对象。\nsetTimeout(obj.getName,1); \n// 3. son，this指向obj对象，等价于第1点\nsetTimeout(function(){\n  obj.getName()\n},1); \n// 3-1. son，第3点的另一种写法\nsetTimeout(obj.getName(),1);\n// 4. father，this指向外层对象，等价于第2点\nsetTimeout(function(){\n  console.log(this.name);\n},1);\n\n\n首先，看看上面的四种打印name的方式。\n\n\n  \n    第一点中，obj.getName()打印出了’son’，因为this指向了obj对象。\n  \n  \n    第二点中，我们使用了settimeout函数，这时候getName中的this指向了外层。这是因为这时的obj.getName()在定时器中是作为回调函数来执行的，因此回到主栈执行时是在全局执行上下文的环境中执行的。\n  \n  \n    第三点，定时器的回调函数里调用了obj.getName()，这就相当于在全局环境中执行了obj.getName，道理跟第一点是等价的。\n  \n  \n    第四点等价于第2点，它很直观地说明，为什么第二点返回的是’father’，就是因为第二点在全局环境中执行了console.log(this.name)，所以打印出来的肯定就是全局的name了。\n  \n  \n    第3-1点和第2点的区别，只差了一个()。第2点没有()，相当于一个函数声明，这个函数变成了settimeout的回调函数；第3-1点有()，相当于一次函数执行，所以settimeout方法把它放到了自己的回调函数中，等价于第3点。\n  \n\n\n日常开发中的解决方式\n\n日常开发中，我们遇到定时器等回调函数需要外层作用域的情况，通常是最简单粗暴的let that = this解决。\n\nvar name=&quot;father&quot;;\nlet that = this\nlet obj={\n  name:&quot;son&quot;,\n  getName:function () {\n    console.log(this.name);\n  }\n};\nlet obj1={\n  name:&quot;son&quot;,\n  getName:function () {\n    console.log(that.name);\n  }\n};\nsetTimeout(obj.getName(),10);// son\nsetTimeout(obj1.getName(),10);// father\n\n上面obj中的this指向的是obj。如果我们需要它指向外层的对象，可以手动先把this对象赋值给其他变量that，这样obj1中的调用的that就是外层的this函数了。\n\napply、call、bind的区别\n\n\n  \n    都可以改变this指针的指向。\n  \n  \n    第一个参数都是this对象，如果没有这个参数或参数设置为undefined或null，则默认指向全局作用域。\n  \n  \n    都可以带参传递，apply是数组形式，call是参数枚举，bind可以多次传入\n  \n  \n    apply和call直接返回执行结果，bind返回的是函数，需要再调用一次\n  \n\n\ncall方法\n\ncall方法的第1个参数是this指向的对象，如果是null，则指向全局作用域。\n\ncall方法的第2~n个参数是函数所带的参数，必须一个个列出来。\n\n\n  call方法实现this指向改变。下面的obj.getName()原本指向obj，利用call方法带传null直接让this指向了全局作用域。打印出了father\n\n\nvar name=&quot;father&quot;;\nlet that = this\nlet obj={\n  name:&quot;son&quot;,\n  getName:function () {\n    console.log(this.name);\n  }\n};\nsetTimeout(obj.getName(),10);// son\nsetTimeout(obj.getName.call(null),10);// father\n\n\n\n  call方法带参。下面call中，第一个参数把this指针指向了person1，同时带参。\n\n\nvar person = {\n  firstName: &#39;陈&#39;,\n  fullName: function(lastName,age) {\n    console.log(this.firstName + lastName + &quot; &quot; + age + &quot;岁&quot;)\n  }\n}\nvar person1 = {\n  firstName: &#39;郭&#39;,\n}\nperson.fullName(&#39;小红&#39;, 12)// 陈小红 12岁\nperson.fullName.call(person1,&#39;小明&#39;, 10) // 郭小明 10岁\n\n\n\n  利用call实现函数定义时不带参，使用时带参。下面的call第一个参数直接传入新的对象，this指针直接指向新声明的对象。\n\n\nfunction fullName(lastName) {\n  console.log(this.firstName + lastName)\n}\nfullName.call({firstName:&#39;张&#39;},&#39;大炮&#39;)// 张大炮\n\n\napply方法\n\n\n  apply方法跟call唯一的区别是带参的形式，apply是以数组形式传参，call是逐个接受参数\n\n\nvar person = {\n  fullName: function(lastName,age) {\n    console.log(this.firstName + lastName + &quot; &quot; + age + &quot;岁&quot;)\n  }\n}\nvar person1 = {\n  firstName: &#39;郭&#39;,\n}\nperson.fullName.call(person1,&#39;小明&#39;, 10) // 郭小明 10岁\nperson.fullName.apply(person1,[&#39;小明&#39;, 10]) // 郭小明 10岁\n\n\n\n  因为apply数组传参的特性，我们可以使用它来进行某些特殊的传参。\n\n\n下面的例子使用max方法筛选最大数值，只能通过一个个数的传值，apply方法可以更优雅的直接传入整个数组\n\nlet list = [4,5,6,7,8,9,10,11]\nlet max1 = Math.max(4,5,6,7,8,9,10,11);// 11\nlet max2 = Math.max.apply(null,list)//11\n\n\n\n  由apply方法探究push方法的本质\n\n\nlet alist = [&#39;a1&#39;, &#39;a2&#39;];\nlet blist = [&#39;b1&#39;, &#39;b2&#39;];\nalist.push.apply(null,blist)// 报错\n\n因为有了max的使用经历，很自然我在使用push方式结合apply时自然而然就传入了null，发现居然报错了！\n为什么max方法就没有报错，而push就报错了呢？\n\n仔细分析原因，其实max传入null直接将this指向了window作用域，而由于max方法中的动作并不会使用到this对象，所以没有报错。\n\n而push呢？push的本质其实是这样的。\nalist.push(blist){\n  return [this[0],this[1],blist[0],blist[1]...]\n}\n\npush方法在拼接数组的时候使用到了this对象，所以这里直接传null是不行的，我们需要把被push的对象传入\nlet alist = [&#39;a1&#39;, &#39;a2&#39;];\nlet blist = [&#39;b1&#39;, &#39;b2&#39;];\nalist.push.apply(alist,blist)// [&#39;a1&#39;, &#39;a2&#39;, &#39;b1&#39;, &#39;b2&#39;]\nlet x = [&#39;甚至前面的变量乱写都可以&#39;]\nx.push.apply(alist,blist)// [&quot;a1&quot;, &quot;a2&quot;, &quot;b1&quot;, &quot;b2&quot;, &quot;b1&quot;, &quot;b2&quot;]\nconsole.log(alist)\n\n\nbind方法\n\nbind方法的传值方式跟call一样，但是它不会立即执行，而是返回一个永久改变了this指向的函数，这意味着只要它还没执行，我们可以一直传值进去\n\nlet list = [4,5,6,7,8,9,10,11]\nlet max = null\nfor(let i = 0;i&amp;lt;list.length;i++){\n  max = Math.max.bind(null,list[i])\n}\nconsole.log(max())\n\n"
+} ,
+  
+  {
+    "title"    : "小程序用户权限询问组件封装",
+    "category" : "",
+    "tags"     : " 小程序",
+    "url"      : "/2021/05/27/XCX2quanxian.html",
+    "date"     : "May 27, 2021",
+    "excerpt"  : "前言\n\n以手机号权限询问为例子，总结小程序权限询问业务。\n\n权限询问注意点\n\n\n  手机号获取api是需要通过点击按钮实现的；\n  用户拒绝一次以后，就不能再通过这个按钮唤醒了。\n所以，我们一般需要封装一个自定义弹框，在必须要使用手机号权限的地方可以多次弹出。\n\n\n流程\n\n1. 权限判定\n首先，通过自定义的权限标识判断当前权限获取状态\n// 点击需要唤起手机号的地方\nhandleTask(e) {\n  // 已有权限\n  if(wx.getStorageSync(&#39;hadAuth&#39;)){\n...",
+  "content"  : "前言\n\n以手机号权限询问为例子，总结小程序权限询问业务。\n\n权限询问注意点\n\n\n  手机号获取api是需要通过点击按钮实现的；\n  用户拒绝一次以后，就不能再通过这个按钮唤醒了。\n所以，我们一般需要封装一个自定义弹框，在必须要使用手机号权限的地方可以多次弹出。\n\n\n流程\n\n1. 权限判定\n首先，通过自定义的权限标识判断当前权限获取状态\n// 点击需要唤起手机号的地方\nhandleTask(e) {\n  // 已有权限\n  if(wx.getStorageSync(&#39;hadAuth&#39;)){\n    ...\n  }\n  // 未有权限，唤起自己的弹框\n  else{\n    this.setData({\n      isPhone: true\n    })\n  }\n},\n\n\n2. 自定义组件\n\n封装一个手机弹框的自定义组件，给这个组件分别绑定同意事件和拒绝事件。\n\n\n\n// 同意绑定\nclickToBindPhone: function(e){\n  // 手机验证接口\n  this.closeBox()\n  this.phoneAuth(e.detail.encryptedData,e.detail.iv)\n},\n\n\n\n\n（这个询问框才是真正的微信询问框，如果用户拒绝。下次我们还回生成新的询问事件触发按钮。）\n\n3. 父子组件传值\n\n由于关闭窗口的事件是要由父组件进行关闭的，所以这里的的closebox事件必须传递到外部，也就是\n\n/** 子组件中 **/\n// 关闭盒子\ncloseBox: function(){\n  // 触发外部事件，并传递数据\n  var detail = {\n    ifPhone: false\n  };\n  this.triggerEvent(&#39;showBox&#39;, detail, { bubbles: false, composed: false });\n},\n\n/** 父组件中 **/\n// 询问手机\n&amp;lt;bindphone ifPhone_=&quot;&quot; wx:if=&quot;&quot; bind:showBox=&#39;showClick&#39;&amp;gt;&amp;lt;/bindphone&amp;gt;\n\n//组件接受操作\nshowClick: function (e) {\n  this.setData({\n    isPhone: e.detail.ifPhone\n  })\n}\n\n\n4. 询问手机号\n\n询问手机号，需要把打开询问的按钮类型设置为getPhoneNumber，这样，当我们点击同意时，回调函数自带的参数中，就会有请求到的相关信息encryptedData和iv\n\n&amp;lt;button class=&quot;st-bp-btn-2&quot; open-type=&quot;getPhoneNumber&quot; bindgetphonenumber=&quot;clickToBindPhone&quot;&amp;gt;绑定&amp;lt;/button&amp;gt;\n\n// 同意绑定\nclickToBindPhone: function(e){\n  // 手机验证接口\n  this.closeBox()\n  this.phoneAuth(e.detail.encryptedData,e.detail.iv)\n},\n\n\n5. 把encryptedData和iv传回微信接口服务器，就能获得授权并拿到手机号了。\n// 手机号业务登录\nphoneAuth(encryptedData,iv){\n  // 调手机登录接口\n  http.httpPromise1.postPromise(&#39;/getphone?encryptedData=&#39;+encryptedData+&#39;&amp;amp;iv=&#39; + iv)\n  .then(res =&amp;gt; {\n    ...\n  })\n}\n\n"
+} ,
+  
+  {
+    "title"    : "小程序平台登录和业务登录流程",
+    "category" : "",
+    "tags"     : " 小程序",
+    "url"      : "/2021/05/19/XCX1denglu.html",
+    "date"     : "May 19, 2021",
+    "excerpt"  : "前言\n\n总结一下小程序平台登录和业务登录。\n\n流程\n\n先上流程图\n\n\n\n一. 获取code\n\n小程序前端通过wx.login向微信平台获取code作为用户登录的凭证。\n\ncode由微信平台根据AppID和个人设备等信息关联生成，具有一次性和时效性。使用一次或者获取约五分钟后失效。\n\ngetLogin() {\n   // 小程序登录\n   wx.login({\n   success: res =&amp;gt; {\n      console.log(res.code)\n   }\n   })\n},\n...",
+  "content"  : "前言\n\n总结一下小程序平台登录和业务登录。\n\n流程\n\n先上流程图\n\n\n\n一. 获取code\n\n小程序前端通过wx.login向微信平台获取code作为用户登录的凭证。\n\ncode由微信平台根据AppID和个人设备等信息关联生成，具有一次性和时效性。使用一次或者获取约五分钟后失效。\n\ngetLogin() {\n   // 小程序登录\n   wx.login({\n   success: res =&amp;gt; {\n      console.log(res.code)\n   }\n   })\n},\n\n\n二. 开发者服务器获取code，并拿回sessin_key和openid\n\n通过自己的业务接口，小程序前端把刚刚获取的code传回开发者服务器。\n\n服务器拿到code以后，带上小程序的appid和appsecret一并传给微信服务器进行验证。\n\n微信服务器验证通过后，将sessin_key和openid传回给开发者服务器。\n\n到这里，才正式实现了小程序、开发者服务器和微信接口服务的联通。\n\n三. 开发者服务器返回自定义登录态\n\n有了密钥，才能进行接下来通讯的加密和解密。开发者服务器通过对这些信息和我们自己的登录态进行包装，传出一个token给前端，当然也可以附带一些权限信息什么的。\n\n四. 前端获得token\n\n接着，前端通过wx.setStorageSync将权限和token信息等长期存放在本地；或者通过app的全局参数，把信息短期存在本次生命周期里（视业务情况而定）\n\nlogin(code){\n    // 调业务接口\n    http.httpPromise.postPromise(&#39;/getToken?code=&#39;+code)\n    .then(res =&amp;gt; {\n      console.log(&#39;获取登录状态&#39;)\n      app.token = res.data.token\n      if(res.data.ifStaff==&#39;1&#39;){\n        console.log(&#39;是公司员工&#39;)\n        wx.setStorageSync(&#39;hadAuth&#39;, true)\n      }\n      else{\n        console.log(&#39;不是公司员工&#39;)\n        wx.setStorageSync(&#39;hadAuth&#39;, false)\n      }\n    })\n  },\n\n\n五. 业务登录\n\n完成前面四步，我们已经走完了小程序平台登录流程，从code到sessionid到token，完成了从小程序连接到业务连接的步骤。\n\n如果我们的项目除了微信的账号，还有业务逻辑的账号。就需要进一步的业务登录了。\n\n其实道理也是一样，在第四步拿到token之后，进一步带上用户账号和密码通过业务接口获取新的一个_token，就完成了业务账号的登录。\n\n"
+} ,
+  
+  {
+    "title"    : "展开语法和剩余语法(...)",
+    "category" : "",
+    "tags"     : " JavaScript",
+    "url"      : "/2021/04/11/JS1zhangkai.html",
+    "date"     : "April 11, 2021",
+    "excerpt"  : "前言\n\n展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异。 \n\n展开语法\n\n展开语法…用于展开数组或者对象。\n\n展开语法的基本用法\n\n如果是数组，展开成一项一项；在构造字面量对象时, 将对象表达式按key-value的方式展开。\n\n\n  函数调用时，像apply一样展开\n\n\n  function sum(x, y, z) { \n      return x + y + z; \n  } \n  const numbers = [1, 2, 3]; \n  console.log(su...",
+  "content"  : "前言\n\n展开和剩余语法在不定项函数使用，数组对象拼接拷贝方面表现优异。 \n\n展开语法\n\n展开语法…用于展开数组或者对象。\n\n展开语法的基本用法\n\n如果是数组，展开成一项一项；在构造字面量对象时, 将对象表达式按key-value的方式展开。\n\n\n  函数调用时，像apply一样展开\n\n\n  function sum(x, y, z) { \n      return x + y + z; \n  } \n  const numbers = [1, 2, 3]; \n  console.log(sum(...numbers));// 输出: 6 \n  console.log(sum.apply(null, numbers));// 输出: 6 \n\n\n\n  在构造数组的时候使用\n\n\n  let list = [1, 2, 3] \n  let b = [...list, ...&quot;hello&quot; ,4, &#39;6&#39;] \n\n\n\n  用于复制对象，或者属性拷贝\n\n\n  // 复制 \n  let newobj = {...obj} \n  // 增加 \n  let newobj = {id:&#39;123&#39;,...obj} \n\n\n\n展开语法的实用例子\n\n\n  展开语法在new中的使用\n\n\n使用 new 关键字来调用构造函数时，不能直接使用数组+ apply 的方式（apply 执行的是调用 [[Call]] , 而不是构造 [[Construct]]）。当然, 有了展开语法, 将数组展开为构造函数的参数就很简单了：\n\n  var dateFields = [1970, 0, 1];\n  var d = new Date(...dateFields);\n\n\n\n\n\n  使用展开语法进行数组操作非常给力，可以直接替代push、concat、unshift等方法的使用\n\n\n  var parts = [&#39;shoulders&#39;, &#39;knees&#39;]; \n  var lyrics = [&#39;head&#39;, ...parts, &#39;and&#39;, &#39;toes&#39;]; \n\n\n\n  使用展开语法拷贝数组和对象后不再是单纯的地址指针复制\n\n\n  var arr = [1, 2, 3]; \n  var arr2 = [...arr]; // like arr.slice() \n  arr2.push(4); // arr2 此时变成 [1, 2, 3, 4]// arr 不受影响 \n\n\n但是呢，这个拷贝与Object.assign一样，都只进行第一层的浅拷贝，如果下面的a是一个二维数组，那第二维还是指针，这时候修改拷贝后的参数，还是会影响到原来的a\n\n  var a = [[1], [2], [3]];\n  var b = [...a]; \n  b.shift().shift(); // 1 \n\n\n\n\n在数组或函数参数中使用时，展开语法只能用于可迭代对象 （可以被for..of循环使用）\n\n剩余语法\n\n剩余语法准确来说跟展开语法相反，它被放在形参的最后一位，用来把多余的输入参数整合为一个数组\n\n用在不定输入参数的函数形参中\n\n  function a(a, b, ...theArgs) { \n      return theArgs.reduce((previous, current) =&amp;gt; { \n          return previous + current; \n      }); \n  } \n  console.log(a(1,1,1,2,3)) // 6，前两个1被赋值到形参a和b中 输出: 6 \n\n\n剩余参数和 arguments对象的区别\n\n\n  \n    剩余参数只包含那些没有对应形参的实参，而 arguments 对象包含了传给函数的所有实参。\n  \n  \n    arguments对象不是一个真正的数组，而剩余参数是真正的 Array实例，也就是说你能够在它上面直接使用所有的数组方法，比如 sort，map，forEach或pop。\n  \n  \n    arguments对象还有一些附加的属性 （如callee属性）。\n  \n\n\n剩余语法的使用实例\n\n\n  用于判断参数数量\n\n\n  function fun1(...theArgs) {\n    alert(theArgs.length);\n  }\n  fun1();  // 弹出 &quot;0&quot;, 因为theArgs没有元素\n  fun1(5); // 弹出 &quot;1&quot;, 因为theArgs只有一个元素\n  fun1(5, 6, 7); // 弹出 &quot;3&quot;, 因为theArgs有三个元素\n\n\n\n  累乘\n\n\n  function multiply(multiplier, ...theArgs) {\n    return theArgs.map(function (element) {\n      return multiplier * element;\n    });}\n  var arr = multiply(2, 1, 2, 3);\n  console.log(arr);  // [2, 4, 6]\n\n\n\n  下例演示了你可以在剩余参数上使用任意的数组方法，而arguments对象不可以\n\n\n  function sortRestArgs(...theArgs) {\n    var sortedArgs = theArgs.sort();\n    return sortedArgs;\n  }\n  alert(sortRestArgs(5,3,7,1)); // 弹出 1,3,5,7\n  function sortArguments() {\n    var sortedArgs = arguments.sort();\n    return sortedArgs; // 不会执行到这里\n  }\n  alert(sortArguments(5,3,7,1)); // 抛出TypeError异常:arguments.sort is not a function\n\n\n\n  相关文档：MDN文档\n\n"
+} ,
+  
+  {
+    "title"    : "canvas实现图片→点阵转化",
+    "category" : "",
+    "tags"     : " html",
+    "url"      : "/2021/03/24/HTML1canvas.html",
+    "date"     : "March 24, 2021",
+    "excerpt"  : "前言\n\n你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？你有没有看过无人机矩阵的精彩表演？你有见过黑白木刻风的艺术照片吗？\n\n\n\n今天，基于这些启发，我尝试借助canvas，来实现一些有趣的图片点阵化转化。话不多说，直接开始。\n\n一、绘图\n1.canvas绘图的第一步，当然是绑定canvas标签\n\n// html中\n&amp;lt;canvas id=&quot;myCanvas2&quot; width=&quot;500&quot; style=&quot;border:1px solid #c3c3c3...",
+  "content"  : "前言\n\n你是否曾经注意到一些网站在控制台打印出来的一些有趣的菜单。但是又觉得手动撸一个很麻烦？你有没有看过无人机矩阵的精彩表演？你有见过黑白木刻风的艺术照片吗？\n\n\n\n今天，基于这些启发，我尝试借助canvas，来实现一些有趣的图片点阵化转化。话不多说，直接开始。\n\n一、绘图\n1.canvas绘图的第一步，当然是绑定canvas标签\n\n// html中\n&amp;lt;canvas id=&quot;myCanvas2&quot; width=&quot;500&quot; style=&quot;border:1px solid #c3c3c3;&quot;&amp;gt;&amp;lt;/canvas&amp;gt;\n&amp;lt;img id=&quot;img2&quot; src=&quot;../assets/99.jpg&quot; style=&quot;opacity:0&quot;&amp;gt;\n\n// js中\nvar canvas2= document.getElementById(&#39;myCanvas2&#39;);// 获取canvas对象\nvar ctx = canvas2.getContext(&#39;2d&#39;);// 创建context对象\nlet img = document.getElementById(&#39;img2&#39;)// 获取图片对象\n\n\n2.这里创建context对象需要在浏览器加载完毕后执行，别忘了将代码放在window.onload中\n\n3.接着，需要根据照片的长宽对canvas的长宽进行调整（这里我固定了图片和canvas容器的宽度为500px，然后计算高度）\n\nlet side = img.width / 500// 固定的宽度值\nlet _y = img.height / side// 得到响应高度\ndocument.getElementById(&#39;myCanvas2&#39;).height = _y\n\n\n4.然后，就是把图片绘制到canvas中（这里规定了图片对象，定点坐标和绘制图案的长宽）\n\nctx.drawImage(img,0,0,500,_y)\n\n\n\n\n （绘制完成）\n\n 二、像素点获取\n\n1.有了图片，我们就可以开始对每个像素点进行分析了。这里我们要用到的是canvas context对象的getImageData来获取像素点信息，分别可以定义的参数为（左上角x轴，左上角y轴，所需获取的x轴像素，所需获取的y轴像素）。\n\n2.这里关于getImageData方法有一个需要注意的点，如果我们是引入本地图片后使用getImageData，会出现跨域现象。网传的火狐浏览器下不会出现该问题（亲测无效）。无奈改为以vue-cli来构建整个demo，然后从node服务器获取图片资源。\n\nlet x = canvas2.width\nlet y = canvas2.height\nfor(let i=0;i&amp;lt;y;i+=1){\n   for(let j=0;j&amp;lt;x;j+=1){\n       let b = ctx.getImageData(j, i, 1, 1).data\n       console.log(b)\n   }\n}\n\n\n\n\n （打印得到的像素点集合）\n\n3.由于一张图片的像素点实在太多，我们可以选择只遍历十分之一甚至百分之一的像素点来获取一部分的点信息。\n\n 三、像素点信息初步处理\n\n1.我们的最终目的，是为了把图片转换成点阵。所以，我们需要采用某种方式判断当前的点是否打点。这里我们利用rgb颜色值的特点，采用一条公式#R* 0.299+#G*0.587+#B* 0.114的值来判断颜色的深浅。这个值是在0~255之间，越靠近255，说明当前点的颜色越浅。\n\n这里，我暂时以225作为临界值，如果值超过225则为浅色打空心点，如果值低于225则为深色打实心点。\n\n同时，我暂时设置每十个点获取一次，这样不会因为图片过大导致点阵过大。\n\nfor(let i=0;i&amp;lt;y;i+=10){\n   for(let j=0;j&amp;lt;x;j+=10){\n      let b = ctx.getImageData(j, i, 1, 1).data\n      if(b[0]* 0.299+b[1]*0.587+b[2]* 0.114&amp;gt;=225){\n          // 浅色\n          this.ca2+=&#39;➀&#39;\n      }\n      else{\n          // 深色\n          this.ca2+=&#39;➊&#39;\n      }\n   }\n   this.ca2+=&#39;&amp;lt;br/&amp;gt;&#39;\n}\n\n\n接着，就是初步的效果啦。\n\n\n\n emm，脸出来了，但是其他细节似乎不太行。\n\n四、像素点进一步处理\n\n为什么上面的效果不太理想呢，这里我分析可能有多个原因。\n\n\n  \n    首先，我们对于像素颜色的深浅判断仅仅是使用r、g、b三个颜色值和固定参数的相加，这并不准确。这种操作有可能导致深红深蓝深绿或者浅红浅蓝浅绿最后得出了相同的参数值。\n  \n  \n    其次，刚刚我们写死了判断深浅的的关键数值为225，这并不能适用于每一张图片，因为有的图深色像素多，有的图深色像素少。\n  \n  \n    同时，刚刚我们也写死了像素获取的精度为十分之一，这也导致了每张图的处理效果有一定差异；\n  \n  \n    最后，本来我们这里就只设置了黑白两色，对于细节的表示肯定是有所欠缺。\n  \n\n\n基于上面的点，我们做一些优化。\n\n五、图片灰度\n\n\n  \n    图片灰度，解决无法分辨深红深蓝深绿的问题，我们可以先把图片转化为黑白，这样，判断颜色深浅变得更加纯粹，只是判断颜色的黑白程度。\n  \n  \n    一个灰度像素的颜色值特点是r、g、b三个颜色值相同（即红青蓝三色等比混合后为黑灰）。所以我们只需要对每个像素的明度进行计算得到灰度值gray，然后把gray赋给r、g、b，便得到了灰黑色。灰度的计算公式有多种，我们这里采用平均灰度法得到灰度值。\n  \n\n\nlet x = canvas2.width\nlet y = canvas2.height\nlet pixels = ctx.getImageData(0,0,x,y); \nlet pixeldata = pixels.data; \nfor(var i=0;i&amp;lt;pixeldata.length;i+=4){\n   let gray =parseInt( pixels.data[i]*0.3 + pixels.data[i+1] *0.59 + pixels.data[i+2]*0.11);             \n   pixels.data[i] = gray; \n   pixels.data[i+1] = gray; \n   pixels.data[i+2] = gray; \n   pixels.data[i+3] = 255; \n}\nctx.putImageData(pixels,0,0);\n\n\n3.黑白图完成。\n\n\n\n六、调整容差和像素获取精度\n\n1.前面提到，我们写死225作为判断深浅的值。这里其实就是对黑色的选择容差。\n\n什么是容差？容差，指的是在选取颜色时所设置的选取范围，容差越大，选取的范围也越大。\n\n\n\n （容差的大小会直接影响像素判断的效果）\n\n2.所以，这里我们将容差调整为可设置项。这样便可以根据需要调整像素判断标准了。\n\n3.同时我们也设置一个精度变量。通过设置精度变量，调整选取像素的密度，来动态设置点阵的大小规模。\n\n\n\n4.看看不同精度和容差的效果\n\n \n\n\n七、增加颜色\n\n在此基础上，如果我们增加几个颜色范围，使效果更加细致\n\n\n\n（使用emoji表情里面的月食表情🌕🌖🌗🌘🌑描述像素点）\n\n\n\n（使用▂▃▅▇）\n\n是不是还不错。\n"
+} ,
+  
+  {
+    "title"    : "纯CSS和CSS计算属性实现动态流量小球",
+    "category" : "",
+    "tags"     : " CSS",
+    "url"      : "/2020/10/04/CSS2liuliangqiu.html",
+    "date"     : "October 4, 2020",
+    "excerpt"  : "前言\n\n在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？\n\n\n\n静态CSS实现波浪效果\n\n研究前端实现波浪效果的过程中，我查阅到一些不同的实现方式，比如使用css库CSS Trick；再如使用canvas画贝塞尔曲线；或者干脆就是通过定时器循环移动一个切图等。\n\n而最打动我的方式是来自chokcoco大神的纯css实现波浪效果，于是自己尝试着也实现一次。\n\n原理\n\n如上图所示的流量小球，最主要的组成部分是蓝色部分的波浪，这...",
+  "content"  : "前言\n\n在数据可视化页面开发中，经常会有流量小球的开发需求。如何通过纯前端实现动态流量小球，而不需要使用设计小哥嗟来之图呢？\n\n\n\n静态CSS实现波浪效果\n\n研究前端实现波浪效果的过程中，我查阅到一些不同的实现方式，比如使用css库CSS Trick；再如使用canvas画贝塞尔曲线；或者干脆就是通过定时器循环移动一个切图等。\n\n而最打动我的方式是来自chokcoco大神的纯css实现波浪效果，于是自己尝试着也实现一次。\n\n原理\n\n如上图所示的流量小球，最主要的组成部分是蓝色部分的波浪，这部分通过css绘画似乎比较麻烦。于是我们反向思考，通过上层的圆角矩形遮挡，遮挡下层的纯蓝色底图的形式来实现。\n\n画图\n\n这里先画了一个置于下层的蓝色圆球，然后通过伪元素设置倾斜角度、圆角和透明度不同的两个白色圆角矩形遮挡，初步实现了海浪的形状。\n\n\n\n动画\n\n使用css动画animation属性，为两个矩形设置不同的旋转速度，海浪的动感就出来了。\n\n\n\n调整其他css属性后，得到了流量小球的样式\n\n\n\n设置变量\n\ncss变量\n\n通过为小球遮罩层设置top属性，可以动态调整流量球流量大小。\n\n声明css变量的时候，变量名前面要加两根连词线（–），然后使用var()函数读取变量。\n\n这里需要注意下，css的变量名是大小写敏感的。\n\n.wave::before,.wave::after{\n  content: &quot;&quot;;\n  position: absolute;\n  width: 400px;\n  height: 400px;\n  top: var(--ballPercent);   /* 变量 */\n  left: 50%;\n  background-color: rgba(0, 26, 46, .4);\n  border-radius: 43%;\n  transform: translate(-50%, -70%) rotate(0);\n  animation: rotate 3s linear infinite;\n  z-index: 10;\n}\n\n\n在vue中\n\n在data中同样定义一个ballPercent，来设置球体流量大小。\n\ndata() {\n    return {\n        ballPercent:50,// （100~0）\n    }\n},\n\n将变量绑定在html中。\n&amp;lt;div class=&quot;wave&quot; :style=&quot;{&#39;--ballPercent&#39;: -ballPercent+40+&#39;%&#39;}&quot;&amp;gt;&amp;lt;/div&amp;gt;\n\n最后\n\n加上数学逻辑，流量小球就能根据后台数据变化时刻变化了。\n\n\n\n\n  相关连接：CSS-Trick官网 chokcoco的主页\n\n"
+} ,
+  
+  {
+    "title"    : "HTTPS对HTTP做了什么改进",
+    "category" : "",
+    "tags"     : " http",
+    "url"      : "/2020/05/30/HTTP4https.html",
+    "date"     : "May 30, 2020",
+    "excerpt"  : "前言\n\n什么是HTTPS？HTTPS不是新的协议，而是在HTTP协议的基础上建立SSL加密层，并对传输数据进行加密，是HTTP协议的安全版。 \n\n随着互联网业务对数据信息安全需求的日益提升，HTTPS的使用也越来越广泛\n\nHTTP协议的缺点\n\n\n  明文通信，在任何环节都可以被窃听；\n  没有验证身份，有可能遭到伪装；\n  无法验证报文完整性，通信过程可能遭到篡改；\n\n\nHTTPS对以上缺点的改进\n\n明文通信被窃听\n\n隐患：不论报文加不加密，在通信的任何过程都可能被窃听到。各种抓包工具（w...",
+  "content"  : "前言\n\n什么是HTTPS？HTTPS不是新的协议，而是在HTTP协议的基础上建立SSL加密层，并对传输数据进行加密，是HTTP协议的安全版。 \n\n随着互联网业务对数据信息安全需求的日益提升，HTTPS的使用也越来越广泛\n\nHTTP协议的缺点\n\n\n  明文通信，在任何环节都可以被窃听；\n  没有验证身份，有可能遭到伪装；\n  无法验证报文完整性，通信过程可能遭到篡改；\n\n\nHTTPS对以上缺点的改进\n\n明文通信被窃听\n\n隐患：不论报文加不加密，在通信的任何过程都可能被窃听到。各种抓包工具（wireshark）和嗅探器就是利用这个原理。\n\n解决：通信加密（HTTPS建立隧道）、内容加密（加密报文主体，不加密请求响应头，而且仍然可能被篡改）\n\n没有身份验证\n\n隐患：伪装的服务器和客户端、没有权限的用户、无法确定请求出处、照单全收各种无意义请求引发DoS攻击\n\n解决：SSL的证书手段\n\n无法验证报文完整性\n\n隐患：通信过程中可能被篡改而引发中间人攻击（MITM）\n\n解决：完整性保护（SSL提供的认证和加密处理、摘要功能）\n\n和HTTPS协议的优势\n\n\n  数据隐私性：内容经过对称加密，每个连接生成一个唯一的加密密钥\n  数据完整性：内容传输经过完整性校验\n  身份认证：第三方无法伪造服务端（客户端）身份\n\n\n说白了，HTTPS就是身披SSL外套的HTTP；HTTPS = HTTP+加密+认证+完整性保护\n\n解决内容被窃听的方法\n\n共享密钥：\n\n加密和解密使用同一串密钥的方式。这种方式加密和解密同用一个密钥。加密和解密都会用到密钥。没有密钥就无法对密码解密，反过来说，任何人只要持有密钥就能解密了。\n\n共享密钥的困境：因为在传递过程中密钥可能会被截取利用，而丧失加密的意义。\n\n公开密钥\n\n使用一对非对称性的密钥。公开密钥用于加密，私有密钥进行解密。这样公开密钥被人拿到也没关系，拿到的人只能加密，不知道怎么解密。公开密钥解决了共享密钥的困境。\n\n公开密钥的困境：你并没有办法验证公开密钥本身是不是货真价实的公开密钥。这就要求我们使用公开密钥证书来进行验证。\n\n证书\n\n我们可以拿证书去跟数字验证协会做验证，那这个过程又怎么保证不被攻击呢。多数浏览器在发布版本时会事先在内部植入常用认证机关的公开密钥。\n\nSSL证书按作用分为两种：\n\n\n  验证服务器是否规范；\n  确认服务器背后运营企业是否真实存在（EV-SSL证书）\n\n\n其他的一些证书：\n\n  客户端证书：用于验证客户端（比较少见，因为客户要自己安装，用于网银之类的应用）\n  自认证机构和自签名证书：每个人都可以构建一套自己的认证机构（实际上没什么卵用）\n  中级认证机构：这些机构颁发的证书有时会被浏览器当作自签名证书\n\n\nSSL会使通讯变慢\n\n\n  通信过程增加了SSL连接的步骤\n  加密和解密过程占用cpu（所以只在关键部位使用HTTPS，浪费资源还有浪费钱）\n\n\nHTTPS的通信方式\n\nHTTPS采用混合加密机制进行通信：公开密钥虽然安全但是比共享密钥慢，先用公开密钥方式交换共享密钥，再使用共享密钥进行通信。\n\nHTTPS的安全通信流程\n\n  客户端发送通信请求\n  服务器把公开密钥和公开密钥证书发给客户端\n  客户端使用浏览器自带的数字验证机构的密钥，向数字验证机构确认服务器的公开密钥的合法性\n  客户端确认公开密钥合法，使用公开密钥加密一串共享密钥，然后把共享密钥发给服务器\n  服务器使用私有密钥解密获得共享密钥\n  然后服务器和客户端开始使用共享密钥进行通信\n\n"
+} ,
+  
+  {
+    "title"    : "基于HTTP的功能追加协议",
+    "category" : "",
+    "tags"     : " http",
+    "url"      : "/2020/05/19/HTTP3xieyi.html",
+    "date"     : "May 19, 2020",
+    "excerpt"  : "前言\n\n- 为什么要有追加协议？\n\n为了弥补http协议的局限性。 \n\n- 什么是http协议的局限性？\n\nhttp协议因为简单便捷而得到广泛使用，但是http协议的局限性随着互联网的发展日益捉襟见肘。本来呢，解决这些状况需要弄一套全新的协议，但是因为http协议已经遍布全球，无法完全摒弃http。所以在这种情况下，用于弥补http局限性的追加协议就诞生了。\n\nhttp协议的瓶颈\n\n\n  一条链接只能发送一次请求；\n  请求只能从客户端开始。客户端不可以接收除响应以外的指令；\n  首部未经...",
+  "content"  : "前言\n\n- 为什么要有追加协议？\n\n为了弥补http协议的局限性。 \n\n- 什么是http协议的局限性？\n\nhttp协议因为简单便捷而得到广泛使用，但是http协议的局限性随着互联网的发展日益捉襟见肘。本来呢，解决这些状况需要弄一套全新的协议，但是因为http协议已经遍布全球，无法完全摒弃http。所以在这种情况下，用于弥补http局限性的追加协议就诞生了。\n\nhttp协议的瓶颈\n\n\n  一条链接只能发送一次请求；\n  请求只能从客户端开始。客户端不可以接收除响应以外的指令；\n  首部未经压缩，延迟很大；\n  发送冗长又重复的首部，造成浪费；\n  可任意选择数据压缩格式。非强制压缩发\n\n\n一些追加协议\n\nAjax：异步的JavaScript和XML\n\n优点：通过 JavaScript 脚本语言的调用就能和服务器进行 HTTP 通信，通过这种手段从已加载完毕的web页面上发起请求，只更新局部页面。\n\n缺点：可能导致大量请求产生；仍未解决http协议本身的问题\n\ncomet：延迟应答\n\n优点：客户端的请求先不响应而是保存在服务器中，这样做服务器内容一更新就立马响应；\n\n缺点：为了保留响应要消耗很多服务器资源；仍未解决http协议本身的问题\n\nSPDY：从协议层面上消除http瓶颈\n\nSPDY 没有完全改写 HTTP 协议，而是在 TCP/IP 的应用层与运输层之间通过新加会话层的形式运作。同时，考虑到安全性问题，SPDY 规定通信中使用 SSL；\n\n采用http通信，可照常使用http方法和报文、cookie等；\n\n优点：\n\n  多路复用流：无限制处理多个http请求；\n  请求优先级：是为了在发送多个请求时，解决因带宽低而导致响应变慢的问题；\n  压缩http首部：减少通信产生的字节数量\n  推送功能：服务器可直接向客户端推送数据\n  服务器提示功能：服务器可以主动提示客户端请求所需的资源；这样可以避免不必要的请求。\n\n\n缺点：\n\n  把该技术导入实际的 Web 网站进展不佳；\n  还有很多web问题不是因为http瓶颈产生的；\n  SPDY 基本上只是将单个域名（ IP 地址）的通信多路复用，所以当一个 Web 网站上使用多个域名下的资源，改善效果就会受到限制；\n\n\nwebSocket：web浏览器与服务器之间全双工通信标准\n\n它不同于SPDY，是为了彻底解决HTTP瓶颈而实现的一套建立在http基础的新协议及API（如ajax和comit中的XMLHttpRequest附带的缺陷）\n\n特点：\n\n推送（服务器直接推送数据）、减少通信量（长连接、连接总开销减少、ws本身的首部信息也很小）\n\n流程：\n\n（1）握手请求：这里客户端要用到首部字段Upgrade来升级为webSocket协议；还要用到Sec-WebSocket-Key和Sec-WebSocket-Protocol等非标准首部字段；\n\n（2）握手响应：服务器返回状态码101和相关字段确认连接成功；\n\n（3）开始使用：连接成功后不再使用http数据帧，而开始使用webSocket数据帧；\n\nAPI：webSocket有自己单独的Api，可以用js调用这些api\n\n// 一个调用webSocket Api的例子\nvar socket = new WebSocket(&#39;ws://game.example.com:12010/updates&#39;);\nsocket.onopen = function () {\nsetInterval(function() {\nif (socket.bufferedAmount == 0)\nsocket.send(getUpdateData());\n}, 50);\n};\n\n\nHTTP2.0：随着上面提到的这些新技术的出现，旧的http标准已经不再适用，http2.0随之诞生\n\n特点：\n\nSPDY；\n\nHTTP Speed ＋ Mobility；（用于改善并提高移动端通信时的通信速度和性能的标准）\n\nNetwork-Friendly HTTP Upgrade；（主要是在移动端通信时改善 HTTP 性能的标准）\n\n主要技术：\n\nhttp2.0围绕着主要的7项技术进行讨论，现阶段大都倾向于采用以下协议的技术。\n\n\n  \n    \n      压缩\n      SPDY、Friendly\n    \n    \n      多路复用\n      SPDY\n    \n    \n      TLS义务化\n      Speed + Mobility\n    \n    \n      协商\n      Speed + Mobility，Friendly\n    \n    \n      服务器推送\n      Speed + Mobility\n    \n    \n      流量控制\n      SPDY\n    \n    \n      WebSocket\n      Speed + Mobility\n    \n  \n\n"
+} ,
+  
+  {
+    "title"    : "常见HTTP状态码",
+    "category" : "",
+    "tags"     : " http",
+    "url"      : "/2020/05/11/HTTP2zhuangtai.html",
+    "date"     : "May 11, 2020",
+    "excerpt"  : "前言\n\nhttp的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右  ，这里记录我开发过程中遭遇的部分常用状态码\n\nhttp状态码的类别\n\n一般情况下http的状态码首位数字代表着状态所在的请求阶段（当然也有例外）。而且随着http协议的发展，有一些状态码正在慢慢被取消使用。\n\n\n  1xx：请求正在处理（请求正在处理）\n  2xx：正常处理完毕（成功）\n  3xx：需要附加操作来完成请求（重定向，请求没有成功）\n  4xx：服务器无法处理请求（客户端错误请求的过程有...",
+  "content"  : "前言\n\nhttp的状态码标记在响应报文的响应首部的响应行中，http状态码有约40种左右  ，这里记录我开发过程中遭遇的部分常用状态码\n\nhttp状态码的类别\n\n一般情况下http的状态码首位数字代表着状态所在的请求阶段（当然也有例外）。而且随着http协议的发展，有一些状态码正在慢慢被取消使用。\n\n\n  1xx：请求正在处理（请求正在处理）\n  2xx：正常处理完毕（成功）\n  3xx：需要附加操作来完成请求（重定向，请求没有成功）\n  4xx：服务器无法处理请求（客户端错误请求的过程有一些问题，可能是请求没写对，也可能是没有权限，或者找不到对应的资源）\n  5xx：服务器处理请求出错（服务器的锅）\n\n\n一些常用的状态码\n\n200：正常处理\n\n204：请求成功，但是没有可以返回的资源，只返回响应首部没有实体主体\n\n206：客户端进行了范围请求，服务器成功响应了这部分请求（这里响应首部字段必须有一个content-Range来说明响应范围）\n\n301：永久性重定向，要求以后都用新的URI请求\n\n302：临时性重定向，要求临时用新的URI访问；它不允许在重定向的过程中变换请求方法（虽然很多人经常不遵守这一规定）\n\n303：与302类似，但是要求改用GET请求进行重定向\n\n304：虽然是3字辈，但是跟重定向没有半毛钱关系。找到了对应资源，但是不满足请求中包含的一些筛选条件（比如过期了）（这些条件由几个请求首部字段控制）\n\n307：和302就是一样的\n\n400：请求不能被识别，可能是请求报文的语法错误\n\n401：需要附带http验证，或之前的http验证失败了（这里需要有个响应首部字段www-Authenticate用以质询用户信息）\n\n403：没有访问的权限\n\n404：无法找到对应资源，或者你拒绝请求，但是不想跟客户端说明原因，也可以用这个\n\n500：服务器出错\n\n503：服务器超负载或正在维护（这里可以加一个响应首部字段Retry-After用来告诉客户端以上状况的解决时间）\n\n"
+} ,
+  
+  {
+    "title"    : "WEB攻击技术简述",
+    "category" : "",
+    "tags"     : " http",
+    "url"      : "/2020/05/05/HTTP1gongji.html",
+    "date"     : "May 5, 2020",
+    "excerpt"  : "前言\n\nweb攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。 \n\nhttp协议的特点\n\nhttp不具备必要的安全功能\n\nhttp协议本身是一个简单的单纯协议机制，这一点使它具备众多优势，也使它在安全性方面呈现劣势。\n\n比如不同于http协议的ssh协议，它具备协议级别的安全机制，所以每个人都可以轻易搭建安全级别较高的ssh服务，而http就不行，一般假设好http服务...",
+  "content"  : "前言\n\nweb攻击的目标一般是web应用，web应用中的资源，服务器和客户端。http协议本身并不存在安全问题，也几乎不会受到攻击。利用各种不同类型的漏洞，web攻击有不同的攻击方式。 \n\nhttp协议的特点\n\nhttp不具备必要的安全功能\n\nhttp协议本身是一个简单的单纯协议机制，这一点使它具备众多优势，也使它在安全性方面呈现劣势。\n\n比如不同于http协议的ssh协议，它具备协议级别的安全机制，所以每个人都可以轻易搭建安全级别较高的ssh服务，而http就不行，一般假设好http服务器后还要重新开发。\n\n在客户端即可篡改请求\n\n从浏览器那接收到的 HTTP 请求的全部内容，都可以在客户端自由地变更、篡改。所以 Web 应用可能会接收到与预期数据不相同的内容。\n\n在 HTTP 请求报文内加载攻击代码，就能发起对 Web 应用的攻击。通过 URL查询字段或表单、HTTP 首部、Cookie 等途径把攻击代码传入，若这时 Web 应用存在安全漏洞，那内部信息就会遭到窃取，或被攻击者拿到管理权限\n\nweb攻击的主要方式\n\n主动攻击：通过访问资源进行攻击；如sql注入、os注入\n\n被动攻击：圈套策略；如跨站脚本攻击、跨站点请求伪造\n\n跨站脚本攻击XSS\n\n通过存在安全漏洞的Web 网站注册用户的浏览器内运行非法的 HTML标签或 JavaScript 进行的一种攻击\n\n\n  影响：\n    \n      利用虚假输入表单骗取用户个人信息；\n      利用脚本窃取用户的 Cookie 值，被害者在不知情的情况下，帮助攻击者发送恶意请求；\n      显示伪造的文章或图片；\n    \n  \n  案例\n    \n      通过输入框或者url栏偷偷嵌入js代码；\n      窃取用户cookie\n    \n  \n\n\nsql注入攻击\n\n通过运行非法的 SQL而产生的攻击\n\n\n  影响：\n    \n      非法查看或篡改数据库内的数据；\n      规避认证；\n      执行和数据库服务器业务关联的程序等；\n    \n  \n\n\n各类web攻击的机制\n\n利用转义不完全产生的漏洞\n\n\n  xss跨站脚本攻击\n  sql注入：通过sql注入控制数据库\n  os注入：通过os注入控制操作系统\n  http首部攻击：恶意修改http请求首部或请求主体\n  邮件首部攻击：恶意修改邮件请求首部\n  外部文件攻击\n  目标遍历攻击：相对地址转绝对地址查找隐藏文件\n\n\n利用设计不合理的缺陷\n\n\n  不合理的提示信息：不错提示信息暴露后台数据模式\n  重定向url攻击：开放重定向后攻击者利用重定向功能诱导跳转虚假网站\n  强制浏览：图片等资源的强制地址\n\n\n利用会话管理疏忽引发的漏洞\n\n\n  会话劫持：偷session id\n  会话固定攻击：让用户用你的session id\n  跨站点请求伪造\n\n\n其他\n\n\n  中间人攻击\n  XST攻击\n\n"
+} 
+  
+  ,
+  
+  {
+  
+  "title"    : "学习宝(UI项目)",
+  "category" : "",
+  "tags"     : " ",
+  "url"      : "/portfolio/xuexibao",
+  "date"     : "August 1, 2017",
+  "excerpt"  : "在校实习 UI设计\n\n学习宝是响应华南理工大学智慧教学计划而为华南理工大学开发的课堂辅助教学系统。\n\n基于Android实现了课堂在线直播、学生课后论坛、在线考试和教职人员与学生的在线管理等功能。\n\n由我负责设计安卓移动端整体UI。\n\n\n\n\n",
+  "content"  : "在校实习 UI设计\n\n学习宝是响应华南理工大学智慧教学计划而为华南理工大学开发的课堂辅助教学系统。\n\n基于Android实现了课堂在线直播、学生课后论坛、在线考试和教职人员与学生的在线管理等功能。\n\n由我负责设计安卓移动端整体UI。\n\n\n\n\n"
+  
+} ,
+  
+  {
+  
+  "title"    : "飞行(UI项目)",
+  "category" : "",
+  "tags"     : " ",
+  "url"      : "/portfolio/fly",
+  "date"     : "January 1, 2018",
+  "excerpt"  : "UI设计 交互设计\n\n飞行-空军管理系统是为南部战区某部设计的大型空军信息管理系统；\n\n涵盖机场管理、塔台调度、员工管理等数十个模块；\n\n由我独立负责项目UI设计工作，完成200+页面的设计、众多图标和控件的输出以及复杂交互的研究；\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "content"  : "UI设计 交互设计\n\n飞行-空军管理系统是为南部战区某部设计的大型空军信息管理系统；\n\n涵盖机场管理、塔台调度、员工管理等数十个模块；\n\n由我独立负责项目UI设计工作，完成200+页面的设计、众多图标和控件的输出以及复杂交互的研究；\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  
+} ,
+  
+  {
+  
+  "title"    : "笋尖",
+  "category" : "",
+  "tags"     : " ",
+  "url"      : "/portfolio/sun",
+  "date"     : "April 1, 2018",
+  "excerpt"  : "前端开发 UI设计\n\n笋尖教育门户网站，是基于Vue为笋尖教育集团开发的教育培训机构门户网站。\n\n由我负责网站的WEB前端开发和UI设计工作。\n\n\n\n\n\n\n\n",
+  "content"  : "前端开发 UI设计\n\n笋尖教育门户网站，是基于Vue为笋尖教育集团开发的教育培训机构门户网站。\n\n由我负责网站的WEB前端开发和UI设计工作。\n\n\n\n\n\n\n\n"
+  
+} ,
+  
+  {
+  
+  "title"    : "承压业务通",
+  "category" : "",
+  "tags"     : " ",
+  "url"      : "/portfolio/chengya",
+  "date"     : "May 1, 2019",
+  "excerpt"  : "公众号 微信SDK IOS兼容 Vux 组件封装\n\n承压业务通是为广东省承压测试院开发的考试及信息管理系统的移动端公众号项目。\n\n该系统基于Vue结合Vux组件开发。实现了在线课程培训、考试、员工管理、设备管理、证书管理、发票管理等功能，目前已健康运行于广州承压微服务公众平台。\n\n由我负责该项目前端开发工作。\n\n\n\n",
+  "content"  : "公众号 微信SDK IOS兼容 Vux 组件封装\n\n承压业务通是为广东省承压测试院开发的考试及信息管理系统的移动端公众号项目。\n\n该系统基于Vue结合Vux组件开发。实现了在线课程培训、考试、员工管理、设备管理、证书管理、发票管理等功能，目前已健康运行于广州承压微服务公众平台。\n\n由我负责该项目前端开发工作。\n\n\n\n"
+  
+} ,
+  
+  {
+  
+  "title"    : "易约",
+  "category" : "",
+  "tags"     : " ",
+  "url"      : "/portfolio/tongqi",
+  "date"     : "July 1, 2020",
+  "excerpt"  : "小程序 购票 打卡乘车 组件封装 实时定位\n\n易约巴士小程序是如约公司旗下的定制公交应用。\n\n该应用基于微信小程序解决了用户或集团定制日常通勤路线的痛点，实现了用户定制路线、买票、上车、定位车辆等需求的结合。\n\n由我负责小程序前端开发和版本发布工作。\n\n\n\n\n\n\n\n",
+  "content"  : "小程序 购票 打卡乘车 组件封装 实时定位\n\n易约巴士小程序是如约公司旗下的定制公交应用。\n\n该应用基于微信小程序解决了用户或集团定制日常通勤路线的痛点，实现了用户定制路线、买票、上车、定位车辆等需求的结合。\n\n由我负责小程序前端开发和版本发布工作。\n\n\n\n\n\n\n\n"
+  
+} ,
+  
+  {
+  
+  "title"    : "重点营运车",
+  "category" : "",
+  "tags"     : " ",
+  "url"      : "/portfolio/zeng",
+  "date"     : "October 1, 2020",
+  "excerpt"  : "前端开发 数据可视化 车辆管理 单点登录 大屏 小程序 Vue\n\n广州重点营运车，是为广州各区行政交管部门设计开发的多端重点营运车辆综合监管平台，实现了对出租车、危运车、驾培车等不同行业的业务覆盖；\n\n该项目包括后台管理系统、小程序、数据展示大屏等不同平台；\n\n由我负责整个项目的前端开发工作。\n\n\n\n\n\n\n\n\n\n",
+  "content"  : "前端开发 数据可视化 车辆管理 单点登录 大屏 小程序 Vue\n\n广州重点营运车，是为广州各区行政交管部门设计开发的多端重点营运车辆综合监管平台，实现了对出租车、危运车、驾培车等不同行业的业务覆盖；\n\n该项目包括后台管理系统、小程序、数据展示大屏等不同平台；\n\n由我负责整个项目的前端开发工作。\n\n\n\n\n\n\n\n\n\n"
+  
+} ,
+  
+  {
+  
+  "title"    : "主动安全云",
+  "category" : "",
+  "tags"     : " ",
+  "url"      : "/portfolio/anquanyun",
+  "date"     : "January 9, 2021",
+  "excerpt"  : "前端开发 车辆跟踪 实时监控 告警处理 组件封装\n\n主动安全云平台项目是为佛山交管部门开发的车辆安全管理系统。涉及车辆管理、安全告警、司机状态实时监控、主动安全告警、人员管理、数据报表、用户画像分析、数据可视化等功能。\n\n该项目包含面向交管部门和企业管理人员的后台管理系统，以及移动端微信小程序。\n\n由我负责pc端和小程序端开发工作。\n\n\n\n\n\n\n\n\n\n\n\n\n",
+  "content"  : "前端开发 车辆跟踪 实时监控 告警处理 组件封装\n\n主动安全云平台项目是为佛山交管部门开发的车辆安全管理系统。涉及车辆管理、安全告警、司机状态实时监控、主动安全告警、人员管理、数据报表、用户画像分析、数据可视化等功能。\n\n该项目包含面向交管部门和企业管理人员的后台管理系统，以及移动端微信小程序。\n\n由我负责pc端和小程序端开发工作。\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  
+} ,
+  
+  {
+  
+  "title"    : "三汽党建",
+  "category" : "",
+  "tags"     : " ",
+  "url"      : "/portfolio/sanqi",
+  "date"     : "June 2, 2021",
+  "excerpt"  : "前端开发 数据可视化 响应式大屏 动画\n\n三汽党建项目，是以迎接中国共产党成立一百周年为契机为广州第三公共汽车公司开发的党支部党建管理项目。\n\n项目包含基于jeecg-boot定制的后台管理系统，管理人员端微信小程序，党组成员端公众号网页，和指挥中心现场大屏等。\n\n我参与pc端的开发工作，负责指挥中心大屏和小程序端开发，参与现场调试工作，解决屏幕自适应等问题。\n\n\n\n\n",
+  "content"  : "前端开发 数据可视化 响应式大屏 动画\n\n三汽党建项目，是以迎接中国共产党成立一百周年为契机为广州第三公共汽车公司开发的党支部党建管理项目。\n\n项目包含基于jeecg-boot定制的后台管理系统，管理人员端微信小程序，党组成员端公众号网页，和指挥中心现场大屏等。\n\n我参与pc端的开发工作，负责指挥中心大屏和小程序端开发，参与现场调试工作，解决屏幕自适应等问题。\n\n\n\n\n"
+  
+} 
+  
+]
