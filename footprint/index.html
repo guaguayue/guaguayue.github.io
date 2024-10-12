@@ -284,6 +284,8 @@
               "青海",
               "甘肃",
               "云南",
+              "四川",
+              "重庆",
             ];
             // 对dataMap进行处理，使其可以直接在页面上展示
             for (var i = 0; i < specialMap.length; i++) {
@@ -444,6 +446,20 @@
                         '<p style="font-size:18px">' +
                         params.name +
                         ' </p><p style="font-size:14px">昆明、大理、丽江、迪庆</p>';
+                      return info;
+                    }
+                    case "四川": {
+                      var info =
+                        '<p style="font-size:18px">' +
+                        params.name +
+                        ' </p><p style="font-size:14px">成都、阿坝、甘孜、乐山</p>';
+                      return info;
+                    }
+                    case "重庆": {
+                      var info =
+                        '<p style="font-size:18px">' +
+                        params.name +
+                        ' </p><p style="font-size:14px">重庆</p>';
                       return info;
                     }
                   }
