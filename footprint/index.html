@@ -286,6 +286,8 @@
               "云南",
               "四川",
               "重庆",
+              "宁夏",
+              "内蒙古",
             ];
             // 对dataMap进行处理，使其可以直接在页面上展示
             for (var i = 0; i < specialMap.length; i++) {
@@ -417,7 +419,7 @@
                       var info =
                         '<p style="font-size:18px">' +
                         params.name +
-                        ' </p><p style="font-size:14px">贵阳、安顺、黔南、黔东南、遵义</p>';
+                        ' </p><p style="font-size:14px">贵阳、安顺、黔南、黔东南、遵义、黔西南</p>';
                       return info;
                     }
                     case "湖北": {
@@ -460,6 +462,20 @@
                         '<p style="font-size:18px">' +
                         params.name +
                         ' </p><p style="font-size:14px">重庆</p>';
+                      return info;
+                    }
+                    case "宁夏": {
+                      var info =
+                        '<p style="font-size:18px">' +
+                        params.name +
+                        ' </p><p style="font-size:14px">银川、中卫</p>';
+                      return info;
+                    }
+                    case "内蒙古": {
+                      var info =
+                        '<p style="font-size:18px">' +
+                        params.name +
+                        ' </p><p style="font-size:14px">阿拉善</p>';
                       return info;
                     }
                   }
