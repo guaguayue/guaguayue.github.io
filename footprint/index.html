@@ -288,6 +288,7 @@
               "重庆",
               "宁夏",
               "内蒙古",
+              "辽宁",
             ];
             // 对dataMap进行处理，使其可以直接在页面上展示
             for (var i = 0; i < specialMap.length; i++) {
@@ -412,7 +413,7 @@
                       var info =
                         '<p style="font-size:18px">' +
                         params.name +
-                        ' </p><p style="font-size:14px">青岛</p>';
+                        ' </p><p style="font-size:14px">青岛、烟台</p>';
                       return info;
                     }
                     case "贵州": {
@@ -476,6 +477,13 @@
                         '<p style="font-size:18px">' +
                         params.name +
                         ' </p><p style="font-size:14px">阿拉善</p>';
+                      return info;
+                    }
+                    case "辽宁": {
+                      var info =
+                        '<p style="font-size:18px">' +
+                        params.name +
+                        ' </p><p style="font-size:14px">大连</p>';
                       return info;
                     }
                   }
